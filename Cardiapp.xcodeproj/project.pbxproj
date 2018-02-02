@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6470F0682024942F006B1F2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0672024942F006B1F2F /* AppDelegate.swift */; };
+		6470F06A2024942F006B1F2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0692024942F006B1F2F /* ViewController.swift */; };
+		6470F06D2024942F006B1F2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6470F06B2024942F006B1F2F /* Main.storyboard */; };
+		6470F06F2024942F006B1F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6470F06E2024942F006B1F2F /* Assets.xcassets */; };
+		6470F0722024942F006B1F2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6470F0702024942F006B1F2F /* LaunchScreen.storyboard */; };
+		6470F0772024942F006B1F2F /* Cardiapp WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6470F0762024942F006B1F2F /* Cardiapp WatchKit App.app */; };
+		6470F07D2024942F006B1F2F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6470F07B2024942F006B1F2F /* Interface.storyboard */; };
+		6470F07F2024942F006B1F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6470F07E2024942F006B1F2F /* Assets.xcassets */; };
+		6470F0862024942F006B1F2F /* Cardiapp WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6470F0852024942F006B1F2F /* Cardiapp WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6470F08B2024942F006B1F2F /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F08A2024942F006B1F2F /* InterfaceController.swift */; };
+		6470F08D2024942F006B1F2F /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F08C2024942F006B1F2F /* ExtensionDelegate.swift */; };
+		6470F08F2024942F006B1F2F /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F08E2024942F006B1F2F /* NotificationController.swift */; };
+		6470F0912024942F006B1F2F /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0902024942F006B1F2F /* ComplicationController.swift */; };
+		6470F0932024942F006B1F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6470F0922024942F006B1F2F /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6470F0782024942F006B1F2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6470F05C2024942F006B1F2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6470F0752024942F006B1F2F;
+			remoteInfo = "Cardiapp WatchKit App";
+		};
+		6470F0872024942F006B1F2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6470F05C2024942F006B1F2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6470F0842024942F006B1F2F;
+			remoteInfo = "Cardiapp WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6470F09B2024942F006B1F2F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6470F0862024942F006B1F2F /* Cardiapp WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6470F09F2024942F006B1F2F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				6470F0772024942F006B1F2F /* Cardiapp WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6470F0642024942F006B1F2F /* Cardiapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardiapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6470F0672024942F006B1F2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6470F0692024942F006B1F2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6470F06C2024942F006B1F2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6470F06E2024942F006B1F2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6470F0712024942F006B1F2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6470F0732024942F006B1F2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6470F0762024942F006B1F2F /* Cardiapp WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cardiapp WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6470F07C2024942F006B1F2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		6470F07E2024942F006B1F2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6470F0802024942F006B1F2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6470F0852024942F006B1F2F /* Cardiapp WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Cardiapp WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6470F08A2024942F006B1F2F /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		6470F08C2024942F006B1F2F /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		6470F08E2024942F006B1F2F /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		6470F0902024942F006B1F2F /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		6470F0922024942F006B1F2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6470F0942024942F006B1F2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6470F0952024942F006B1F2F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6470F0612024942F006B1F2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6470F0822024942F006B1F2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6470F05B2024942F006B1F2F = {
+			isa = PBXGroup;
+			children = (
+				6470F0662024942F006B1F2F /* Cardiapp */,
+				6470F07A2024942F006B1F2F /* Cardiapp WatchKit App */,
+				6470F0892024942F006B1F2F /* Cardiapp WatchKit Extension */,
+				6470F0652024942F006B1F2F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6470F0652024942F006B1F2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6470F0642024942F006B1F2F /* Cardiapp.app */,
+				6470F0762024942F006B1F2F /* Cardiapp WatchKit App.app */,
+				6470F0852024942F006B1F2F /* Cardiapp WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6470F0662024942F006B1F2F /* Cardiapp */ = {
+			isa = PBXGroup;
+			children = (
+				6470F0672024942F006B1F2F /* AppDelegate.swift */,
+				6470F0692024942F006B1F2F /* ViewController.swift */,
+				6470F06B2024942F006B1F2F /* Main.storyboard */,
+				6470F06E2024942F006B1F2F /* Assets.xcassets */,
+				6470F0702024942F006B1F2F /* LaunchScreen.storyboard */,
+				6470F0732024942F006B1F2F /* Info.plist */,
+			);
+			path = Cardiapp;
+			sourceTree = "<group>";
+		};
+		6470F07A2024942F006B1F2F /* Cardiapp WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				6470F07B2024942F006B1F2F /* Interface.storyboard */,
+				6470F07E2024942F006B1F2F /* Assets.xcassets */,
+				6470F0802024942F006B1F2F /* Info.plist */,
+			);
+			path = "Cardiapp WatchKit App";
+			sourceTree = "<group>";
+		};
+		6470F0892024942F006B1F2F /* Cardiapp WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6470F08A2024942F006B1F2F /* InterfaceController.swift */,
+				6470F08C2024942F006B1F2F /* ExtensionDelegate.swift */,
+				6470F08E2024942F006B1F2F /* NotificationController.swift */,
+				6470F0902024942F006B1F2F /* ComplicationController.swift */,
+				6470F0922024942F006B1F2F /* Assets.xcassets */,
+				6470F0942024942F006B1F2F /* Info.plist */,
+				6470F0952024942F006B1F2F /* PushNotificationPayload.apns */,
+			);
+			path = "Cardiapp WatchKit Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6470F0632024942F006B1F2F /* Cardiapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6470F0A02024942F006B1F2F /* Build configuration list for PBXNativeTarget "Cardiapp" */;
+			buildPhases = (
+				6470F0602024942F006B1F2F /* Sources */,
+				6470F0612024942F006B1F2F /* Frameworks */,
+				6470F0622024942F006B1F2F /* Resources */,
+				6470F09F2024942F006B1F2F /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6470F0792024942F006B1F2F /* PBXTargetDependency */,
+			);
+			name = Cardiapp;
+			productName = Cardiapp;
+			productReference = 6470F0642024942F006B1F2F /* Cardiapp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6470F0752024942F006B1F2F /* Cardiapp WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6470F09C2024942F006B1F2F /* Build configuration list for PBXNativeTarget "Cardiapp WatchKit App" */;
+			buildPhases = (
+				6470F0742024942F006B1F2F /* Resources */,
+				6470F09B2024942F006B1F2F /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6470F0882024942F006B1F2F /* PBXTargetDependency */,
+			);
+			name = "Cardiapp WatchKit App";
+			productName = "Cardiapp WatchKit App";
+			productReference = 6470F0762024942F006B1F2F /* Cardiapp WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		6470F0842024942F006B1F2F /* Cardiapp WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6470F0982024942F006B1F2F /* Build configuration list for PBXNativeTarget "Cardiapp WatchKit Extension" */;
+			buildPhases = (
+				6470F0812024942F006B1F2F /* Sources */,
+				6470F0822024942F006B1F2F /* Frameworks */,
+				6470F0832024942F006B1F2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cardiapp WatchKit Extension";
+			productName = "Cardiapp WatchKit Extension";
+			productReference = 6470F0852024942F006B1F2F /* Cardiapp WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6470F05C2024942F006B1F2F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Riverdale Country School";
+				TargetAttributes = {
+					6470F0632024942F006B1F2F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					6470F0752024942F006B1F2F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					6470F0842024942F006B1F2F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6470F05F2024942F006B1F2F /* Build configuration list for PBXProject "Cardiapp" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6470F05B2024942F006B1F2F;
+			productRefGroup = 6470F0652024942F006B1F2F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6470F0632024942F006B1F2F /* Cardiapp */,
+				6470F0752024942F006B1F2F /* Cardiapp WatchKit App */,
+				6470F0842024942F006B1F2F /* Cardiapp WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6470F0622024942F006B1F2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6470F0722024942F006B1F2F /* LaunchScreen.storyboard in Resources */,
+				6470F06F2024942F006B1F2F /* Assets.xcassets in Resources */,
+				6470F06D2024942F006B1F2F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6470F0742024942F006B1F2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6470F07F2024942F006B1F2F /* Assets.xcassets in Resources */,
+				6470F07D2024942F006B1F2F /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6470F0832024942F006B1F2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6470F0932024942F006B1F2F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6470F0602024942F006B1F2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6470F06A2024942F006B1F2F /* ViewController.swift in Sources */,
+				6470F0682024942F006B1F2F /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6470F0812024942F006B1F2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6470F08F2024942F006B1F2F /* NotificationController.swift in Sources */,
+				6470F0912024942F006B1F2F /* ComplicationController.swift in Sources */,
+				6470F08D2024942F006B1F2F /* ExtensionDelegate.swift in Sources */,
+				6470F08B2024942F006B1F2F /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6470F0792024942F006B1F2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6470F0752024942F006B1F2F /* Cardiapp WatchKit App */;
+			targetProxy = 6470F0782024942F006B1F2F /* PBXContainerItemProxy */;
+		};
+		6470F0882024942F006B1F2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6470F0842024942F006B1F2F /* Cardiapp WatchKit Extension */;
+			targetProxy = 6470F0872024942F006B1F2F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6470F06B2024942F006B1F2F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6470F06C2024942F006B1F2F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6470F0702024942F006B1F2F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6470F0712024942F006B1F2F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6470F07B2024942F006B1F2F /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6470F07C2024942F006B1F2F /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6470F0962024942F006B1F2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6470F0972024942F006B1F2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6470F0992024942F006B1F2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				INFOPLIST_FILE = "Cardiapp WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		6470F09A2024942F006B1F2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				INFOPLIST_FILE = "Cardiapp WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		6470F09D2024942F006B1F2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				IBSC_MODULE = Cardiapp_WatchKit_Extension;
+				INFOPLIST_FILE = "Cardiapp WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		6470F09E2024942F006B1F2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				IBSC_MODULE = Cardiapp_WatchKit_Extension;
+				INFOPLIST_FILE = "Cardiapp WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+		6470F0A12024942F006B1F2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				INFOPLIST_FILE = Cardiapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6470F0A22024942F006B1F2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				INFOPLIST_FILE = Cardiapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6470F05F2024942F006B1F2F /* Build configuration list for PBXProject "Cardiapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6470F0962024942F006B1F2F /* Debug */,
+				6470F0972024942F006B1F2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6470F0982024942F006B1F2F /* Build configuration list for PBXNativeTarget "Cardiapp WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6470F0992024942F006B1F2F /* Debug */,
+				6470F09A2024942F006B1F2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6470F09C2024942F006B1F2F /* Build configuration list for PBXNativeTarget "Cardiapp WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6470F09D2024942F006B1F2F /* Debug */,
+				6470F09E2024942F006B1F2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6470F0A02024942F006B1F2F /* Build configuration list for PBXNativeTarget "Cardiapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6470F0A12024942F006B1F2F /* Debug */,
+				6470F0A22024942F006B1F2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6470F05C2024942F006B1F2F /* Project object */;
+}
