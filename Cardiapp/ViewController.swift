@@ -196,6 +196,7 @@ class ViewController: UIViewController {
     func createGraph(heartRateDataSet: Any){
         //Graphing Code Goes Here
         print("THIS IS THE HEART RATE DATA: \(heartRateDataSet)")
+        print("–––––––––––––––––––––––––––––––––––––––––")
     }
     
     
