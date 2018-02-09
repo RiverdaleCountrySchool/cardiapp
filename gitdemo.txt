@@ -1,0 +1,3 @@
+Hi there everyone, 
+This is a test of github from a local repo.
+-Mr. Abate
