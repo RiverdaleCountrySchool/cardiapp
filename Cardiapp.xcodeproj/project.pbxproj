@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		6418EE8A202D64210040E62C /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418EE89202D64210040E62C /* XYMarkerView.swift */; };
 		6418EE8C202D64650040E62C /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418EE8B202D64650040E62C /* BalloonMarker.swift */; };
 		6418EE8E202D64BF0040E62C /* DateValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418EE8D202D64BF0040E62C /* DateValueFormatter.swift */; };
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
 		6470F0682024942F006B1F2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0672024942F006B1F2F /* AppDelegate.swift */; };
 		6470F06A2024942F006B1F2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0692024942F006B1F2F /* ViewController.swift */; };
 		6470F06D2024942F006B1F2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6470F06B2024942F006B1F2F /* Main.storyboard */; };
@@ -77,9 +80,12 @@
 
 /* Begin PBXFileReference section */
 		17B8182A2A1158AF201EDC54 /* Pods-Cardiapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardiapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardiapp/Pods-Cardiapp.debug.xcconfig"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		6418EE89202D64210040E62C /* XYMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYMarkerView.swift; sourceTree = "<group>"; };
 		6418EE8B202D64650040E62C /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		6418EE8D202D64BF0040E62C /* DateValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValueFormatter.swift; sourceTree = "<group>"; };
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
 		6470F0642024942F006B1F2F /* Cardiapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardiapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6470F0672024942F006B1F2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6470F0692024942F006B1F2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -174,9 +180,12 @@
 				6470F06E2024942F006B1F2F /* Assets.xcassets */,
 				6470F0702024942F006B1F2F /* LaunchScreen.storyboard */,
 				6470F0732024942F006B1F2F /* Info.plist */,
+<<<<<<< HEAD
 				6418EE89202D64210040E62C /* XYMarkerView.swift */,
 				6418EE8B202D64650040E62C /* BalloonMarker.swift */,
 				6418EE8D202D64BF0040E62C /* DateValueFormatter.swift */,
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
 			);
 			path = Cardiapp;
 			sourceTree = "<group>";
@@ -432,10 +441,14 @@
 				6470F06A2024942F006B1F2F /* ViewController.swift in Sources */,
 				6470F0682024942F006B1F2F /* AppDelegate.swift in Sources */,
 				6470F0A720249678006B1F2F /* HeartProfileViewController.swift in Sources */,
+<<<<<<< HEAD
 				6418EE8C202D64650040E62C /* BalloonMarker.swift in Sources */,
 				6418EE8A202D64210040E62C /* XYMarkerView.swift in Sources */,
 				64C30931202ACA5800DD9AB7 /* HKBiologicalSex+StringRepresentation.swift in Sources */,
 				6418EE8E202D64BF0040E62C /* DateValueFormatter.swift in Sources */,
+=======
+				64C30931202ACA5800DD9AB7 /* HKBiologicalSex+StringRepresentation.swift in Sources */,
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
 				6470F0AB20249706006B1F2F /* Cardiapp.xcdatamodeld in Sources */,
 				6470F0A820249678006B1F2F /* tagListViewController.swift in Sources */,
 				6470F0A620249678006B1F2F /* tagSummaryViewController.swift in Sources */,

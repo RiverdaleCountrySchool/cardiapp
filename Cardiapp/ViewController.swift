@@ -8,13 +8,20 @@
 
 import UIKit
 import HealthKit
+<<<<<<< HEAD
 import Foundation
 import Charts
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
 
 //establishes userdefaults for the app (lets you save certain values for the user that will be used frequently throughout the app)
 let defaults = UserDefaults.standard
 
+<<<<<<< HEAD
 class ViewController: UIViewController, ChartViewDelegate {
+=======
+class ViewController: UIViewController {
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
 
     @IBOutlet weak var viewFront: UIView!
     @IBOutlet var mainView: UIView!
@@ -31,8 +38,11 @@ class ViewController: UIViewController, ChartViewDelegate {
         weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+<<<<<<< HEAD
         
         getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .hour, value: -1, to: Date()))
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
     }
     @IBAction func dayPressed(_ sender: UIButton) {
         hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
@@ -40,8 +50,11 @@ class ViewController: UIViewController, ChartViewDelegate {
         weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+<<<<<<< HEAD
         
         getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -1, to: Date()))
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
     }
     @IBAction func weekPressed(_ sender: UIButton) {
         hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
@@ -49,8 +62,11 @@ class ViewController: UIViewController, ChartViewDelegate {
         weekButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
         monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+<<<<<<< HEAD
         
         getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -7, to: Date()))
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
     }
     @IBAction func monthPressed(_ sender: UIButton) {
         hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
@@ -58,8 +74,11 @@ class ViewController: UIViewController, ChartViewDelegate {
         weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         monthButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
         yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+<<<<<<< HEAD
         
         getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .month, value: -1, to: Date()))
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
     }
     @IBAction func yearPressed(_ sender: UIButton) {
         hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
@@ -67,8 +86,11 @@ class ViewController: UIViewController, ChartViewDelegate {
         weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         yearButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
+<<<<<<< HEAD
         
         getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .year, value: -1, to: Date()))
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
     }
     
     var hamburgerMenuIsVisable = false
@@ -125,7 +147,11 @@ class ViewController: UIViewController, ChartViewDelegate {
     }
     
     //get heart rate samples from a start date
+<<<<<<< HEAD
     func getHeartRatesAndGraph(startDate: Date?){
+=======
+    func getHeartRates(startDate: Date?){
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
         var startDate = startDate
         
         guard let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate) else{
@@ -203,6 +229,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         return (xArray.reversed(), yArray.reversed())
     }
     
+<<<<<<< HEAD
     //________________________________________________
     //Graph Section
     
@@ -334,6 +361,16 @@ class ViewController: UIViewController, ChartViewDelegate {
     //________________________________________________
     
     //Main Thread Functions
+=======
+    
+    //Jessica's section
+    func createGraph(heartRateDataSet: Any){
+        //Graphing Code Goes Here
+        print("THIS IS THE HEART RATE DATA: \(heartRateDataSet)")
+        print("–––––––––––––––––––––––––––––––––––––––––")
+    }
+    
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -344,6 +381,10 @@ class ViewController: UIViewController, ChartViewDelegate {
                 print("Error (32): \(error)")
             }
         }
+<<<<<<< HEAD
+=======
+        getHeartRates(startDate: nil)
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
     }
     
     override func viewDidLoad() {
@@ -352,8 +393,11 @@ class ViewController: UIViewController, ChartViewDelegate {
         viewFront.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
         
+<<<<<<< HEAD
         //***NEED TO MAKE SURE THAT THE DAY BUTTON SEEMS PRESSED ON LOAD
         getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -1, to: Date()))
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
     }
     
     override func didReceiveMemoryWarning() {

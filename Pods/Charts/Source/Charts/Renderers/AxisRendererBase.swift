@@ -114,7 +114,10 @@ open class AxisRendererBase: Renderer
         }
         
         // Normalize interval
+<<<<<<< HEAD
         //***PROGRAM IS FLAGGING THE EMPTY ARRAYS HERE --> NEED TO HANDLE EMPTY ARRAYS HERE (OR BEFORE)
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
         let intervalMagnitude = pow(10.0, Double(Int(log10(interval)))).roundedToNextSignficant()
         let intervalSigDigit = Int(interval / intervalMagnitude)
         if intervalSigDigit > 5

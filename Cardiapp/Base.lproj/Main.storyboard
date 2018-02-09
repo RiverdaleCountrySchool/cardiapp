@@ -227,6 +227,7 @@
                                     <constraint firstAttribute="width" constant="375" id="mXg-D0-wKn"/>
                                 </constraints>
                             </view>
+<<<<<<< HEAD
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbG-Fw-Psv" customClass="CombinedChartView" customModule="Charts">
                                 <rect key="frame" x="13" y="143" width="343" height="301"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -248,6 +249,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -273,7 +276,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+<<<<<<< HEAD
                         <outlet property="chartView" destination="LbG-Fw-Psv" id="g9k-9g-OkQ"/>
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
                         <outlet property="dayButton" destination="pEt-K0-dF0" id="Sua-9P-849"/>
                         <outlet property="hourButton" destination="4VG-Ft-Usg" id="1c1-xp-33Z"/>
                         <outlet property="mainView" destination="dbm-1E-UUP" id="6FT-0F-hwA"/>
@@ -281,7 +287,10 @@
                         <outlet property="viewFront" destination="jGT-w4-3SB" id="NMB-dP-FHU"/>
                         <outlet property="viewXPosition" destination="13Y-KT-LWH" id="JP8-Wm-yev"/>
                         <outlet property="weekButton" destination="3Jm-EZ-l9Y" id="s6H-I1-t2h"/>
+<<<<<<< HEAD
                         <outlet property="yLabel" destination="Wju-sB-5Rw" id="XUY-Ny-c1t"/>
+=======
+>>>>>>> 77e7f6b9491588f1d9f87470e02e58488b794090
                         <outlet property="yearButton" destination="gQk-7E-SjM" id="xno-CA-W3X"/>
                     </connections>
                 </viewController>
