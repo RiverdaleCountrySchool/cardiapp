@@ -608,7 +608,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				INFOPLIST_FILE = "Cardiapp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp.watchkitextension;
@@ -626,7 +626,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				INFOPLIST_FILE = "Cardiapp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp.watchkitextension;
