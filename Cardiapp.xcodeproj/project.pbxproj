@@ -684,10 +684,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Cardiapp/Cardiapp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				DEVELOPMENT_TEAM = L4VR86B5FX;
 				INFOPLIST_FILE = Cardiapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappSL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -701,10 +701,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Cardiapp/Cardiapp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				DEVELOPMENT_TEAM = L4VR86B5FX;
 				INFOPLIST_FILE = Cardiapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappSL;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
