@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.riverdale.edu.Cardiapp</string>
+	<string>com.riverdale.edu.CardiappJessica</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

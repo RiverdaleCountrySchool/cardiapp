@@ -608,10 +608,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				INFOPLIST_FILE = "Cardiapp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappJessica.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -626,10 +626,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				INFOPLIST_FILE = "Cardiapp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappJessica.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -645,10 +645,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				IBSC_MODULE = Cardiapp_WatchKit_Extension;
 				INFOPLIST_FILE = "Cardiapp WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappJessica.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -664,10 +664,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WE3DXM3PBE;
+				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				IBSC_MODULE = Cardiapp_WatchKit_Extension;
 				INFOPLIST_FILE = "Cardiapp WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappJessica.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -683,12 +683,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Cardiapp/Cardiapp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L4VR86B5FX;
+				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				INFOPLIST_FILE = Cardiapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappSL;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappJessica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -700,12 +702,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Cardiapp/Cardiapp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L4VR86B5FX;
+				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				INFOPLIST_FILE = Cardiapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappSL;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappJessica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
