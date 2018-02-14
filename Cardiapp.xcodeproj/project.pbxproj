@@ -611,7 +611,7 @@
 				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				INFOPLIST_FILE = "Cardiapp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappJessica.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -629,7 +629,7 @@
 				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				INFOPLIST_FILE = "Cardiapp WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappJessica.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -648,7 +648,7 @@
 				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				IBSC_MODULE = Cardiapp_WatchKit_Extension;
 				INFOPLIST_FILE = "Cardiapp WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappJessica.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -667,7 +667,7 @@
 				DEVELOPMENT_TEAM = XZ47PR9RKC;
 				IBSC_MODULE = Cardiapp_WatchKit_Extension;
 				INFOPLIST_FILE = "Cardiapp WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.CardiappJessica.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riverdale.edu.Cardiapp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
