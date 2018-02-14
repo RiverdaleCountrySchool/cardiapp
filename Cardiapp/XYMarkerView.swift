@@ -27,8 +27,11 @@ public class XYMarkerView: BalloonMarker {
         //source:https://stackoverflow.com/questions/40648284/converting-a-unix-timestamp-into-date-as-string-swift
         let date = Date(timeIntervalSince1970: entry.x)
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.locale = Calendar.current.locale
+        dateFormatter.timeZone = Calendar.current.timeZone
+        //dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        
         let t = dateFormatter.string(from: date)
         print(t)
         

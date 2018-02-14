@@ -256,6 +256,9 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         //dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        //changing the time zone:
+        dateFormatter.timeZone = Calendar.current.timeZone
+        dateFormatter.locale = Calendar.current.locale
         
         for i in coords {
             let t = dateFormatter.date(from: i)?.timeIntervalSince1970
@@ -302,6 +305,9 @@ class ViewController: UIViewController, ChartViewDelegate {
         var times2: [Double] = []
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        dateFormatter.timeZone = Calendar.current.timeZone
+        dateFormatter.locale = Calendar.current.locale
+        
         for i in start {
             let t = dateFormatter.date(from: i)?.timeIntervalSince1970
             times1.append(Double(t!))
