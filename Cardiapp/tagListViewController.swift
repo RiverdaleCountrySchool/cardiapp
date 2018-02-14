@@ -24,7 +24,13 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         let startDateAppear = dateFormatter.string(from: tag.startDate!)
         let endDateAppear = dateFormatter.string(from: tag.endDate!)
         cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text = "ACTIVITY: \((tag.activity)!)\nSTART TIME: \(startDateAppear)\nEND TIME: \(endDateAppear)\nSTARRED: \(tag.star)"
+        var star = ""
+        if tag.star == true {
+            star = "🚩"
+        } else {
+            star = ""
+        }
+        cell.textLabel?.text = "ACTIVITY: \((tag.activity)!)\nSTART TIME: \(startDateAppear)\nEND TIME: \(endDateAppear)\n\(star)"
         return cell
     }
     
