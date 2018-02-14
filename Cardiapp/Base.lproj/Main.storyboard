@@ -4923,7 +4923,6 @@ Cg
         <image name="hamburger" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="f7i-Gb-ctT"/>
         <segue reference="zaD-qy-73F"/>
     </inferredMetricsTieBreakers>
 </document>
