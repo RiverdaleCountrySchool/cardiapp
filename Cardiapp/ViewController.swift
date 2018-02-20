@@ -1,0 +1,375 @@
+//
+//  ViewController.swift
+//  heartRateAppMockUp
+//
+//  Created by Sam Lack on 11/28/17.
+//  Copyright © 2017 Riverdale Country School. All rights reserved.
+//
+
+import UIKit
+import HealthKit
+import Foundation
+import Charts
+
+//establishes userdefaults for the app (lets you save certain values for the user that will be used frequently throughout the app)
+let defaults = UserDefaults.standard
+
+class ViewController: UIViewController, ChartViewDelegate {
+
+    @IBOutlet weak var viewFront: UIView!
+    @IBOutlet var mainView: UIView!
+    
+    @IBOutlet weak var hourButton: UIButton!
+    @IBOutlet weak var dayButton: UIButton!
+    @IBOutlet weak var weekButton: UIButton!
+    @IBOutlet weak var monthButton: UIButton!
+    @IBOutlet weak var yearButton: UIButton!
+    
+    @IBAction func hourPressed(_ sender: UIButton) {
+        hourButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
+        dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        
+        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .hour, value: -1, to: Date()))
+    }
+    @IBAction func dayPressed(_ sender: UIButton) {
+        hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        dayButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
+        weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        
+        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -1, to: Date()))
+    }
+    @IBAction func weekPressed(_ sender: UIButton) {
+        hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        weekButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
+        monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        
+        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -7, to: Date()))
+    }
+    @IBAction func monthPressed(_ sender: UIButton) {
+        hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        monthButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
+        yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        
+        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .month, value: -1, to: Date()))
+    }
+    @IBAction func yearPressed(_ sender: UIButton) {
+        hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
+        yearButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
+        
+        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .year, value: -1, to: Date()))
+    }
+    
+    var hamburgerMenuIsVisable = false
+    @IBOutlet weak var viewXPosition: NSLayoutConstraint!
+    @IBAction func hamburgerBttnTppd(_ sender: Any) {
+        if !hamburgerMenuIsVisable {
+            mainView.bringSubview(toFront: viewFront)
+            viewXPosition.constant = 0
+            hamburgerMenuIsVisable = true
+            viewFront.isHidden = false
+        } else {
+            viewXPosition.constant = -500
+            hamburgerMenuIsVisable = false
+        }
+        
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: { self.view.layoutIfNeeded()}) { (animationComplete) in
+        }
+    }
+    
+    //function to get authorization from healthkit for certain datatypes in the application
+    
+    let healthStore = HKHealthStore()
+    
+    func authorizeHealthKit(completion: @escaping (Error?) -> Void) {
+        if HKHealthStore.isHealthDataAvailable(){
+            print("HEALTH DATA AVAILABLE (19)")
+        } else{ print("HEALTH DATA UNAVAILABLE (20)") }
+        
+        guard let dateOfBirth = HKObjectType.characteristicType(forIdentifier: .dateOfBirth),
+            let biologicalSex = HKObjectType.characteristicType(forIdentifier: .biologicalSex),
+            let height = HKObjectType.quantityType(forIdentifier: .height),
+            let bodyMass = HKObjectType.quantityType(forIdentifier: .bodyMass),
+            let heartRate = HKObjectType.quantityType(forIdentifier: .heartRate)
+            else {
+                print("HKObjectType INITIALIZATION ERROR (29)")
+                return
+        }
+        
+        let healthKitTypesToRead: Set<HKObjectType> = [dateOfBirth, biologicalSex, height, bodyMass, heartRate, HKObjectType.workoutType()]
+        
+        healthStore.requestAuthorization(toShare: nil, read: healthKitTypesToRead) { (success, error) -> Void in
+            if success == false{
+                print("AUTHORIZATION FAIL (37)")
+            }
+            else{
+                print("AUTHORIZATION SUCCESS(41)")
+                print("–––––––––––––––––––––––––––––––––––––––––")
+                
+                //Deprecated:
+                //self.checkAuthorizationStatus()
+            }
+        }
+        completion(nil)
+    }
+    
+    //get heart rate samples from a start date
+    func getHeartRatesAndGraph(startDate: Date?){
+        var startDate = startDate
+        
+        guard let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate) else{
+            print("could not establish quantity type (46)")
+            return
+        }
+        //*** TIME IS BASED ON GREENWICH MEAN TIME --> NEED TO CHANGE WHEN GRAPHING OR SOMETHING B/C YOU CAN'T SET IT HERE
+        let now = NSDate()
+        
+        if startDate == nil{
+            print("NO STARTDATE PASSED, PULLING ALL THE DATA")
+            startDate = NSDate.distantPast as Date
+        }
+        
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: now as Date, options: [])
+        
+        let sortDescriptors = [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)]
+        
+        let heartRateQuery = HKSampleQuery(sampleType: heartRateType, predicate: predicate, limit: Int(HKObjectQueryNoLimit), sortDescriptors: sortDescriptors) {
+            query, results, error in
+            
+            guard error == nil else {
+                print("error: \(String(describing: error))")
+                return
+            }
+            
+            //saving parsed heart rate data to local variable
+            //self.hrDataLoad = self.parseHKSampleArray(results: results) as! [(Int, Date, Date)]
+            let arrayConvertedFromHealthStore = self.parseHKSampleArray(results: results) as! [(Int, Date, Date)]
+            let arrayForGraph = self.parsedHKSampleArrayForGraphs(dataSet: arrayConvertedFromHealthStore)
+            self.createGraph(heartRateDataSet: arrayForGraph)
+        }
+        healthStore.execute(heartRateQuery)
+    }
+    
+    func parseHKSampleArray(results: [HKSample]?) -> Array<Any>{
+        var finalArray = [Any]()
+        for currData in results!{
+            let currDataString = "\(currData)"
+            let parsedCurrDataStringArray = currDataString.components(separatedBy: " count/min")
+            let BPM = Int(parsedCurrDataStringArray[0])
+            
+            //            print("BPM: \(BPM!)")
+            //            print("Start Date: \(currData.startDate)")
+            //            print("End Date: \(currData.endDate)")
+            //            print("UUID: \(currData.uuid)")
+            //            print("Source: \(currData.sourceRevision)")
+            
+            finalArray.append((BPM!, currData.startDate, currData.endDate))
+        }
+        
+        return finalArray
+    }
+    
+    
+    //Parsing for Graphs --> Jessica's section
+    func parsedHKSampleArrayForGraphs(dataSet: Array<Any>) -> ([String], [Double]){
+        
+        var xArray = [String]()
+        var yArray = [Double]()
+        for set in dataSet{
+            let setArray = set as! (Int, Date, Date)
+            let dateTime = setArray.1
+            
+            //***TRY TO CHANGE THE DATETIME TO THE LOCAL DATETIME
+            //let localDateTimeDescription = dateTime.description(with: .current)
+            
+            xArray.append("\(dateTime)")
+            
+            let y = "\(setArray.0).0"
+            let finalY = Double(y)
+            yArray.append(finalY!)
+        }
+        //returning a reversed array so that the array goes from oldest to newest
+        return (xArray.reversed(), yArray.reversed())
+    }
+    
+    //________________________________________________
+    //Graph Section
+    
+    let data = CombinedChartData()
+    
+    @IBOutlet weak var chartView: CombinedChartView!
+    @IBOutlet weak var yLabel: UILabel!
+    
+    func createGraph(heartRateDataSet: ([String], [Double])){
+        //self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
+        chartView.delegate = self
+        chartView.rightAxis.enabled = false
+        
+        // trying out a different marker
+        let marker2 = XYMarkerView(color:  NSUIColor.yellow,
+                                   font: NSUIFont.systemFont(ofSize: 12.0),
+                                   textColor: NSUIColor.blue,
+                                   insets: UIEdgeInsets(top: 2.0, left: 3.0, bottom: 2.0, right: 3.0),
+                                   xAxisValueFormatter: DateValueFormatter())
+        marker2.chartView = chartView
+        chartView.marker = marker2
+        
+        // working with time
+        chartView.xAxis.valueFormatter = DateValueFormatter()  //formats the labels on the x axis
+        
+        let x = heartRateDataSet.0
+        let y = heartRateDataSet.1
+        
+        
+        //adding stuff for combined chart
+        chartView.drawOrder = [DrawOrder.bar.rawValue,
+                               DrawOrder.line.rawValue]
+        chartView.drawBarShadowEnabled = false
+        chartView.highlightFullBarEnabled = false
+        
+        JessicaSetChart(dataPoints: y, coords: x)
+        
+        
+        //bar chart data
+        //BarSetChart(start: startTimes, end:endTimes)
+        
+        chartView.data = data
+    }
+    
+    func JessicaSetChart(dataPoints: [Double], coords: [String]) {
+        
+        //convert the time stamp into a number value
+        //source: https://stackoverflow.com/questions/24777496/how-can-i-convert-string-date-to-nsdate
+        var times: [Double] = []
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        //dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        //changing the time zone:
+        dateFormatter.timeZone = Calendar.current.timeZone
+        dateFormatter.locale = Calendar.current.locale
+        
+        for i in coords {
+            let t = dateFormatter.date(from: i)?.timeIntervalSince1970
+            times.append(Double(t!))
+        }
+        
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {  //loop formats the data as a ChartDataEntry
+            let dataEntry = ChartDataEntry(x: times[i], y: dataPoints[i])
+            dataEntries.append(dataEntry)
+        }
+        
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Your Heart Rate History")
+        
+        //format the data
+        lineChartDataSet.lineDashLengths = [5, 2.5]
+        lineChartDataSet.highlightLineDashLengths = [5, 2.5]
+        lineChartDataSet.setColor(.gray)
+        lineChartDataSet.setCircleColor(.blue)
+        lineChartDataSet.lineWidth = 2
+        lineChartDataSet.circleRadius = 5
+        lineChartDataSet.drawCircleHoleEnabled = false
+        lineChartDataSet.valueFont = .systemFont(ofSize: 9)
+        lineChartDataSet.formLineDashLengths = [5, 2.5]
+        lineChartDataSet.formLineWidth = 1
+        lineChartDataSet.formLineWidth = 15
+        lineChartDataSet.drawValuesEnabled = false //don't write y values over points
+        
+        lineChartDataSet.mode = (lineChartDataSet.mode == .horizontalBezier) ? .horizontalBezier : .horizontalBezier //smoothes the graph
+        
+        chartView.chartDescription?.text = ""
+        chartView.xAxis.labelPosition = .bottom
+        
+        data.lineData = LineChartData(dataSet: lineChartDataSet)
+        
+    }
+    
+    
+    // ******** BAR CHART DATA (BELOW) ********
+    func BarSetChart(start:[String], end:[String]){
+        
+        var times1: [Double] = []
+        var times2: [Double] = []
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        dateFormatter.timeZone = Calendar.current.timeZone
+        dateFormatter.locale = Calendar.current.locale
+        
+        for i in start {
+            let t = dateFormatter.date(from: i)?.timeIntervalSince1970
+            times1.append(Double(t!))
+        }
+        for i in end {
+            let t = dateFormatter.date(from: i)?.timeIntervalSince1970
+            times2.append(Double(t!))
+        }
+        
+        var dataEntries: [BarChartDataEntry] = []
+        for i in 0..<times1.count {
+            let dataEntry = BarChartDataEntry(x: times1[i], y: 100)
+            dataEntries.append(dataEntry)
+        }
+        
+        //let barDataSet = BarChartDataSet(values: entries1, label: "Data for bar")
+        let barDataSet = BarChartDataSet(values: dataEntries, label: "Data for bar")
+        barDataSet.setColor(UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1))
+        barDataSet.valueTextColor = UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1)
+        barDataSet.valueFont = .systemFont(ofSize: 10)
+        
+        
+        //let data = BarChartData(dataSet: barDataSet)
+        let data1 = BarChartData(dataSet: barDataSet)
+        data1.barWidth = times2[0]-times1[0]
+        
+        data.barData = data1
+        
+    }
+    //________________________________________________
+    
+    //Main Thread Functions
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        //run authorization
+        authorizeHealthKit(){ (error) in
+            if let error = error{
+                print("Error (32): \(error)")
+            }
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewXPosition.constant = -500
+        viewFront.isHidden = true
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        //***NEED TO MAKE SURE THAT THE DAY BUTTON SEEMS PRESSED ON LOAD
+        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -1, to: Date()))
+        
+        //rotation of bpm label
+        self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+
+}
+
