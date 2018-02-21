@@ -320,7 +320,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         }
         
         var dataEntries: [BarChartDataEntry] = []
-        print("bar two")
         for i in 0..<times1.count { //for each start time
             
             //find half way bar - half way bar is where I'm drawing the icon
@@ -329,22 +328,18 @@ class ViewController: UIViewController, ChartViewDelegate {
             let mid_bar = mid/60 //since drawing a bar every 60
             
             for j in stride(from: times1[i], through: times2[i], by: 60) { //create many bars that span the region from start to end time, counting up by minutes (60 sec) so it goes faster
-
                 //only display the icon for the bar in the middle of start/end times
                 if j == (mid_bar*60)+times1[i] { //if it's the middle bar
                     let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojis[i].image())
                     dataEntries.append(dataEntry)
                 }
                 else{
-                    //let dataEntry = BarChartDataEntry(x: j, y: maxY)
                     let dataEntry = BarChartDataEntry(x: j, y: maxY)
                     dataEntries.append(dataEntry)
                 }
             }
         }
         
-        
-        //let barDataSet = BarChartDataSet(values: entries1, label: "Data for bar")
         let barDataSet = BarChartDataSet(values: dataEntries, label: "Data for bar")
         barDataSet.setColor(UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1))
         barDataSet.valueTextColor = UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1)
