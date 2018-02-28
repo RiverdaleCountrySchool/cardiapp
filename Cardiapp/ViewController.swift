@@ -200,9 +200,10 @@ class ViewController: UIViewController, ChartViewDelegate {
         chartView.rightAxis.enabled = false
         
         // trying out a different marker
-        let marker2 = XYMarkerView(color:  NSUIColor.yellow,
-                                   font: NSUIFont.systemFont(ofSize: 12.0),
-                                   textColor: NSUIColor.blue,
+        let marker2 = XYMarkerView(
+                                   color: UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1),
+                                   font: NSUIFont.systemFont(ofSize: 14.0),
+                                   textColor: NSUIColor.white,
                                    insets: UIEdgeInsets(top: 2.0, left: 3.0, bottom: 2.0, right: 3.0),
                                    xAxisValueFormatter: DateValueFormatter())
         marker2.chartView = chartView
@@ -323,7 +324,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         }
         
         let barDataSet = BarChartDataSet(values: dataEntries, label: "Data for bar")
-        barDataSet.setColor(UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1))
+        barDataSet.setColor(UIColor(red: 0/255, green: 20/255, blue: 7/255, alpha: 0.2))
         barDataSet.valueTextColor = UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1)
         barDataSet.valueFont = .systemFont(ofSize: 10)
         
