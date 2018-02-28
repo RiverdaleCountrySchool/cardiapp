@@ -252,7 +252,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {  //loop formats the data as a ChartDataEntry
-            let dataEntry = ChartDataEntry(x: times[i], y: dataPoints[i])
+            let dataEntry = ChartDataEntry(x: times[i], y: dataPoints[i], icon:UIImage(named:"heart2"))
             dataEntries.append(dataEntry)
         }
         
@@ -262,7 +262,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         lineChartDataSet.lineDashLengths = [5, 2.5]
         lineChartDataSet.highlightLineDashLengths = [5, 2.5]
         lineChartDataSet.setColor(.gray)
-        lineChartDataSet.setCircleColor(.blue)
+        lineChartDataSet.setCircleColor(.white)
         lineChartDataSet.lineWidth = 2
         lineChartDataSet.circleRadius = 5
         lineChartDataSet.drawCircleHoleEnabled = false
