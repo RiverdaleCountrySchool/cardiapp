@@ -18,7 +18,6 @@ class HeartProfileViewController: UIViewController {
     @IBOutlet weak var heightDataLabel: UILabel!
     @IBOutlet weak var bodyMassDataLabel: UILabel!
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -42,7 +41,33 @@ class HeartProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //ICON COLOR
+        var HeartProfileViewController:UIViewController = UIViewController()
+        var customTabBarItem:UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "heartProfile")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal), selectedImage: UIImage(named: "heartProfile"))
+        HeartProfileViewController.tabBarItem = customTabBarItem
+        
+        //HAMBURGER SLIDER
+        //viewXPosition.constant = -500
+        //viewFront.isHidden = true
     }
+    
+    //var hamburgerMenuIsVisable = false
+    //@IBOutlet weak var viewXPosition: NSLayoutConstraint!
+    //@IBAction func hamburgerBttnTppd(_ sender: Any) {
+        //if !hamburgerMenuIsVisable {
+            //mainView.bringSubview(toFront: viewFront)
+            //viewXPosition.constant = 0
+            //hamburgerMenuIsVisable = true
+            //viewFront.isHidden = false
+        //} else {
+            //viewXPosition.constant = -500
+            //hamburgerMenuIsVisable = false
+        //}
+        
+        //UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: { self.view.layoutIfNeeded()}) { (animationComplete) in
+        //}
+    //}
     
     func getUserDefaults(){
         let userAge = defaults.integer(forKey: "Age"),

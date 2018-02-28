@@ -16,7 +16,6 @@ let defaults = UserDefaults.standard
 
 class ViewController: UIViewController, ChartViewDelegate {
 
-    @IBOutlet weak var viewFront: UIView!
     @IBOutlet var mainView: UIView!
     
     @IBOutlet weak var hourButton: UIButton!
@@ -69,23 +68,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         yearButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
         
         getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .year, value: -1, to: Date()))
-    }
-    
-    var hamburgerMenuIsVisable = false
-    @IBOutlet weak var viewXPosition: NSLayoutConstraint!
-    @IBAction func hamburgerBttnTppd(_ sender: Any) {
-        if !hamburgerMenuIsVisable {
-            mainView.bringSubview(toFront: viewFront)
-            viewXPosition.constant = 0
-            hamburgerMenuIsVisable = true
-            viewFront.isHidden = false
-        } else {
-            viewXPosition.constant = -500
-            hamburgerMenuIsVisable = false
-        }
-        
-        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: { self.view.layoutIfNeeded()}) { (animationComplete) in
-        }
     }
     
     //function to get authorization from healthkit for certain datatypes in the application
@@ -374,8 +356,6 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewXPosition.constant = -500
-        viewFront.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
         
         //***NEED TO MAKE SURE THAT THE DAY BUTTON SEEMS PRESSED ON LOAD
