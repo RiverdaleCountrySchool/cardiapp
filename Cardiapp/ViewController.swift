@@ -323,7 +323,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             }
         }
         
-        let barDataSet = BarChartDataSet(values: dataEntries, label: "Data for bar")
+        let barDataSet = BarChartDataSet(values: dataEntries, label: "Your Tags")
         barDataSet.setColor(UIColor(red: 0/255, green: 20/255, blue: 7/255, alpha: 0.2))
         barDataSet.valueTextColor = UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1)
         barDataSet.valueFont = .systemFont(ofSize: 10)
