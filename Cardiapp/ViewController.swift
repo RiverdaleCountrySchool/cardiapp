@@ -10,6 +10,7 @@ import UIKit
 import HealthKit
 import Foundation
 import Charts
+import CoreData
 
 //establishes userdefaults for the app (lets you save certain values for the user that will be used frequently throughout the app)
 let defaults = UserDefaults.standard
@@ -139,6 +140,9 @@ class ViewController: UIViewController, ChartViewDelegate {
             let arrayConvertedFromHealthStore = self.parseHKSampleArray(results: results) as! [(Int, Date, Date)]
             let arrayForGraph = self.parsedHKSampleArrayForGraphs(dataSet: arrayConvertedFromHealthStore)
             self.createGraph(heartRateDataSet: arrayForGraph)
+            print("––––––––––––––––––––––––––––––––––")
+            print(arrayForGraph)
+            print("––––––––––––––––––––––––––––––––––")
         }
         healthStore.execute(heartRateQuery)
     }
@@ -164,25 +168,71 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     
     //Parsing for Graphs --> Jessica's section
-    func parsedHKSampleArrayForGraphs(dataSet: Array<Any>) -> ([String], [Double]){
+    //***TIMES OF TAGS ARE CURRENT TIME AND THUS DON'T CORRESPOND TO THE BPM TIMES BC THEY ARE GMT --> NEED TO CONVERT THE BPM
+    func parsedHKSampleArrayForGraphs(dataSet: [(Int, Date, Date)]) -> ([String], [Double], [String?], [(String, Date, Date, Bool)]){
         
         var xArray = [String]()
         var yArray = [Double]()
+        var activityBPMArray = [String?]()
+        
+        //handling empty or partially filled tag array
+        var activityTags: [PersonalTag]? = nil
+        if !dataSet.isEmpty{
+            activityTags = getData(sD: dataSet[0].1, eD: (dataSet.last?.1)!)
+        } else if dataSet.count == 1{
+            activityTags = getData(sD: dataSet[0].1, eD: dataSet[0].1)
+        }
+        
         for set in dataSet{
-            let setArray = set as! (Int, Date, Date)
-            let dateTime = setArray.1
+            let dateTime = set.1
             
             //***TRY TO CHANGE THE DATETIME TO THE LOCAL DATETIME
             //let localDateTimeDescription = dateTime.description(with: .current)
             
+            //adding the date of the bpm to the tuple data set
             xArray.append("\(dateTime)")
             
-            let y = "\(setArray.0).0"
+            //adding the bpm to the tuple data set
+            let y = "\(set.0).0"
             let finalY = Double(y)
             yArray.append(finalY!)
+            
+            
+            //adding corresponding activities
+            var tagAppend: String? = nil
+            
+            for tag in activityTags!{
+                if  dateTime > tag.startDate! &&  dateTime < tag.endDate! {
+                    tagAppend = tag.activity
+                }
+            }
+            activityBPMArray.append(tagAppend)
         }
+        var activityTagsFormatted = [(String, Date, Date, Bool)]()
+        for tags in activityTags!{
+            activityTagsFormatted.append((tags.activity!, tags.startDate!, tags.endDate!, tags.star))
+        }
+        
         //returning a reversed array so that the array goes from oldest to newest
-        return (xArray.reversed(), yArray.reversed())
+        return (xArray.reversed(), yArray.reversed(), activityBPMArray.reversed(), activityTagsFormatted)
+    }
+    
+    //dealing with tags --> helper function to the "parsedHKSampleArrayForGraphs"
+    func getData(sD: Date, eD: Date) -> [PersonalTag]?{
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
+        let predicate = NSPredicate(format: "startDate < %@ AND endDate > %@", sD as CVarArg, eD as CVarArg)
+        fetchRequest.predicate = predicate
+        
+        do {
+            //            let tags = try context.fetch(PersonalTag.fetchRequest()) as! [PersonalTag]
+            let tags = try context.fetch(fetchRequest)
+            return tags
+        } catch {
+            print("Fetching Failed")
+            return nil
+        }
     }
     
     //________________________________________________
@@ -194,15 +244,16 @@ class ViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var chartView: CombinedChartView!
     @IBOutlet weak var yLabel: UILabel!
     
-    func createGraph(heartRateDataSet: ([String], [Double])){
+    func createGraph(heartRateDataSet: (([String], [Double], [String?], [(String, Date, Date, Bool)]))){
         //self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
         chartView.delegate = self
         chartView.rightAxis.enabled = false
         
         // trying out a different marker
-        let marker2 = XYMarkerView(color:  NSUIColor.yellow,
-                                   font: NSUIFont.systemFont(ofSize: 12.0),
-                                   textColor: NSUIColor.blue,
+        let marker2 = XYMarkerView(
+                                   color: UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1),
+                                   font: NSUIFont.systemFont(ofSize: 14.0),
+                                   textColor: NSUIColor.white,
                                    insets: UIEdgeInsets(top: 2.0, left: 3.0, bottom: 2.0, right: 3.0),
                                    xAxisValueFormatter: DateValueFormatter())
         marker2.chartView = chartView
@@ -252,7 +303,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {  //loop formats the data as a ChartDataEntry
-            let dataEntry = ChartDataEntry(x: times[i], y: dataPoints[i])
+            let dataEntry = ChartDataEntry(x: times[i], y: dataPoints[i], icon:UIImage(named:"heart2"))
             dataEntries.append(dataEntry)
         }
         
@@ -262,7 +313,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         lineChartDataSet.lineDashLengths = [5, 2.5]
         lineChartDataSet.highlightLineDashLengths = [5, 2.5]
         lineChartDataSet.setColor(.gray)
-        lineChartDataSet.setCircleColor(.blue)
+        lineChartDataSet.setCircleColor(.white)
         lineChartDataSet.lineWidth = 2
         lineChartDataSet.circleRadius = 5
         lineChartDataSet.drawCircleHoleEnabled = false
@@ -322,8 +373,8 @@ class ViewController: UIViewController, ChartViewDelegate {
             }
         }
         
-        let barDataSet = BarChartDataSet(values: dataEntries, label: "Data for bar")
-        barDataSet.setColor(UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1))
+        let barDataSet = BarChartDataSet(values: dataEntries, label: "Your Tags")
+        barDataSet.setColor(UIColor(red: 0/255, green: 20/255, blue: 7/255, alpha: 0.2))
         barDataSet.valueTextColor = UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1)
         barDataSet.valueFont = .systemFont(ofSize: 10)
         
@@ -363,6 +414,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         //rotation of bpm label
         self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
+        
     }
     
     override func didReceiveMemoryWarning() {
