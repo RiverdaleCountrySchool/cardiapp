@@ -217,7 +217,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             activityBPMArray.append(tagAppend)
         }
         var activityTagsFormatted = [(String, Date, Date, Bool)]()
-        if !(activityTags?.isEmpty)!{
+        if (activityTags?.isEmpty == false){
             for tags in activityTags!{
                 activityTagsFormatted.append((tags.activity!, tags.startDate!, tags.endDate!, tags.star))
             }
