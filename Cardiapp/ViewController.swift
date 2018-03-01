@@ -110,12 +110,15 @@ class ViewController: UIViewController, ChartViewDelegate {
     //get heart rate samples from a start date
     func getHeartRatesAndGraph(startDate: Date?){
         var startDate = startDate
+        print("––––––––––––––––––")
+        print("TEST: \(convertGMTDateToLocal(inputDate: startDate!))")
+        print("––––––––––––––––––")
         
         guard let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate) else{
             print("could not establish quantity type (46)")
             return
         }
-        //*** TIME IS BASED ON GREENWICH MEAN TIME --> NEED TO CHANGE WHEN GRAPHING OR SOMETHING B/C YOU CAN'T SET IT HERE
+        
         let now = NSDate()
         
         if startDate == nil{
@@ -214,8 +217,10 @@ class ViewController: UIViewController, ChartViewDelegate {
             activityBPMArray.append(tagAppend)
         }
         var activityTagsFormatted = [(String, Date, Date, Bool)]()
-        for tags in activityTags!{
-            activityTagsFormatted.append((tags.activity!, tags.startDate!, tags.endDate!, tags.star))
+        if !(activityTags?.isEmpty)!{
+            for tags in activityTags!{
+                activityTagsFormatted.append((tags.activity!, tags.startDate!, tags.endDate!, tags.star))
+            }
         }
         
         //returning a reversed array so that the array goes from oldest to newest
