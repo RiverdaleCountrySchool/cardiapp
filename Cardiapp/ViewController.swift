@@ -140,9 +140,9 @@ class ViewController: UIViewController, ChartViewDelegate {
             let arrayConvertedFromHealthStore = self.parseHKSampleArray(results: results) as! [(Int, Date, Date)]
             let arrayForGraph = self.parsedHKSampleArrayForGraphs(dataSet: arrayConvertedFromHealthStore)
             self.createGraph(heartRateDataSet: arrayForGraph)
-//            print("––––––––––––––––––––––––––––––––––")
-//            print(arrayForGraph)
-//            print("––––––––––––––––––––––––––––––––––")
+            print("––––––––––––––––––––––––––––––––––")
+            print(arrayForGraph)
+            print("––––––––––––––––––––––––––––––––––")
         }
         healthStore.execute(heartRateQuery)
     }
