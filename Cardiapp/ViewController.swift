@@ -140,9 +140,9 @@ class ViewController: UIViewController, ChartViewDelegate {
             let arrayConvertedFromHealthStore = self.parseHKSampleArray(results: results) as! [(Int, Date, Date)]
             let arrayForGraph = self.parsedHKSampleArrayForGraphs(dataSet: arrayConvertedFromHealthStore)
             self.createGraph(heartRateDataSet: arrayForGraph)
-            print("––––––––––––––––––––––––––––––––––")
-            print(arrayForGraph)
-            print("––––––––––––––––––––––––––––––––––")
+//            print("––––––––––––––––––––––––––––––––––")
+//            print(arrayForGraph)
+//            print("––––––––––––––––––––––––––––––––––")
         }
         healthStore.execute(heartRateQuery)
     }
@@ -160,15 +160,23 @@ class ViewController: UIViewController, ChartViewDelegate {
             //            print("UUID: \(currData.uuid)")
             //            print("Source: \(currData.sourceRevision)")
             
-            finalArray.append((BPM!, currData.startDate, currData.endDate))
+            //*Converting the HealthStoreData from GMT to Local Time
+            let dataLocalTimeStartDate = convertGMTDateToLocal(inputDate: currData.startDate)
+            let dataLocalTimeEndDate = convertGMTDateToLocal(inputDate: currData.endDate)
+            
+            finalArray.append((BPM!, dataLocalTimeStartDate, dataLocalTimeEndDate))
         }
         
         return finalArray
     }
     
+    func convertGMTDateToLocal(inputDate: Date) -> Date{
+        let returnDate = Calendar.current.date(byAdding: .second, value: Calendar.current.timeZone.secondsFromGMT(), to: inputDate)! //*NOTE: The Date Here Is the Correct Local Time, But Does Not Share the Local UTC
+        return returnDate
+    }
+    
     
     //Parsing for Graphs --> Jessica's section
-    //***TIMES OF TAGS ARE CURRENT TIME AND THUS DON'T CORRESPOND TO THE BPM TIMES BC THEY ARE GMT --> NEED TO CONVERT THE BPM
     func parsedHKSampleArrayForGraphs(dataSet: [(Int, Date, Date)]) -> ([String], [Double], [String?], [(String, Date, Date, Bool)]){
         
         var xArray = [String]()
@@ -185,9 +193,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         for set in dataSet{
             let dateTime = set.1
-            
-            //***TRY TO CHANGE THE DATETIME TO THE LOCAL DATETIME
-            //let localDateTimeDescription = dateTime.description(with: .current)
             
             //adding the date of the bpm to the tuple data set
             xArray.append("\(dateTime)")
@@ -414,7 +419,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         //rotation of bpm label
         self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
-        
     }
     
     override func didReceiveMemoryWarning() {
