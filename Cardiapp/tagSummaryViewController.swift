@@ -9,10 +9,6 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var activityText: UITextField!
     @IBOutlet weak var startSwitch: UISwitch!
     
-    @IBAction func cancelPopBttn(_ sender: UIButton) {
-        showMessageDialog()
-    }
-    
     @IBAction func starSwitchClicked(_ sender: Any) {
         if startSwitch.isOn {
             selectedStar = true
@@ -20,6 +16,10 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
         else {
             selectedStar = false
         }
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        showMessageDialog()
     }
     
     var StartTimePicker = UIDatePicker()
@@ -69,6 +69,7 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
                 print("WORKING")
                 saveToCoreData(data: (selectedActivity, selectedStartDate, selectedEndDate, selectedStar))
                 loadFromCoreData()
+                performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
             } else if selectedEndDate == Date(timeIntervalSinceReferenceDate: 118800) || selectedStartDate == Date(timeIntervalSinceReferenceDate: 118800) {
                 print("NOT WORKING")
                 showMessageDialog3()
@@ -178,9 +179,10 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
         let alertController = UIAlertController(title: "Cancel", message: "You will lose all information about the current tag", preferredStyle: .alert)
         //the confirm action taking the inputs
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "mainPage") as! ViewController
-            self.navigationController?.pushViewController(nextViewController, animated: true)
+            self.performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
+//            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "mainPage") as! ViewController
+//            self.navigationController?.pushViewController(nextViewController, animated: true)
         }
         //the cancel action doing nothing
         let noAction = UIAlertAction(title: "No", style: .cancel) { (_) in }

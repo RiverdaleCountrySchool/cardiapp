@@ -110,7 +110,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbG-Fw-Psv" customClass="CombinedChartView" customModule="Charts">
-                                <rect key="frame" x="17" y="144" width="342" height="404"/>
+                                <rect key="frame" x="17" y="144" width="342" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beats per Minute (BPM)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wju-sB-5Rw">
@@ -121,7 +121,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYD-LV-YYs">
-                                        <rect key="frame" x="152" y="375" width="38" height="21"/>
+                                        <rect key="frame" x="152" y="387" width="38" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -175,6 +175,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="yIH-e5-5xd" kind="relationship" relationship="viewControllers" id="Q4g-Pg-uSt"/>
@@ -252,7 +253,7 @@
                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XT7-b2-Jsa">
-                                <rect key="frame" x="16" y="249" width="343" height="40"/>
+                                <rect key="frame" x="134" y="249" width="225" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
@@ -261,9 +262,6 @@
                                 </state>
                                 <connections>
                                     <action selector="doneBttnPressed:" destination="yNO-fh-cHS" eventType="touchUpInside" id="78S-dY-6fx"/>
-                                    <segue destination="yIH-e5-5xd" kind="show" id="Mt0-Hh-nAl">
-                                        <nil key="action"/>
-                                    </segue>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3I9-et-nSV">
@@ -315,6 +313,18 @@
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8x-Ky-CUC">
+                                <rect key="frame" x="16" y="249" width="110" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="yNO-fh-cHS" eventType="touchUpInside" id="kcG-oc-NNa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="keM-Cw-qBp"/>
@@ -325,9 +335,11 @@
                         <outlet property="endTimeText" destination="uCU-4F-pgt" id="5a4-Ge-LJV"/>
                         <outlet property="startSwitch" destination="3I9-et-nSV" id="vOc-8H-cif"/>
                         <outlet property="startTimeText" destination="Yys-pi-zo5" id="8H3-gy-Dch"/>
+                        <segue destination="qy1-2Q-tXN" kind="unwind" identifier="unwindSegueToViewController" unwindAction="unwindToViewControllerWithSegue:" id="YtO-RY-wwq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fa7-dd-IpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qy1-2Q-tXN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1624.8" y="17.541229385307346"/>
         </scene>
@@ -501,10 +513,10 @@
             </objects>
             <point key="canvasLocation" x="-426.39999999999998" y="79.610194902548727"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="faz-Z6-aTW">
             <objects>
-                <viewController id="a7J-be-M9p" sceneMemberID="viewController">
+                <viewController id="a7J-be-M9p" customClass="SettingsViewController" customModule="Cardiapp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M81-71-k6U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -518,6 +530,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="heartProfile"/>
                                 <connections>
+                                    <action selector="HPButtonPressed:" destination="a7J-be-M9p" eventType="touchUpInside" id="c9P-tb-YTE"/>
                                     <segue destination="FDo-z4-PKY" kind="show" id="Ebx-Wp-yvL"/>
                                 </connections>
                             </button>
@@ -568,8 +581,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="eoH-BI-QCN"/>
                     </view>
+                    <connections>
+                        <segue destination="WkG-rQ-lR6" kind="unwind" identifier="unwindToHeartProfileSegue" unwindAction="unwindToHeartProfileViewControllerWithSegue:" id="ZeJ-LO-f7x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLF-4U-lJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WkG-rQ-lR6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1042.4000000000001" y="857.72113943028489"/>
         </scene>
@@ -4811,9 +4828,8 @@ Cg
         <image name="tagList" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y2X-HE-V7m"/>
+        <segue reference="gzi-Pw-QKa"/>
         <segue reference="Ebx-Wp-yvL"/>
         <segue reference="f7i-Gb-ctT"/>
-        <segue reference="Mt0-Hh-nAl"/>
     </inferredMetricsTieBreakers>
 </document>
