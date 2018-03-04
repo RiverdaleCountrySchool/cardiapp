@@ -1,26 +1,25 @@
+//
+//  editTagViewController.swift
+//  Cardiapp
+//
+//  Created by Sam Lack on 3/4/18.
+//  Copyright © 2018 Riverdale Country School. All rights reserved.
+//
+
 import UIKit
 import Foundation
-import CoreData
 
-class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class editTagViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    @IBOutlet weak var activityText: UITextField!
     @IBOutlet weak var startTimeText: UITextField!
     @IBOutlet weak var endTimeText: UITextField!
-    @IBOutlet weak var activityText: UITextField!
-    @IBOutlet weak var startSwitch: UISwitch!
-    
-    @IBAction func starSwitchClicked(_ sender: Any) {
-        if startSwitch.isOn {
-            selectedStar = true
-        }
-        else {
-            selectedStar = false
-        }
-    }
+    @IBOutlet weak var flag: UISwitch!
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         showMessageDialog()
     }
+    
     
     var StartTimePicker = UIDatePicker()
     var StartTimeToolBar = UIToolbar()
@@ -37,8 +36,12 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityPickerData.sort()
@@ -57,30 +60,6 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
         activityText.placeholder = "Activity"
         activityText.inputView = activityPicker
         activityText.inputAccessoryView = activityToolBar
-    }
-    
-    @IBAction func doneBttnPressed(_ sender: Any) {
-        //Core Data Save
-        if selectedActivity == "" {
-            print("NOT WORKING")
-            showMessageDialog4()
-        } else {
-            if selectedStartDate < selectedEndDate {
-                print("WORKING")
-                saveToCoreData(data: (selectedActivity, selectedStartDate, selectedEndDate, selectedStar))
-                loadFromCoreData()
-                performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
-            } else if selectedEndDate == Date(timeIntervalSinceReferenceDate: 118800) || selectedStartDate == Date(timeIntervalSinceReferenceDate: 118800) {
-                print("NOT WORKING")
-                showMessageDialog3()
-            } else if selectedStartDate == selectedEndDate {
-                print("NOT WORKING")
-                showMessageDialog3()
-            } else if selectedStartDate > selectedEndDate {
-                print("NOT WORKING")
-                showMessageDialog2()
-            }
-        }
     }
     
     //START TIME PICKER
@@ -170,16 +149,14 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         activityToolBar.setItems([flexibleSpace,labelButton,flexibleSpace,doneButton], animated: true)
     }
-    @objc func activityDoneButtonPressed(sender: UIBarButtonItem) {
-        activityText.resignFirstResponder()
-    }
+    
     //POP UP MESSAGE
     func showMessageDialog() {
         //Creating UIAlertController and setting title and message for the alert dialog
-        let alertController = UIAlertController(title: "Cancel", message: "You will lose all information about the current tag", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Cancel", message: "All changes made to the current tag will not be saved", preferredStyle: .alert)
         //the confirm action taking the inputs
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
-            self.performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
+            self.performSegue(withIdentifier: "unwindSegueToTagList", sender: self)
         }
         //the cancel action doing nothing
         let noAction = UIAlertAction(title: "No", style: .cancel) { (_) in }
@@ -189,88 +166,12 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
         //finally presenting the dialog box
         self.present(alertController, animated: true, completion: nil)
     }
-    func showMessageDialog2() {
-        //Creating UIAlertController and setting title and message for the alert dialog
-        let alertController = UIAlertController(title: "Error", message: "The end time of your activity is before the start time of your activity", preferredStyle: .alert)
-        //the confirm action taking the inputs
-        let okAction = UIAlertAction(title: "Ok", style: .default) { (_) in }
-        //adding the action to dialogbox
-        alertController.addAction(okAction)
-        //finally presenting the dialog box
-        self.present(alertController, animated: true, completion: nil)
+    @objc func activityDoneButtonPressed(sender: UIBarButtonItem) {
+        activityText.resignFirstResponder()
     }
-    func showMessageDialog3() {
-        //Creating UIAlertController and setting title and message for the alert dialog
-        let alertController = UIAlertController(title: "Error", message: "Please input a distinct start time and end time", preferredStyle: .alert)
-        //the confirm action taking the inputs
-        let okAction = UIAlertAction(title: "Ok", style: .default) { (_) in }
-        //adding the action to dialogbox
-        alertController.addAction(okAction)
-        //finally presenting the dialog box
-        self.present(alertController, animated: true, completion: nil)
-    }
-    func showMessageDialog4() {
-        //Creating UIAlertController and setting title and message for the alert dialog
-        let alertController = UIAlertController(title: "Error", message: "Please input an activity", preferredStyle: .alert)
-        //the confirm action taking the inputs
-        let okAction = UIAlertAction(title: "Ok", style: .default) { (_) in }
-        //adding the action to dialogbox
-        alertController.addAction(okAction)
-        //finally presenting the dialog box
-        self.present(alertController, animated: true, completion: nil)
-    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    //CORE DATA
-    //Local variable: core data array
-    var tagDataPoints: [PersonalTag] = []
-    
-    //Save data point/tag to core data
-    func saveToCoreData(data: (String, Date, Date, Bool)?) {
-        DispatchQueue.main.async {
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                print("FAILED TO INITIALIZE APPP DELEGATE (182)")
-                return
-            }
-            let managedContext = appDelegate.persistentContainer.viewContext
-            let newTag = PersonalTag(context: managedContext)
-            
-            newTag.activity = data?.0
-            newTag.startDate = data?.1
-            newTag.endDate = data?.2
-            newTag.star = (data?.3)!
-            
-            do {
-                try managedContext.save()
-                self.tagDataPoints.append(newTag)
-            } catch let error as NSError{
-                print("COULD NOT SAVE. \(error), \(error.userInfo)")
-            }
-        }
-    }
-    
-    //Load data points/tags from core data into local variable ("tagDataPoints")
-    func loadFromCoreData(){
-        DispatchQueue.main.async {
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                print("COULD NOT INITIALIZE APP DELEGATE (213)")
-                return
-            }
-            let managedContext = appDelegate.persistentContainer.viewContext
-            do {
-                self.tagDataPoints = try managedContext.fetch(PersonalTag.fetchRequest())
-                print("––––––––––––––––––––––––––––––––")
-                print("CORE DATA: ")
-                for dataPoint in self.tagDataPoints {
-                    print("\((dataPoint.activity)!) || \((dataPoint.startDate)!) || \((dataPoint.endDate)!) || \(dataPoint.star)")
-                }
-                print("––––––––––––––––––––––––––––––––")
-            } catch {
-                print("FETCH FAILED (220)")
-            }
-        }
-    }
 }

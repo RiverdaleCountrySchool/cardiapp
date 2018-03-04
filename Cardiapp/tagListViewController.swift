@@ -11,6 +11,8 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var tags: [PersonalTag] = []
     
+    @IBAction func unwindToTagList(segue:UIStoryboardSegue) { }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tags.count
     }
@@ -47,6 +49,11 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         tableViewTagList.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedIndex = indexPath.row
+        performSegue(withIdentifier: "editTagSegue", sender: self)
     }
     
     override func viewDidLoad() {
