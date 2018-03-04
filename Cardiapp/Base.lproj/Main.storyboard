@@ -93,7 +93,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Tag Event">
+                                <state key="normal" title="Add Tag">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -186,7 +186,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTo-hS-Pgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="298" y="-804"/>
+            <point key="canvasLocation" x="372" y="-726"/>
         </scene>
         <!--Tag List-->
         <scene sceneID="gRH-Cb-DwT">
@@ -223,7 +223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NgO-QI-LfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624.8" y="-726.38680659670172"/>
+            <point key="canvasLocation" x="1214" y="-726"/>
         </scene>
         <!--Add Tag-->
         <scene sceneID="2hi-DX-XAx">
@@ -257,7 +257,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Done">
+                                <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -341,7 +341,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fa7-dd-IpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qy1-2Q-tXN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1624.8" y="17.541229385307346"/>
+            <point key="canvasLocation" x="1215" y="80"/>
         </scene>
         <!--Heart Profile-->
         <scene sceneID="Mkp-eg-Y2w">
@@ -588,7 +588,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLF-4U-lJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="WkG-rQ-lR6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1042.4000000000001" y="857.72113943028489"/>
+            <point key="canvasLocation" x="-426" y="840"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Kc1-Cp-7TZ">
@@ -668,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7f-0q-ahF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-713" y="1604"/>
+            <point key="canvasLocation" x="-426" y="1612"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Llu-aT-yFk">
@@ -1073,7 +1073,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M4i-ag-Qc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1396" y="1604.3478260869567"/>
+            <point key="canvasLocation" x="-1226" y="1612"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kr9-D0-gHu">
@@ -4815,7 +4815,7 @@ Cg
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7g-sb-2mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-31.199999999999999" y="1602.5487256371816"/>
+            <point key="canvasLocation" x="372" y="1613"/>
         </scene>
     </scenes>
     <resources>
@@ -4828,7 +4828,7 @@ Cg
         <image name="tagList" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gzi-Pw-QKa"/>
+        <segue reference="JQE-wo-Za1"/>
         <segue reference="Ebx-Wp-yvL"/>
         <segue reference="f7i-Gb-ctT"/>
     </inferredMetricsTieBreakers>
