@@ -25,6 +25,8 @@ class ViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var monthButton: UIButton!
     @IBOutlet weak var yearButton: UIButton!
     
+    @IBAction func unwindToViewController(segue:UIStoryboardSegue) { }
+    
     @IBAction func hourPressed(_ sender: UIButton) {
         hourButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
         dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
@@ -214,7 +216,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             activityBPMArray.append(tagAppend)
         }
         var activityTagsFormatted = [(String, Date, Date, Bool)]()
-        if !(activityTags?.isEmpty)!{
+        if (activityTags?.isEmpty == false){
             for tags in activityTags!{
                 activityTagsFormatted.append((tags.activity!, tags.startDate!, tags.endDate!, tags.star))
             }
