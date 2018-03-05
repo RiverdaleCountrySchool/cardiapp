@@ -297,12 +297,13 @@ class ViewController: UIViewController, ChartViewDelegate {
             endDateActivityList.append(i.2)
         }
  
-        print("here")
+        print("here is heart rate data set \(heartRateDataSet)")
         print("emojis here: \(emojiTagString)")
         print("startDate here: \(startDateActivityList)")
         
-        BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString)
-        
+        if startDateActivityList.isEmpty == false {
+            BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString)
+        }
         chartView.data = data
     }
     
@@ -316,9 +317,11 @@ class ViewController: UIViewController, ChartViewDelegate {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         //dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         //changing the time zone:
-        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
-       // dateFormatter.timeZone = Calendar.current.timeZone
-       // dateFormatter.locale = Calendar.current.locale
+        //dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+      
+        //dateFormatter.timeZone = Calendar.current.timeZone
+        //dateFormatter.locale = Calendar.current.locale
         
         for i in coords {
             let t = dateFormatter.date(from: i)?.timeIntervalSince1970
@@ -360,13 +363,13 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     // ******** BAR CHART DATA (BELOW) ********
     func BarSetChart(start:[Date], end:[Date], maxY:Double, emojis:[String]){
-        
+        print("BAR CHAR CALLED")
         if start.isEmpty == false {
             var times1: [Double] = []
             var times2: [Double] = []
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-            dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+            dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
            // dateFormatter.timeZone = Calendar.current.timeZone
            // dateFormatter.locale = Calendar.current.locale
             
