@@ -363,7 +363,7 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     // ******** BAR CHART DATA (BELOW) ********
     func BarSetChart(start:[Date], end:[Date], maxY:Double, emojis:[String]){
-        print("BAR CHAR CALLED")
+        print("BAR CHART CALLED")
         if start.isEmpty == false {
             var times1: [Double] = []
             var times2: [Double] = []
@@ -393,8 +393,12 @@ class ViewController: UIViewController, ChartViewDelegate {
                 
                 for j in stride(from: times1[i], through: times2[i], by: 60) { //create many bars that span the region from start to end time, counting up by minutes (60 sec) so it goes faster
                     //only display the icon for the bar in the middle of start/end times
+                    //get the emoji only not the text
+                    let emojiIcon = emojis[i].components(separatedBy: " ")
+                    let emojiIcon2 = emojiIcon[1]
+                    
                     if j == (mid_bar*60)+times1[i] { //if it's the middle bar
-                        let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojis[i].image())
+                        let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojiIcon2.image())
                         dataEntries.append(dataEntry)
                     }
                     else{
