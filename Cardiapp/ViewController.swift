@@ -223,11 +223,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
         
-        //***filter for: a.) bpm dates are inside the tag parameters, b.) the tag perameters are on the inside, c.) the bpm StartDate is on the inside of the tag perameters, d.) the bpm end date is on the inside of the tag perameters
-        
-            //--> condensced: a.) tag start AND end date are on the INSIDE of the bpm start and end date, OR b.) the bpm start date is inside of the tag perameters, OR c.) the bpm end date is inside of the tag perameters
-        
-        //sd/ed & %@ = the start and end dates of the bpm data || the startDate and endDate = the start and end dates of the tag core data
         let predicate = NSPredicate(format: "%@ < startDate AND %@ > endDate OR startDate < %@ AND %@ < endDate OR startDate < %@ AND %@ < endDate", sD as CVarArg, eD as CVarArg, sD as CVarArg, sD as CVarArg, eD as CVarArg, eD as CVarArg)
         
         fetchRequest.predicate = predicate
