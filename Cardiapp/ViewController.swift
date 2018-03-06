@@ -231,7 +231,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
-        let predicate = NSPredicate(format: "startDate < %@ AND endDate > %@", sD as CVarArg, eD as CVarArg)
+        let predicate = NSPredicate(format: "startDate < %@AND endDate > %@", sD as CVarArg, eD as CVarArg)
         fetchRequest.predicate = predicate
         
         do {
