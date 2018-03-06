@@ -101,9 +101,6 @@ class ViewController: UIViewController, ChartViewDelegate {
             else{
                 print("AUTHORIZATION SUCCESS(41)")
                 print("–––––––––––––––––––––––––––––––––––––––––")
-                
-                //Deprecated:
-                //self.checkAuthorizationStatus()
             }
         }
         completion(nil)
@@ -162,23 +159,20 @@ class ViewController: UIViewController, ChartViewDelegate {
             //            print("UUID: \(currData.uuid)")
             //            print("Source: \(currData.sourceRevision)")
             
-            //*Converting the HealthStoreData from GMT to Local Time
-            let dataLocalTimeStartDate = convertGMTDateToLocal(inputDate: currData.startDate)
-            let dataLocalTimeEndDate = convertGMTDateToLocal(inputDate: currData.endDate)
-            
-            finalArray.append((BPM!, dataLocalTimeStartDate, dataLocalTimeEndDate))
+            finalArray.append((BPM!, currData.startDate, currData.endDate))
         }
-        
         return finalArray
     }
     
-    func convertGMTDateToLocal(inputDate: Date) -> Date{
-        let returnDate = Calendar.current.date(byAdding: .second, value: Calendar.current.timeZone.secondsFromGMT(), to: inputDate)! //*NOTE: The Date Here Is the Correct Local Time, But Does Not Share the Local UTC
-        return returnDate
+    //Parsing for Graphs --> Jessica's section
+    fileprivate func extractedFunc(_ activityTags: [PersonalTag]?, _ activityTagsFormatted: inout [(String, Date, Date, Bool)]) {
+        if activityTags?.isEmpty == false{
+            for tags in activityTags!{
+                activityTagsFormatted.append((tags.activity!, tags.startDate!, tags.endDate!, tags.star))
+            }
+        }
     }
     
-    
-    //Parsing for Graphs --> Jessica's section
     func parsedHKSampleArrayForGraphs(dataSet: [(Int, Date, Date)]) -> ([String], [Double], [String?], [(String, Date, Date, Bool)]){
         
         var xArray = [String]()
@@ -188,7 +182,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         //handling empty or partially filled tag array
         var activityTags: [PersonalTag]? = nil
         if !dataSet.isEmpty{
-            activityTags = getData(sD: dataSet[0].1, eD: (dataSet.last?.1)!)
+            activityTags = getData(sD: (dataSet.last?.1)!, eD: dataSet[0].1) //Note: Data set is in order from later to earlier bpm samples
         } else if dataSet.count == 1{
             activityTags = getData(sD: dataSet[0].1, eD: dataSet[0].1)
         }
@@ -216,11 +210,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             activityBPMArray.append(tagAppend)
         }
         var activityTagsFormatted = [(String, Date, Date, Bool)]()
-        if (activityTags?.isEmpty == false){
-            for tags in activityTags!{
-                activityTagsFormatted.append((tags.activity!, tags.startDate!, tags.endDate!, tags.star))
-            }
-        }
+        extractedFunc(activityTags, &activityTagsFormatted)
         
         //returning a reversed array so that the array goes from oldest to newest
         return (xArray.reversed(), yArray.reversed(), activityBPMArray.reversed(), activityTagsFormatted)
@@ -228,14 +218,22 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     //dealing with tags --> helper function to the "parsedHKSampleArrayForGraphs"
     func getData(sD: Date, eD: Date) -> [PersonalTag]?{
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
-        let predicate = NSPredicate(format: "startDate < %@AND endDate > %@", sD as CVarArg, eD as CVarArg)
+        
+        //***filter for: a.) bpm dates are inside the tag parameters, b.) the tag perameters are on the inside, c.) the bpm StartDate is on the inside of the tag perameters, d.) the bpm end date is on the inside of the tag perameters
+        
+            //--> condensced: a.) tag start AND end date are on the INSIDE of the bpm start and end date, OR b.) the bpm start date is inside of the tag perameters, OR c.) the bpm end date is inside of the tag perameters
+        
+        //sd/ed & %@ = the start and end dates of the bpm data || the startDate and endDate = the start and end dates of the tag core data
+        let predicate = NSPredicate(format: "%@ < startDate AND %@ > endDate OR startDate < %@ AND %@ < endDate OR startDate < %@ AND %@ < endDate", sD as CVarArg, eD as CVarArg, sD as CVarArg, sD as CVarArg, eD as CVarArg, eD as CVarArg)
+        
         fetchRequest.predicate = predicate
         
         do {
-            //            let tags = try context.fetch(PersonalTag.fetchRequest()) as! [PersonalTag]
+            //let tags = try context.fetch(PersonalTag.fetchRequest()) as! [PersonalTag]
             let tags = try context.fetch(fetchRequest)
             return tags
         } catch {
