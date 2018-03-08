@@ -92,6 +92,15 @@ class HeartProfileViewController: UIViewController {
         completion(nil)
     }
     
+    func getWorkoutType(){
+//        
+//        do{
+//            
+//        } catch{
+//            print("Can't get workout type (99)")
+//        }
+    }
+    
     func getFirstName(){
         
     }
