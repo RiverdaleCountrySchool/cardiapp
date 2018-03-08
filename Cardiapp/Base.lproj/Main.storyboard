@@ -345,7 +345,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eK-fA-Nea" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sLY-kT-Gbz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="-726"/>
+            <point key="canvasLocation" x="2009" y="-726"/>
         </scene>
         <!--Add Tag-->
         <scene sceneID="2hi-DX-XAx">
@@ -4951,7 +4951,7 @@ Cg
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Y2X-HE-V7m"/>
-        <segue reference="Ebx-Wp-yvL"/>
-        <segue reference="f7i-Gb-ctT"/>
+        <segue reference="Iso-4C-jNr"/>
+        <segue reference="D0W-Vn-A8d"/>
     </inferredMetricsTieBreakers>
 </document>

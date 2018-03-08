@@ -181,6 +181,7 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
             self.performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
         }
+        
         //the cancel action doing nothing
         let noAction = UIAlertAction(title: "No", style: .cancel) { (_) in }
         //adding the action to dialogbox

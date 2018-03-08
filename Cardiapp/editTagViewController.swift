@@ -16,10 +16,11 @@ class editTagViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBOutlet weak var endTimeText: UITextField!
     @IBOutlet weak var flag: UISwitch!
     
+    //var tag: PersonalTag?
+    
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         showMessageDialog()
     }
-    
     
     var StartTimePicker = UIDatePicker()
     var StartTimeToolBar = UIToolbar()
@@ -60,6 +61,15 @@ class editTagViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         activityText.placeholder = "Activity"
         activityText.inputView = activityPicker
         activityText.inputAccessoryView = activityToolBar
+        
+//        selectedActivity = (tag?.activity)!
+//        selectedStartDate = (tag?.startDate)!
+//        selectedEndDate = (tag?.endDate)!
+//        selectedStar = (tag?.star)!
+//        print("Activity: \(selectedActivity)")
+//        print("Start Time: \(selectedStartDate)")
+//        print("End Time: \(selectedEndDate)")
+//        print("Flag: \(selectedStar)")
     }
     
     //START TIME PICKER
