@@ -290,9 +290,9 @@ class ViewController: UIViewController, ChartViewDelegate {
             endDateActivityList.append(i.2)
         }
  
-        print("here is heart rate data set \(heartRateDataSet)")
-        print("emojis here: \(emojiTagString)")
-        print("startDate here: \(startDateActivityList)")
+//        print("here is heart rate data set \(heartRateDataSet)")
+//        print("emojis here: \(emojiTagString)")
+//        print("startDate here: \(startDateActivityList)")
         
         if startDateActivityList.isEmpty == false {
             BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString)
