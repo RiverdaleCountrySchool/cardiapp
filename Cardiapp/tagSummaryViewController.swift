@@ -263,12 +263,12 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
             let managedContext = appDelegate.persistentContainer.viewContext
             do {
                 self.tagDataPoints = try managedContext.fetch(PersonalTag.fetchRequest())
-                print("––––––––––––––––––––––––––––––––")
-                print("CORE DATA: ")
-                for dataPoint in self.tagDataPoints {
-                    print("\((dataPoint.activity)!) || \((dataPoint.startDate)!) || \((dataPoint.endDate)!) || \(dataPoint.star)")
-                }
-                print("––––––––––––––––––––––––––––––––")
+//                print("––––––––––––––––––––––––––––––––")
+//                print("CORE DATA: ")
+//                for dataPoint in self.tagDataPoints {
+//                    print("\((dataPoint.activity)!) || \((dataPoint.startDate)!) || \((dataPoint.endDate)!) || \(dataPoint.star)")
+//                }
+//                print("––––––––––––––––––––––––––––––––")
             } catch {
                 print("FETCH FAILED (220)")
             }

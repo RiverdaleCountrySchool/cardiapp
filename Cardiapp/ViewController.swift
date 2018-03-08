@@ -101,9 +101,6 @@ class ViewController: UIViewController, ChartViewDelegate {
             else{
                 print("AUTHORIZATION SUCCESS(41)")
                 print("–––––––––––––––––––––––––––––––––––––––––")
-                
-                //Deprecated:
-                //self.checkAuthorizationStatus()
             }
         }
         completion(nil)
@@ -112,9 +109,6 @@ class ViewController: UIViewController, ChartViewDelegate {
     //get heart rate samples from a start date
     func getHeartRatesAndGraph(startDate: Date?){
         var startDate = startDate
-        print("––––––––––––––––––")
-        print("TEST: \(convertGMTDateToLocal(inputDate: startDate!))")
-        print("––––––––––––––––––")
         
         guard let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate) else{
             print("could not establish quantity type (46)")
@@ -165,23 +159,20 @@ class ViewController: UIViewController, ChartViewDelegate {
             //            print("UUID: \(currData.uuid)")
             //            print("Source: \(currData.sourceRevision)")
             
-            //*Converting the HealthStoreData from GMT to Local Time
-            let dataLocalTimeStartDate = convertGMTDateToLocal(inputDate: currData.startDate)
-            let dataLocalTimeEndDate = convertGMTDateToLocal(inputDate: currData.endDate)
-            
-            finalArray.append((BPM!, dataLocalTimeStartDate, dataLocalTimeEndDate))
+            finalArray.append((BPM!, currData.startDate, currData.endDate))
         }
-        
         return finalArray
     }
     
-    func convertGMTDateToLocal(inputDate: Date) -> Date{
-        let returnDate = Calendar.current.date(byAdding: .second, value: Calendar.current.timeZone.secondsFromGMT(), to: inputDate)! //*NOTE: The Date Here Is the Correct Local Time, But Does Not Share the Local UTC
-        return returnDate
+    //Parsing for Graphs --> Jessica's section
+    fileprivate func extractedFunc(_ activityTags: [PersonalTag]?, _ activityTagsFormatted: inout [(String, Date, Date, Bool)]) {
+        if activityTags?.isEmpty == false{
+            for tags in activityTags!{
+                activityTagsFormatted.append((tags.activity!, tags.startDate!, tags.endDate!, tags.star))
+            }
+        }
     }
     
-    
-    //Parsing for Graphs --> Jessica's section
     func parsedHKSampleArrayForGraphs(dataSet: [(Int, Date, Date)]) -> ([String], [Double], [String?], [(String, Date, Date, Bool)]){
         
         var xArray = [String]()
@@ -191,7 +182,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         //handling empty or partially filled tag array
         var activityTags: [PersonalTag]? = nil
         if !dataSet.isEmpty{
-            activityTags = getData(sD: dataSet[0].1, eD: (dataSet.last?.1)!)
+            activityTags = getData(sD: (dataSet.last?.1)!, eD: dataSet[0].1) //Note: Data set is in order from later to earlier bpm samples
         } else if dataSet.count == 1{
             activityTags = getData(sD: dataSet[0].1, eD: dataSet[0].1)
         }
@@ -219,11 +210,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             activityBPMArray.append(tagAppend)
         }
         var activityTagsFormatted = [(String, Date, Date, Bool)]()
-        if (activityTags?.isEmpty == false){
-            for tags in activityTags!{
-                activityTagsFormatted.append((tags.activity!, tags.startDate!, tags.endDate!, tags.star))
-            }
-        }
+        extractedFunc(activityTags, &activityTagsFormatted)
         
         //returning a reversed array so that the array goes from oldest to newest
         return (xArray.reversed(), yArray.reversed(), activityBPMArray.reversed(), activityTagsFormatted)
@@ -231,14 +218,17 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     //dealing with tags --> helper function to the "parsedHKSampleArrayForGraphs"
     func getData(sD: Date, eD: Date) -> [PersonalTag]?{
+        
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
-        let predicate = NSPredicate(format: "startDate < %@ AND endDate > %@", sD as CVarArg, eD as CVarArg)
+        
+        let predicate = NSPredicate(format: "%@ < startDate AND %@ > endDate OR startDate < %@ AND %@ < endDate OR startDate < %@ AND %@ < endDate", sD as CVarArg, eD as CVarArg, sD as CVarArg, sD as CVarArg, eD as CVarArg, eD as CVarArg)
+        
         fetchRequest.predicate = predicate
         
         do {
-            //            let tags = try context.fetch(PersonalTag.fetchRequest()) as! [PersonalTag]
+            //let tags = try context.fetch(PersonalTag.fetchRequest()) as! [PersonalTag]
             let tags = try context.fetch(fetchRequest)
             return tags
         } catch {
@@ -274,8 +264,8 @@ class ViewController: UIViewController, ChartViewDelegate {
         // working with time
         chartView.xAxis.valueFormatter = DateValueFormatter()  //formats the labels on the x axis
         
-        let x = heartRateDataSet.0
-        let y = heartRateDataSet.1
+        let startDate = heartRateDataSet.0
+        let bpm = heartRateDataSet.1
         
         
         //adding stuff for combined chart
@@ -284,13 +274,29 @@ class ViewController: UIViewController, ChartViewDelegate {
         chartView.drawBarShadowEnabled = false
         chartView.highlightFullBarEnabled = false
         
-        JessicaSetChart(dataPoints: y, coords: x)
+        print("here1")
+        JessicaSetChart(dataPoints: bpm, coords: startDate)
         
         
         //bar chart data
-        let maxY = y.max()
-        //BarSetChart(start: startTimes, end:endTimes, maxY:maxY!)
+        let maxY = bpm.max()
+        var startDateActivityList = [Date]()
+        var endDateActivityList = [Date]()
+        var emojiTagString = [String]()
         
+        for i in heartRateDataSet.3{
+            emojiTagString.append(i.0)
+            startDateActivityList.append(i.1)
+            endDateActivityList.append(i.2)
+        }
+ 
+        print("here is heart rate data set \(heartRateDataSet)")
+        print("emojis here: \(emojiTagString)")
+        print("startDate here: \(startDateActivityList)")
+        
+        if startDateActivityList.isEmpty == false {
+            BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString)
+        }
         chartView.data = data
     }
     
@@ -304,8 +310,11 @@ class ViewController: UIViewController, ChartViewDelegate {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
         //dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         //changing the time zone:
-        dateFormatter.timeZone = Calendar.current.timeZone
-        dateFormatter.locale = Calendar.current.locale
+        //dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+      
+        //dateFormatter.timeZone = Calendar.current.timeZone
+        //dateFormatter.locale = Calendar.current.locale
         
         for i in coords {
             let t = dateFormatter.date(from: i)?.timeIntervalSince1970
@@ -346,61 +355,68 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     
     // ******** BAR CHART DATA (BELOW) ********
-    func BarSetChart(start:[String], end:[String], maxY:Double, emojis:[String]){
-        
-        var times1: [Double] = []
-        var times2: [Double] = []
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-        dateFormatter.timeZone = Calendar.current.timeZone
-        dateFormatter.locale = Calendar.current.locale
-        
-        for i in start {
-            let t = dateFormatter.date(from: i)?.timeIntervalSince1970
-            times1.append(Double(t!))
-        }
-        for i in end {
-            let t = dateFormatter.date(from: i)?.timeIntervalSince1970
-            times2.append(Double(t!))
-        }
-        
-        var dataEntries: [BarChartDataEntry] = []
-        for i in 0..<times1.count { //for each start time
+    func BarSetChart(start:[Date], end:[Date], maxY:Double, emojis:[String]){
+        print("BAR CHART CALLED")
+        if start.isEmpty == false {
+            var times1: [Double] = []
+            var times2: [Double] = []
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+            dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+           // dateFormatter.timeZone = Calendar.current.timeZone
+           // dateFormatter.locale = Calendar.current.locale
             
-            //find half way bar - half way bar is where I'm drawing the icon
-            let range = times2[i]-times1[i]
-            let mid = range/2
-            let mid_bar = mid/60 //since drawing a bar every 60
+            for i in start {
+                let t = i.timeIntervalSince1970
+                times1.append(Double(t))
+            }
+            for i in end {
+                let t = i.timeIntervalSince1970
+                //let t = dateFormatter.date(from: i)?.timeIntervalSince1970
+                times2.append(Double(t))
+            }
             
-            for j in stride(from: times1[i], through: times2[i], by: 60) { //create many bars that span the region from start to end time, counting up by minutes (60 sec) so it goes faster
-                //only display the icon for the bar in the middle of start/end times
-                if j == (mid_bar*60)+times1[i] { //if it's the middle bar
-                    let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojis[i].image())
-                    dataEntries.append(dataEntry)
-                }
-                else{
-                    let dataEntry = BarChartDataEntry(x: j, y: maxY)
-                    dataEntries.append(dataEntry)
+            var dataEntries: [BarChartDataEntry] = []
+            for i in 0..<times1.count { //for each start time
+                
+                //find half way bar - half way bar is where I'm drawing the icon
+                let range = times2[i]-times1[i]
+                let mid = range/2
+                let mid_bar = mid/60 //since drawing a bar every 60
+                
+                for j in stride(from: times1[i], through: times2[i], by: 60) { //create many bars that span the region from start to end time, counting up by minutes (60 sec) so it goes faster
+                    //only display the icon for the bar in the middle of start/end times
+                    //get the emoji only not the text
+                    let emojiIcon = emojis[i].components(separatedBy: " ")
+                    let emojiIcon2 = emojiIcon[1]
+                    
+                    if j == (mid_bar*60)+times1[i] { //if it's the middle bar
+                        let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojiIcon2.image())
+                        dataEntries.append(dataEntry)
+                    }
+                    else{
+                        let dataEntry = BarChartDataEntry(x: j, y: maxY)
+                        dataEntries.append(dataEntry)
+                    }
                 }
             }
+            
+            let barDataSet = BarChartDataSet(values: dataEntries, label: "Your Tags")
+            barDataSet.setColor(UIColor(red: 0/255, green: 20/255, blue: 7/255, alpha: 0.2))
+            barDataSet.valueTextColor = UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1)
+            barDataSet.valueFont = .systemFont(ofSize: 10)
+            
+            //don't draw labels over the bars and no highlight, do draw icons
+            barDataSet.highlightEnabled = false
+            barDataSet.drawValuesEnabled = false
+            barDataSet.drawIconsEnabled = true
+            
+            //let data = BarChartData(dataSet: barDataSet)
+            let data1 = BarChartData(dataSet: barDataSet)
+            data1.barWidth = times2[0]-times1[0]
+            
+            data.barData = data1
         }
-        
-        let barDataSet = BarChartDataSet(values: dataEntries, label: "Your Tags")
-        barDataSet.setColor(UIColor(red: 0/255, green: 20/255, blue: 7/255, alpha: 0.2))
-        barDataSet.valueTextColor = UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1)
-        barDataSet.valueFont = .systemFont(ofSize: 10)
-        
-        //don't draw labels over the bars and no highlight, do draw icons
-        barDataSet.highlightEnabled = false
-        barDataSet.drawValuesEnabled = false
-        barDataSet.drawIconsEnabled = true
-        
-        //let data = BarChartData(dataSet: barDataSet)
-        let data1 = BarChartData(dataSet: barDataSet)
-        data1.barWidth = times2[0]-times1[0]
-        
-        data.barData = data1
-        
     }
     //________________________________________________
     
