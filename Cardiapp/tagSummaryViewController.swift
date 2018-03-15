@@ -69,6 +69,11 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
                 print("WORKING")
                 saveToCoreData(data: (selectedActivity, selectedStartDate, selectedEndDate, selectedStar))
                 loadFromCoreData()
+                
+                activityText.text = ""
+                startTimeText.text = ""
+                endTimeText.text = ""
+                
                 performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
             } else if selectedEndDate == Date(timeIntervalSinceReferenceDate: 118800) || selectedStartDate == Date(timeIntervalSinceReferenceDate: 118800) {
                 print("NOT WORKING")

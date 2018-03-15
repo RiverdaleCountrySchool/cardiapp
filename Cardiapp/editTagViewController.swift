@@ -19,7 +19,7 @@ class editTagViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     //var tag: PersonalTag?
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
-        showMessageDialog()
+        //showMessageDialog()
     }
     
     var StartTimePicker = UIDatePicker()

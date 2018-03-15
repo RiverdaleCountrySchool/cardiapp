@@ -22,8 +22,6 @@ class ViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var hourButton: UIButton!
     @IBOutlet weak var dayButton: UIButton!
     @IBOutlet weak var weekButton: UIButton!
-    @IBOutlet weak var monthButton: UIButton!
-    @IBOutlet weak var yearButton: UIButton!
     
     @IBAction func unwindToViewController(segue:UIStoryboardSegue) { }
     
@@ -31,8 +29,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         hourButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
         dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         
         getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .hour, value: -1, to: Date()))
     }
@@ -40,8 +36,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         dayButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
         weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         
         getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -1, to: Date()))
     }
@@ -49,28 +43,8 @@ class ViewController: UIViewController, ChartViewDelegate {
         hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         weekButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
-        monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
         
         getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -7, to: Date()))
-    }
-    @IBAction func monthPressed(_ sender: UIButton) {
-        hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        monthButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
-        yearButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        
-        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .month, value: -1, to: Date()))
-    }
-    @IBAction func yearPressed(_ sender: UIButton) {
-        hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        monthButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        yearButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
-        
-        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .year, value: -1, to: Date()))
     }
     
     //function to get authorization from healthkit for certain datatypes in the application
