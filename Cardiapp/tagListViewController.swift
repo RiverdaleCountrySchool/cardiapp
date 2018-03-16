@@ -53,6 +53,13 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedIndex = indexPath.row
+        let tag = tags[indexPath.row]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        let startDateAppear = dateFormatter.string(from: tag.startDate!)
+        let endDateAppear = dateFormatter.string(from: tag.endDate!)
+        print("ACTIVITY: \((tag.activity)!)\nSTART TIME: \(startDateAppear)\nEND TIME: \(endDateAppear)\n\(tag.star)")
         performSegue(withIdentifier: "editTagSegue", sender: self)
     }
     
