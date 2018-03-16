@@ -257,7 +257,8 @@ class ViewController: UIViewController, ChartViewDelegate {
                                    font: NSUIFont.systemFont(ofSize: 14.0),
                                    textColor: NSUIColor.white,
                                    insets: UIEdgeInsets(top: 2.0, left: 3.0, bottom: 2.0, right: 3.0),
-                                   xAxisValueFormatter: DateValueFormatter())
+                                   xAxisValueFormatter: DateValueFormatter(),
+                                   heartRateData: heartRateDataSet)
         marker2.chartView = chartView
         chartView.marker = marker2
         
@@ -383,6 +384,8 @@ class ViewController: UIViewController, ChartViewDelegate {
                 let range = times2[i]-times1[i]
                 let mid = range/2
                 let mid_bar = mid/60 //since drawing a bar every 60
+                print("mid_bar: \(mid_bar)")
+                print("mid_bar+times1[i]: \((mid_bar*60)+times1[i])")
                 
                 for j in stride(from: times1[i], through: times2[i], by: 60) { //create many bars that span the region from start to end time, counting up by minutes (60 sec) so it goes faster
                     //only display the icon for the bar in the middle of start/end times
@@ -390,11 +393,18 @@ class ViewController: UIViewController, ChartViewDelegate {
                     let emojiIcon = emojis[i].components(separatedBy: " ")
                     let emojiIcon2 = emojiIcon[1]
                     
-                    if j == (mid_bar*60)+times1[i] { //if it's the middle bar
+                    print("emojiicon \(emojiIcon2)")
+                    print("j: \(j)")
+                    
+                    // if j < (mid_bar*60)+times1[i] + 30 && j > (mid_bar*60)+times1[i] - 30
+                
+                    if j == (mid_bar*60)+times1[i]  { //if it's the middle bar
                         let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojiIcon2.image())
                         dataEntries.append(dataEntry)
+                        print("called")
                     }
                     else{
+                        //let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojiIcon2.image())
                         let dataEntry = BarChartDataEntry(x: j, y: maxY)
                         dataEntries.append(dataEntry)
                     }
@@ -402,7 +412,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             }
             
             let barDataSet = BarChartDataSet(values: dataEntries, label: "Your Tags")
-            barDataSet.setColor(UIColor(red: 0/255, green: 20/255, blue: 7/255, alpha: 0.2))
+            barDataSet.setColor(UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.2))
             barDataSet.valueTextColor = UIColor(red: 60/255, green: 220/255, blue: 78/255, alpha: 1)
             barDataSet.valueFont = .systemFont(ofSize: 10)
             
@@ -457,7 +467,9 @@ class ViewController: UIViewController, ChartViewDelegate {
 //convert emoji string to UIimage for the tag //source:https://stackoverflow.com/questions/38809425/convert-apple-emoji-string-to-uiimage
 extension String {
     func image() -> UIImage? {
-        let size = CGSize(width: 30, height: 35)
+        let size = CGSize(width: 35, height: 35)
+        //let size = CGSize(width: 50, height: 50)
+        //let size = CGSize(width: 100, height: 100)
         UIGraphicsBeginImageContextWithOptions(size, false, 0);
         UIColor.white.set()
         let rect = CGRect(origin: CGPoint(), size: size)

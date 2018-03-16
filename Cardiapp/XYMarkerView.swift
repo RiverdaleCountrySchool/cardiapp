@@ -14,7 +14,7 @@ public class XYMarkerView: BalloonMarker {
     fileprivate var yFormatter = NumberFormatter()
     
     public init(color: UIColor, font: UIFont, textColor: UIColor, insets: UIEdgeInsets,
-                xAxisValueFormatter: IAxisValueFormatter) {
+                xAxisValueFormatter: IAxisValueFormatter, heartRateData: (([String], [Double], [String?], [(String, Date, Date, Bool)]))) {
         self.xAxisValueFormatter = xAxisValueFormatter
         yFormatter.minimumFractionDigits = 1
         yFormatter.maximumFractionDigits = 1
@@ -44,6 +44,19 @@ public class XYMarkerView: BalloonMarker {
         //        else{
         //            tag = ""
         //        }
+        
+        //putting the emoji tag inside of the marker
+//        let i = heartRateData.0.index(of: t) //find the index that corresponds with that time
+//        print("i value in tag \(i)")
+//        if i != nil{  // if the index exists
+//            if heartRateData.2[i!] != nil{ // if the value at the index for the tag isn't nil
+//                tag = heartRateData.2[i!] //find the tag that corresponds with that tag
+//            } else{
+//                tag = ""
+//            }
+//        } else{
+//            tag = ""
+//        }
         
         print(tag)
         
