@@ -69,6 +69,11 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
                 print("WORKING")
                 saveToCoreData(data: (selectedActivity, selectedStartDate, selectedEndDate, selectedStar))
                 loadFromCoreData()
+                
+                activityText.text = ""
+                startTimeText.text = ""
+                endTimeText.text = ""
+                
                 performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
             } else if selectedEndDate == Date(timeIntervalSinceReferenceDate: 118800) || selectedStartDate == Date(timeIntervalSinceReferenceDate: 118800) {
                 print("NOT WORKING")
@@ -181,6 +186,7 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
             self.performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
         }
+        
         //the cancel action doing nothing
         let noAction = UIAlertAction(title: "No", style: .cancel) { (_) in }
         //adding the action to dialogbox
