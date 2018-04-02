@@ -22,7 +22,7 @@ public class DateValueFormatter: NSObject, IAxisValueFormatter {
     
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
        //new
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        //dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         //
         return dateFormatter.string(from: Date(timeIntervalSince1970: value))
     }
