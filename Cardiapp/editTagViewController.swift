@@ -20,6 +20,7 @@ class editTagViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         //showMessageDialog()
+        self.performSegue(withIdentifier: "unwindSegueToTagList", sender: self)
     }
     
     var StartTimePicker = UIDatePicker()

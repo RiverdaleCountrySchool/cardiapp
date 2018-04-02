@@ -445,7 +445,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fa7-dd-IpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qy1-2Q-tXN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1215" y="80"/>
+            <point key="canvasLocation" x="1213.5999999999999" y="79.610194902548727"/>
         </scene>
         <!--Heart Profile-->
         <scene sceneID="Mkp-eg-Y2w">
@@ -675,7 +675,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="General Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49Q-Tq-78y">
-                                <rect key="frame" x="98" y="70" width="179" height="25"/>
+                                <rect key="frame" x="98" y="65" width="179" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -4935,6 +4935,7 @@ Cg
         <image name="tagList" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="muQ-Sq-bBz"/>
         <segue reference="Y2X-HE-V7m"/>
         <segue reference="Ebx-Wp-yvL"/>
         <segue reference="f7i-Gb-ctT"/>
