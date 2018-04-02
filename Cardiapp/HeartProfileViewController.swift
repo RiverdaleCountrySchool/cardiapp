@@ -11,8 +11,6 @@ import HealthKitUI
 
 class HeartProfileViewController: UIViewController {
     
-    @IBOutlet weak var firstNameLabel: UILabel!
-    @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var biologicalSexDataLabel: UILabel!
     @IBOutlet weak var heightDataLabel: UILabel!
@@ -83,30 +81,23 @@ class HeartProfileViewController: UIViewController {
     }
     
     func getBioData(completion: @escaping (Error?) -> Void){
-        self.getFirstName()
-        self.getLastName()
         self.getAge()
         self.getBiologicalSex()
         self.getHeight()
         self.getBodyMass()
+        self.getWorkoutType()
         completion(nil)
     }
     
     func getWorkoutType(){
-//        
-//        do{
-//            
-//        } catch{
-//            print("Can't get workout type (99)")
+//        getMostRecentSample(for: HKSampleType.workoutType()) { (sample, error) in
+//            guard let sample = sample else{
+//                print("ERROR – COULD NOT ESTABLISH SAMPLE IN getWorkoutType (95)")
+//                return
+//            }
+//            let workoutSample = sample?.quantity
+//            print("WORKOUT SAMPLE TYPE: \(workoutSample)")
 //        }
-    }
-    
-    func getFirstName(){
-        
-    }
-    
-    func getLastName(){
-        
     }
     
     func getAge() {
