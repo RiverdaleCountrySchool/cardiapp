@@ -397,7 +397,8 @@ class ViewController: UIViewController, ChartViewDelegate {
             
             //let data = BarChartData(dataSet: barDataSet)
             let data1 = BarChartData(dataSet: barDataSet)
-            data1.barWidth = times2[0]-times1[0]
+            data1.barWidth = 60
+                //times2[0]-times1[0]
             
             data.barData = data1
         }
