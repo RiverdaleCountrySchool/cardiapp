@@ -220,6 +220,8 @@ class ViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var chartView: CombinedChartView!
     @IBOutlet weak var yLabel: UILabel!
     
+    
+    
     func createGraph(heartRateDataSet: (([String], [Double], [String?], [(String, Date, Date, Bool)]))){
         //self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
         chartView.delegate = self
@@ -268,6 +270,20 @@ class ViewController: UIViewController, ChartViewDelegate {
 //        print("here is heart rate data set \(heartRateDataSet)")
 //        print("emojis here: \(emojiTagString)")
 //        print("startDate here: \(startDateActivityList)")
+        
+        //chartView.setVisibleXRangeMaximum(1000) //this sets max zoom on graph
+        //chartView.zoom(scaleX: 1000, scaleY: 100)
+        
+        
+        //find the first time for initial zooming
+        let firstTime = startDate[0]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        dateFormatter.timeZone = Calendar.current.timeZone
+        dateFormatter.locale = Calendar.current.locale
+        let initialTime = dateFormatter.date(from: firstTime)?.timeIntervalSince1970
+        
+        chartView.zoom(scaleX: 4, scaleY: 1, xValue: initialTime!, yValue: maxY!, axis: .left)
         
         if startDateActivityList.isEmpty == false {
             BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString)
@@ -398,7 +414,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             //let data = BarChartData(dataSet: barDataSet)
             let data1 = BarChartData(dataSet: barDataSet)
             data1.barWidth = 60
-                //times2[0]-times1[0]
+                //data1.barWidth = times2[0]-times1[0]
             
             data.barData = data1
         }
