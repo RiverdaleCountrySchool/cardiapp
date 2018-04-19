@@ -4,6 +4,7 @@
 //
 import UIKit
 import Foundation
+import os.log
 
 class tagListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -48,7 +49,6 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
                 print("Fetching Failed")
             }
         }
-        tableViewTagList.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -60,7 +60,7 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         let startDateAppear = dateFormatter.string(from: tag.startDate!)
         let endDateAppear = dateFormatter.string(from: tag.endDate!)
         print("ACTIVITY: \((tag.activity)!)\nSTART TIME: \(startDateAppear)\nEND TIME: \(endDateAppear)\n\(tag.star)")
-        performSegue(withIdentifier: "editTagSegue", sender: self)
+        performSegue(withIdentifier: "ShowDetail", sender: self)
     }
     
     override func viewDidLoad() {
@@ -81,6 +81,16 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
             print("Fetching Failed")
         }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "ShowDetail" {
+//            let indexPath: IndexPath //tableView.indexPathForSelectedRow!
+//            let tag = tags[indexPath.row]
+//            let editTagViewController = segue.destination
+//                as! editTagViewController
+//            editTagViewController.tag = tag
+//        }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
