@@ -9,5 +9,6 @@ target 'Cardiapp' do
 #    pod 'SwiftyJSON'
 #    pod 'CSV.swift'
     pod 'Charts'
+    pod 'JTAppleCalendar', '~> 7.0'
 
 end
