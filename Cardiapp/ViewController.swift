@@ -260,11 +260,13 @@ class ViewController: UIViewController, ChartViewDelegate {
         var startDateActivityList = [Date]()
         var endDateActivityList = [Date]()
         var emojiTagString = [String]()
+        var flagBool = [Bool]()
         
         for i in heartRateDataSet.3{
             emojiTagString.append(i.0)
             startDateActivityList.append(i.1)
             endDateActivityList.append(i.2)
+            flagBool.append(i.3)
         }
  
 //        print("here is heart rate data set \(heartRateDataSet)")
@@ -274,19 +276,20 @@ class ViewController: UIViewController, ChartViewDelegate {
         //chartView.setVisibleXRangeMaximum(1000) //this sets max zoom on graph
         //chartView.zoom(scaleX: 1000, scaleY: 100)
         
-        
-        //find the first time for initial zooming
-        let firstTime = startDate[0]
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-        dateFormatter.timeZone = Calendar.current.timeZone
-        dateFormatter.locale = Calendar.current.locale
-        let initialTime = dateFormatter.date(from: firstTime)?.timeIntervalSince1970
-        
-        chartView.zoom(scaleX: 4, scaleY: 1, xValue: initialTime!, yValue: maxY!, axis: .left)
-        
+        if startDate != [] {
+            //find the first time for initial zooming
+            let firstTime = startDate[0]
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+            dateFormatter.timeZone = Calendar.current.timeZone
+            dateFormatter.locale = Calendar.current.locale
+            let initialTime = dateFormatter.date(from: firstTime)?.timeIntervalSince1970
+            
+            chartView.zoom(scaleX: 4, scaleY: 1, xValue: initialTime!, yValue: maxY!, axis: .left)
+        }
+            
         if startDateActivityList.isEmpty == false {
-            BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString)
+            BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString, flags: flagBool)
         }
         chartView.data = data
     }
@@ -346,7 +349,7 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     
     // ******** BAR CHART DATA (BELOW) ********
-    func BarSetChart(start:[Date], end:[Date], maxY:Double, emojis:[String]){
+    func BarSetChart(start:[Date], end:[Date], maxY:Double, emojis:[String], flags:[Bool]){
         print("BAR CHART CALLED")
         if start.isEmpty == false {
             var times1: [Double] = []
@@ -392,6 +395,11 @@ class ViewController: UIViewController, ChartViewDelegate {
                         let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojiIcon2.image())
                         dataEntries.append(dataEntry)
                         print("called")
+                    }
+                    else if (j == times1[0] && flags[i] == true) { //if it's the first bar
+                        print("flags called")
+                        let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: "🚩".image())
+                        dataEntries.append(dataEntry)
                     }
                     else{
                         //let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojiIcon2.image())
