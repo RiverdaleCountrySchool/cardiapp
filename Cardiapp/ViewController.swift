@@ -2,7 +2,6 @@
 //  ViewController.swift
 //  heartRateAppMockUp
 //
-//  Created by Sam Lack on 11/28/17.
 //  Copyright © 2017 Riverdale Country School. All rights reserved.
 //
 
@@ -15,40 +14,16 @@ import CoreData
 //establishes userdefaults for the app (lets you save certain values for the user that will be used frequently throughout the app)
 let defaults = UserDefaults.standard
 
-class ViewController: UIViewController, ChartViewDelegate {
+var calendarSelectedDate = Date()
 
+class ViewController: UIViewController, ChartViewDelegate {
+    
     @IBOutlet var mainView: UIView!
     
-    @IBOutlet weak var hourButton: UIButton!
-    @IBOutlet weak var dayButton: UIButton!
-    @IBOutlet weak var weekButton: UIButton!
-    
-    @IBAction func unwindToViewController(segue:UIStoryboardSegue) { }
-    
-    @IBAction func hourPressed(_ sender: UIButton) {
-        hourButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
-        dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        
-        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .hour, value: -1, to: Date()))
-    }
-    @IBAction func dayPressed(_ sender: UIButton) {
-        hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        dayButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
-        weekButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        
-        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -1, to: Date()))
-    }
-    @IBAction func weekPressed(_ sender: UIButton) {
-        hourButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        dayButton.backgroundColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1)
-        weekButton.backgroundColor = UIColor(red: 255/255, green: 176/255, blue: 168/255, alpha: 1)
-        
-        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -7, to: Date()))
-    }
+    //Unwind Segue to the view controller
+    @IBAction func unwindToViewController(sender: UIStoryboardSegue){}
     
     //function to get authorization from healthkit for certain datatypes in the application
-    
     let healthStore = HKHealthStore()
     
     func authorizeHealthKit(completion: @escaping (Error?) -> Void) {
@@ -81,22 +56,28 @@ class ViewController: UIViewController, ChartViewDelegate {
     }
     
     //get heart rate samples from a start date
-    func getHeartRatesAndGraph(startDate: Date?){
-        var startDate = startDate
+    func getHeartRatesAndGraph(selectedDate: Date?){
+        var selectedDate = selectedDate
         
         guard let heartRateType = HKQuantityType.quantityType(forIdentifier: .heartRate) else{
             print("could not establish quantity type (46)")
             return
         }
         
-        let now = NSDate()
-        
-        if startDate == nil{
-            print("NO STARTDATE PASSED, PULLING ALL THE DATA")
-            startDate = NSDate.distantPast as Date
+        if selectedDate == nil{
+            selectedDate = Date()
         }
         
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: now as Date, options: [])
+        var startDate = Calendar.current.date(bySetting: .hour, value: 8, of: selectedDate!)
+        startDate = Calendar.current.date(bySetting: .minute, value: 0, of: startDate!)
+        startDate = Calendar.current.date(bySetting: .second, value: 0, of: startDate!)
+        
+        let endDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate!)
+        
+        print("SELECTED START DATE = ", (startDate?.description(with: Calendar.current.locale))!)
+        print("SELECTED END DATE = ", (endDate?.description(with: Calendar.current.locale))!)
+        
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
         
         let sortDescriptors = [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)]
         
@@ -112,6 +93,8 @@ class ViewController: UIViewController, ChartViewDelegate {
             //self.hrDataLoad = self.parseHKSampleArray(results: results) as! [(Int, Date, Date)]
             let arrayConvertedFromHealthStore = self.parseHKSampleArray(results: results) as! [(Int, Date, Date)]
             let arrayForGraph = self.parsedHKSampleArrayForGraphs(dataSet: arrayConvertedFromHealthStore)
+            
+            //***Check if data is available --> if array is empty --> Pull up view with "No data available"
             self.createGraph(heartRateDataSet: arrayForGraph)
             print("––––––––––––––––––––––––––––––––––")
             print(arrayForGraph)
@@ -229,12 +212,12 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         // trying out a different marker
         let marker2 = XYMarkerView(
-                                   color: UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1),
-                                   font: NSUIFont.systemFont(ofSize: 14.0),
-                                   textColor: NSUIColor.white,
-                                   insets: UIEdgeInsets(top: 2.0, left: 3.0, bottom: 2.0, right: 3.0),
-                                   xAxisValueFormatter: DateValueFormatter(),
-                                   heartRateData: heartRateDataSet)
+            color: UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1),
+            font: NSUIFont.systemFont(ofSize: 14.0),
+            textColor: NSUIColor.white,
+            insets: UIEdgeInsets(top: 2.0, left: 3.0, bottom: 2.0, right: 3.0),
+            xAxisValueFormatter: DateValueFormatter(),
+            heartRateData: heartRateDataSet)
         marker2.chartView = chartView
         chartView.marker = marker2
         
@@ -251,7 +234,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         chartView.drawBarShadowEnabled = false
         chartView.highlightFullBarEnabled = false
         
-        print("here1")
         JessicaSetChart(dataPoints: bpm, coords: startDate)
         
         
@@ -268,10 +250,10 @@ class ViewController: UIViewController, ChartViewDelegate {
             endDateActivityList.append(i.2)
             flagBool.append(i.3)
         }
- 
-//        print("here is heart rate data set \(heartRateDataSet)")
-//        print("emojis here: \(emojiTagString)")
-//        print("startDate here: \(startDateActivityList)")
+        
+        //        print("here is heart rate data set \(heartRateDataSet)")
+        //        print("emojis here: \(emojiTagString)")
+        //        print("startDate here: \(startDateActivityList)")
         
         //chartView.setVisibleXRangeMaximum(1000) //this sets max zoom on graph
         //chartView.zoom(scaleX: 1000, scaleY: 100)
@@ -305,8 +287,8 @@ class ViewController: UIViewController, ChartViewDelegate {
         //dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         //changing the time zone:
         //dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
-       // dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-      
+        // dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        
         dateFormatter.timeZone = Calendar.current.timeZone
         dateFormatter.locale = Calendar.current.locale
         
@@ -356,7 +338,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             var times2: [Double] = []
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-           // dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+            // dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
             dateFormatter.timeZone = Calendar.current.timeZone
             dateFormatter.locale = Calendar.current.locale
             
@@ -390,7 +372,7 @@ class ViewController: UIViewController, ChartViewDelegate {
                     print("j: \(j)")
                     
                     // if j < (mid_bar*60)+times1[i] + 30 && j > (mid_bar*60)+times1[i] - 30
-                
+                    
                     if j == (mid_bar*60)+times1[i]  { //if it's the middle bar
                         let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojiIcon2.image())
                         dataEntries.append(dataEntry)
@@ -422,7 +404,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             //let data = BarChartData(dataSet: barDataSet)
             let data1 = BarChartData(dataSet: barDataSet)
             data1.barWidth = 60
-                //data1.barWidth = times2[0]-times1[0]
+            //data1.barWidth = times2[0]-times1[0]
             
             data.barData = data1
         }
@@ -446,19 +428,25 @@ class ViewController: UIViewController, ChartViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //***NEED TO MAKE SURE THAT THE DAY BUTTON SEEMS PRESSED ON LOAD
-        getHeartRatesAndGraph(startDate: Calendar.current.date(byAdding: .day, value: -1, to: Date()))
-        
         //rotation of bpm label
         self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //loads the current day as a start
+        getHeartRatesAndGraph(selectedDate: calendarSelectedDate)
+        
+        print("–––––––––––––––––––––––––––")
+        print("SELECTED TIME: \(calendarSelectedDate)")
+        print("–––––––––––––––––––––––––––")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
 
@@ -479,4 +467,3 @@ extension String {
         return image
     }
 }
-
