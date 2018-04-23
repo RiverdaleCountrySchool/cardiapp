@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LbG-Fw-Psv" customClass="CombinedChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="156" width="343" height="371"/>
+                                <rect key="frame" x="16" y="126" width="343" height="371"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beats per Minute (BPM)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wju-sB-5Rw">
@@ -39,10 +39,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Cardigraph" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXo-xG-w6m">
+                                <rect key="frame" x="100" y="69" width="175" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardiappLogo-1" translatesAutoresizingMaskIntoConstraints="NO" id="zjG-NC-5Mg">
+                                <rect key="frame" x="137" y="20" width="100" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQO-Bh-iYo">
-                                <rect key="frame" x="16" y="108" width="343" height="40"/>
+                                <rect key="frame" x="16" y="550" width="343" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
@@ -53,29 +63,23 @@
                                     <segue destination="yNO-fh-cHS" kind="show" id="f7i-Gb-ctT"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Cardigraph" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXo-xG-w6m">
-                                <rect key="frame" x="125" y="70" width="124" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehw-Qu-irj">
+                                <rect key="frame" x="18" y="70" width="49" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardiappLogo-1" translatesAutoresizingMaskIntoConstraints="NO" id="zjG-NC-5Mg">
-                                <rect key="frame" x="137" y="20" width="100" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehw-Qu-irj">
-                                <rect key="frame" x="135" y="563" width="105" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <state key="normal" title="Calendar">
+                                <state key="normal" title="Calendar" image="calendarIcon">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="9Uc-rd-s8X" kind="show" id="IOo-2z-mlK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yab-98-Hjh">
+                                <rect key="frame" x="100" y="96" width="175" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="7R8-Wv-RmR"/>
@@ -98,6 +102,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cardigraphDateLabel" destination="yab-98-Hjh" id="1wA-8O-WSn"/>
                         <outlet property="chartView" destination="LbG-Fw-Psv" id="g9k-9g-OkQ"/>
                         <outlet property="mainView" destination="dbm-1E-UUP" id="6FT-0F-hwA"/>
                         <outlet property="yLabel" destination="Wju-sB-5Rw" id="XUY-Ny-c1t"/>
@@ -105,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPM-2X-x4U" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="80"/>
+            <point key="canvasLocation" x="372" y="79.610194902548727"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="4JQ-sb-Uw6">
@@ -5174,6 +5179,7 @@ Cg
     </scenes>
     <resources>
         <image name="addTag" width="30" height="30"/>
+        <image name="calendarIcon" width="1200" height="1200"/>
         <image name="cardiappLogo" width="1280" height="640"/>
         <image name="cardiappLogo-1" width="1280" height="327"/>
         <image name="hamburger" width="50" height="50"/>
@@ -5186,7 +5192,7 @@ Cg
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gzi-Pw-QKa"/>
-        <segue reference="Ebx-Wp-yvL"/>
+        <segue reference="Iso-4C-jNr"/>
         <segue reference="f7i-Gb-ctT"/>
     </inferredMetricsTieBreakers>
 </document>

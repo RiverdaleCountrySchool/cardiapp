@@ -68,14 +68,12 @@ class ViewController: UIViewController, ChartViewDelegate {
             selectedDate = Date()
         }
         
-        var startDate = Calendar.current.date(bySetting: .hour, value: 8, of: selectedDate!)
-        startDate = Calendar.current.date(bySetting: .minute, value: 0, of: startDate!)
-        startDate = Calendar.current.date(bySetting: .second, value: 0, of: startDate!)
+        let startDate = Calendar.current.startOfDay(for: selectedDate!)
         
-        let endDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate!)
+        let endDate = Calendar.current.date(byAdding: .second, value: -1, to: Calendar.current.date(byAdding: .day, value: 1, to: startDate)!)
         
-        print("SELECTED START DATE = ", (startDate?.description(with: Calendar.current.locale))!)
-        print("SELECTED END DATE = ", (endDate?.description(with: Calendar.current.locale))!)
+        print("SELECTED START DATE = ", (startDate.description(with: Calendar.current.locale)), startDate)
+        print("SELECTED END DATE = ", endDate?.description(with: Calendar.current.locale), endDate!)
         
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
         
@@ -94,11 +92,19 @@ class ViewController: UIViewController, ChartViewDelegate {
             let arrayConvertedFromHealthStore = self.parseHKSampleArray(results: results) as! [(Int, Date, Date)]
             let arrayForGraph = self.parsedHKSampleArrayForGraphs(dataSet: arrayConvertedFromHealthStore)
             
+            
+            print("––––––––––––––––––––––––––––––––––")
+            print("TESTING RIGHT NOW!", arrayForGraph)
+            print("––––––––––––––––––––––––––––––––––")
+            
             //***Check if data is available --> if array is empty --> Pull up view with "No data available"
-            self.createGraph(heartRateDataSet: arrayForGraph)
-            print("––––––––––––––––––––––––––––––––––")
-            print(arrayForGraph)
-            print("––––––––––––––––––––––––––––––––––")
+            if arrayForGraph.0.isEmpty || arrayForGraph.1.isEmpty  || arrayForGraph.2.isEmpty || arrayForGraph.3.isEmpty{
+                //Pull up viw with "No Data Available" and hide calendar View
+            }
+            else{
+                print("GRAPH DATA AVAILABLE")
+                self.createGraph(heartRateDataSet: arrayForGraph)
+            }
         }
         healthStore.execute(heartRateQuery)
     }
@@ -427,13 +433,23 @@ class ViewController: UIViewController, ChartViewDelegate {
         self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
     }
     
+    @IBOutlet weak var cardigraphDateLabel: UILabel!
+    
     override func viewDidAppear(_ animated: Bool) {
-        //loads the current day as a start
-        getHeartRatesAndGraph(selectedDate: calendarSelectedDate)
-        
         print("–––––––––––––––––––––––––––")
         print("SELECTED TIME: \(calendarSelectedDate)")
         print("–––––––––––––––––––––––––––")
+        
+        //loads the current day as a start
+        getHeartRatesAndGraph(selectedDate: calendarSelectedDate)
+        
+        //sets text for selectedDate label on ViewController
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .none
+        cardigraphDateLabel.text = dateFormatter.string(from: calendarSelectedDate)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
