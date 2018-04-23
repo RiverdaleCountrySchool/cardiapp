@@ -98,8 +98,9 @@ class ViewController: UIViewController, ChartViewDelegate {
             print("––––––––––––––––––––––––––––––––––")
             
             //***Check if data is available --> if array is empty --> Pull up view with "No data available"
-            if arrayForGraph.0.isEmpty || arrayForGraph.1.isEmpty  || arrayForGraph.2.isEmpty || arrayForGraph.3.isEmpty{
+            if arrayForGraph.0.isEmpty || arrayForGraph.1.isEmpty  || arrayForGraph.2.isEmpty{
                 //Pull up viw with "No Data Available" and hide calendar View
+                print("No data available")
             }
             else{
                 print("GRAPH DATA AVAILABLE")
