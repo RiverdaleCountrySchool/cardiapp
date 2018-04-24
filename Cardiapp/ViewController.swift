@@ -94,7 +94,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             
             
             print("––––––––––––––––––––––––––––––––––")
-            print("TESTING RIGHT NOW!", arrayForGraph)
+            print("DATA: ", arrayForGraph)
             print("––––––––––––––––––––––––––––––––––")
             
             //Start Loading animation
