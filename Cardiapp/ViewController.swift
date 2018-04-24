@@ -97,18 +97,43 @@ class ViewController: UIViewController, ChartViewDelegate {
             print("TESTING RIGHT NOW!", arrayForGraph)
             print("––––––––––––––––––––––––––––––––––")
             
+            //Start Loading animation
+            self.startLoadingAnimation()
+            
             //***Check if data is available --> if array is empty --> Pull up view with "No data available"
             if arrayForGraph.0.isEmpty || arrayForGraph.1.isEmpty  || arrayForGraph.2.isEmpty{
                 //Pull up viw with "No Data Available" and hide calendar View
                 print("No data available")
+                self.stopLoadingAnimation()
             }
             else{
                 print("GRAPH DATA AVAILABLE")
-                self.createGraph(heartRateDataSet: arrayForGraph)
+                self.createGraph(completion: { () in //***This may not be exactly where the graph is graphed
+                    self.stopLoadingAnimation()
+                },
+                    heartRateDataSet: arrayForGraph)
+                //self.stopLoadingAnimation()
             }
         }
         healthStore.execute(heartRateQuery)
     }
+    
+    //Loading Animation: https://stackoverflow.com/questions/27960556/loading-an-overlay-when-running-long-tasks-in-ios
+    func startLoadingAnimation(){
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+    }
+    func stopLoadingAnimation(){
+        dismiss(animated: false, completion: nil)
+    }
+    
     
     func parseHKSampleArray(results: [HKSample]?) -> Array<Any>{
         var finalArray = [Any]()
@@ -212,7 +237,7 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     
     
-    func createGraph(heartRateDataSet: (([String], [Double], [String?], [(String, Date, Date, Bool)]))){
+    func createGraph(completion: () -> Void, heartRateDataSet: (([String], [Double], [String?], [(String, Date, Date, Bool)]))){
         //self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
         chartView.delegate = self
         chartView.rightAxis.enabled = false
@@ -281,6 +306,8 @@ class ViewController: UIViewController, ChartViewDelegate {
             BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString, flags: flagBool)
         }
         chartView.data = data
+        
+        completion()
     }
     
     func JessicaSetChart(dataPoints: [Double], coords: [String]) {
