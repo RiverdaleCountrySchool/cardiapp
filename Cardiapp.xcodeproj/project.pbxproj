@@ -33,6 +33,8 @@
 		6470F0A720249678006B1F2F /* HeartProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0A420249677006B1F2F /* HeartProfileViewController.swift */; };
 		6470F0A820249678006B1F2F /* tagListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0A520249678006B1F2F /* tagListViewController.swift */; };
 		6470F0AB20249706006B1F2F /* Cardiapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0A920249706006B1F2F /* Cardiapp.xcdatamodeld */; };
+		648817DC208907AB00CD3BF8 /* CalendarPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648817DB208907AB00CD3BF8 /* CalendarPageController.swift */; };
+		648817DE208907B800CD3BF8 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648817DD208907B700CD3BF8 /* CustomCell.swift */; };
 		64C3092D202AC3B000DD9AB7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C3092C202AC3B000DD9AB7 /* HealthKit.framework */; };
 		64C30931202ACA5800DD9AB7 /* HKBiologicalSex+StringRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C30930202ACA5800DD9AB7 /* HKBiologicalSex+StringRepresentation.swift */; };
 		CD822A9454C9247212BCD1FD /* Pods_Cardiapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C85F790B36C62E28278AAFF /* Pods_Cardiapp.framework */; };
@@ -114,6 +116,8 @@
 		6470F0A420249677006B1F2F /* HeartProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartProfileViewController.swift; sourceTree = "<group>"; };
 		6470F0A520249678006B1F2F /* tagListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagListViewController.swift; sourceTree = "<group>"; };
 		6470F0AA20249706006B1F2F /* Cardiapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cardiapp.xcdatamodel; sourceTree = "<group>"; };
+		648817DB208907AB00CD3BF8 /* CalendarPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPageController.swift; sourceTree = "<group>"; };
+		648817DD208907B700CD3BF8 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		64C3092A202AC3B000DD9AB7 /* Cardiapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cardiapp.entitlements; sourceTree = "<group>"; };
 		64C3092C202AC3B000DD9AB7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		64C30930202ACA5800DD9AB7 /* HKBiologicalSex+StringRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HKBiologicalSex+StringRepresentation.swift"; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				6470F0692024942F006B1F2F /* ViewController.swift */,
 				6470F0A420249677006B1F2F /* HeartProfileViewController.swift */,
 				6470F0A520249678006B1F2F /* tagListViewController.swift */,
+				648817DB208907AB00CD3BF8 /* CalendarPageController.swift */,
+				648817DD208907B700CD3BF8 /* CustomCell.swift */,
 				21D1A94A204C8D4300A1DC4B /* editTagViewController.swift */,
 				6470F0A320249677006B1F2F /* tagSummaryViewController.swift */,
 				6470F06B2024942F006B1F2F /* Main.storyboard */,
@@ -415,10 +421,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Cardiapp/Pods-Cardiapp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -452,6 +460,7 @@
 				6470F0682024942F006B1F2F /* AppDelegate.swift in Sources */,
 				21EE59D62048E444006A61E6 /* SettingsViewController.swift in Sources */,
 				21D1A94B204C8D4300A1DC4B /* editTagViewController.swift in Sources */,
+				648817DC208907AB00CD3BF8 /* CalendarPageController.swift in Sources */,
 				6470F0A720249678006B1F2F /* HeartProfileViewController.swift in Sources */,
 				6418EE8C202D64650040E62C /* BalloonMarker.swift in Sources */,
 				6418EE8A202D64210040E62C /* XYMarkerView.swift in Sources */,
@@ -460,6 +469,7 @@
 				21271E4B2086F3B1008036A8 /* webPageViewController.swift in Sources */,
 				6470F0AB20249706006B1F2F /* Cardiapp.xcdatamodeld in Sources */,
 				6470F0A820249678006B1F2F /* tagListViewController.swift in Sources */,
+				648817DE208907B800CD3BF8 /* CustomCell.swift in Sources */,
 				6470F0A620249678006B1F2F /* tagSummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

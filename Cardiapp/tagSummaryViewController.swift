@@ -59,14 +59,14 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
         activityText.inputAccessoryView = activityToolBar
     }
     
-    @IBAction func doneBttnPressed(_ sender: Any) {
+    @IBAction func saveBttnPressed(_ sender: Any) {
         //Core Data Save
         if selectedActivity == "" {
-            print("NOT WORKING")
+            //print("NOT WORKING")
             showMessageDialog4()
         } else {
             if selectedStartDate < selectedEndDate {
-                print("WORKING")
+                //print("WORKING")
                 saveToCoreData(data: (selectedActivity, selectedStartDate, selectedEndDate, selectedStar))
                 loadFromCoreData()
                 
