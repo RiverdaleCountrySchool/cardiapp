@@ -4,7 +4,6 @@
 //
 import UIKit
 import Foundation
-import os.log
 
 class tagListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -14,6 +13,16 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func unwindToTagList(segue:UIStoryboardSegue) { }
     
+    @IBAction func saveToTagListController (segue:UIStoryboardSegue) {
+        let detailViewController = segue.source as! DetailTableViewController
+        
+        let index = detailViewController.index
+        
+        let activityString = detailViewController.editedActivity
+        
+        tableViewTagList.reloadData()
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tags.count
     }
@@ -60,7 +69,7 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         let startDateAppear = dateFormatter.string(from: tag.startDate!)
         let endDateAppear = dateFormatter.string(from: tag.endDate!)
         print("ACTIVITY: \((tag.activity)!)\nSTART TIME: \(startDateAppear)\nEND TIME: \(endDateAppear)\n\(tag.star)")
-        performSegue(withIdentifier: "ShowDetail", sender: self)
+        //performSegue(withIdentifier: "edit", sender: self)
     }
     
     override func viewDidLoad() {
@@ -82,15 +91,19 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ShowDetail" {
-//            let indexPath: IndexPath //tableView.indexPathForSelectedRow!
-//            let tag = tags[indexPath.row]
-//            let editTagViewController = segue.destination
-//                as! editTagViewController
-//            editTagViewController.tag = tag
-//        }
-//    }
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?, indexPath: IndexPath) {
+        let tag = tags[indexPath.row]
+        if segue.identifier == "edit" {
+            var path = tableViewTagList.indexPathForSelectedRow
+            var detailViewController = segue.destination as! DetailTableViewController
+            
+            detailViewController.index = path?.row
+            detailViewController.editedActivity = tag.activity
+            
+        }
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
