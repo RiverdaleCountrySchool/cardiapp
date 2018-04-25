@@ -206,7 +206,6 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="pIE-7z-kSZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<<<<<<< HEAD
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="33M-kL-NId">
                             <rect key="frame" x="0.0" y="417.5" width="375" height="46"/>
@@ -308,7 +307,7 @@
                             <outlet property="delegate" destination="SHW-RG-oSL" id="xAk-k4-aPG"/>
                         </connections>
                     </tableView>
-=======
+<!-- =======
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLX-1S-ibr">
                                 <rect key="frame" x="16" y="70" width="343" height="30"/>
@@ -408,7 +407,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="5de-JK-Yum"/>
                     </view>
->>>>>>> 0cf588f2f51679d924eb992b9d090bb7056e9646
+>>>>>>> 0cf588f2f51679d924eb992b9d090bb7056e9646 -->
                     <connections>
                         <outlet property="editActivityTextField" destination="fVy-ak-QqK" id="xxj-Ex-ugE"/>
                         <outlet property="editEndTimeTextField" destination="zX7-8m-2A0" id="HAk-Cl-FKX"/>
@@ -804,7 +803,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLF-4U-lJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="WkG-rQ-lR6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="-426.39999999999998" y="838.83058470764627"/>
         </scene>
         <!--Web Page View Controller-->
@@ -858,9 +856,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zJh-rl-RWw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1212" y="1612"/>
-=======
-            <point key="canvasLocation" x="-426.39999999999998" y="839.73013493253382"/>
->>>>>>> 0cf588f2f51679d924eb992b9d090bb7056e9646
         </scene>
         <!--View Controller-->
         <scene sceneID="Kc1-Cp-7TZ">
@@ -5369,13 +5364,8 @@ Cg
         <image name="tagList" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<< HEAD
         <segue reference="gjI-eC-0pZ"/>
         <segue reference="Ebx-Wp-yvL"/>
-=======
-        <segue reference="gzi-Pw-QKa"/>
-        <segue reference="Iso-4C-jNr"/>
->>>>>>> 0cf588f2f51679d924eb992b9d090bb7056e9646
         <segue reference="f7i-Gb-ctT"/>
     </inferredMetricsTieBreakers>
 </document>
