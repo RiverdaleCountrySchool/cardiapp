@@ -2,10 +2,8 @@
 //  CustomCell.swift
 //  Cardiapp
 //
-//  Created by Wesley Penn on 4/8/18.
-//  Copyright © 2018 Riverdale Country School. All rights reserved.
-//
 
+import UIKit
 import Foundation
 import JTAppleCalendar
 
