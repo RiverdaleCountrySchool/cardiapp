@@ -217,6 +217,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
         
+        //***This does not work if the end point of the tag is EQUAL to the last bpm
         let predicate = NSPredicate(format: "%@ < startDate AND %@ > endDate OR startDate < %@ AND %@ < endDate OR startDate < %@ AND %@ < endDate", sD as CVarArg, eD as CVarArg, sD as CVarArg, sD as CVarArg, eD as CVarArg, eD as CVarArg)
         
         fetchRequest.predicate = predicate
