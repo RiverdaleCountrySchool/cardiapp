@@ -738,16 +738,16 @@ Heart data.</string>
                                     <segue destination="a7J-be-M9p" kind="show" id="gjI-eC-0pZ"/>
                                 </connections>
                             </button>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZW-av-T2U">
+                                <rect key="frame" x="16" y="59" width="342" height="588"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardiappLogo-1" translatesAutoresizingMaskIntoConstraints="NO" id="fzq-dN-vBz">
                                 <rect key="frame" x="138" y="20" width="99" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="noQ-1c-BQh"/>
                                 </constraints>
                             </imageView>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZW-av-T2U">
-                                <rect key="frame" x="16" y="59" width="344" height="588"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
