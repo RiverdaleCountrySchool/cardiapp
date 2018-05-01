@@ -116,6 +116,7 @@ class ViewController: UIViewController, ChartViewDelegate {
                     self.noDataAvailableText.isHidden = true
                 }
                 self.createGraph(completion: { () in //***This may not be exactly where the graph is rendered
+//                    self.chartView.notifyDataSetChanged()
                     self.stopLoadingAnimation()
                 },
                     heartRateDataSet: arrayForGraph)
@@ -311,7 +312,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString, flags: flagBool)
         }
         chartView.data = data
-        
+        chartView.notifyDataSetChanged()
         completion()
     }
     
