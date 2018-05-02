@@ -73,7 +73,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         let endDate = Calendar.current.date(byAdding: .second, value: -1, to: Calendar.current.date(byAdding: .day, value: 1, to: startDate)!)
         
         print("SELECTED START DATE = ", (startDate.description(with: Calendar.current.locale)), startDate)
-        print("SELECTED END DATE = ", endDate?.description(with: Calendar.current.locale), endDate!)
+        print("SELECTED END DATE = ", endDate?.description(with: Calendar.current.locale) ?? "", endDate!)
         
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
         
@@ -104,15 +104,20 @@ class ViewController: UIViewController, ChartViewDelegate {
             if arrayForGraph.0.isEmpty || arrayForGraph.1.isEmpty  || arrayForGraph.2.isEmpty{
                 //Pull up viw with "No Data Available" and hide calendar View
                 print("No data available")
+                DispatchQueue.main.async {
+                    self.noDataAvailableText.isHidden = false
+                }
                 self.stopLoadingAnimation()
             }
             else{
                 print("GRAPH DATA AVAILABLE")
-                self.createGraph(completion: { () in //***This may not be exactly where the graph is graphed
+                DispatchQueue.main.async{
+                    self.noDataAvailableText.isHidden = true
+                }
+                self.createGraph(completion: { () in //***This may not be exactly where the graph is rendered
                     self.stopLoadingAnimation()
                 },
                     heartRateDataSet: arrayForGraph)
-                //self.stopLoadingAnimation()
             }
         }
         healthStore.execute(heartRateQuery)
@@ -212,6 +217,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
         
+        //***This does not work if the end point of the tag is EQUAL to the last bpm
         let predicate = NSPredicate(format: "%@ < startDate AND %@ > endDate OR startDate < %@ AND %@ < endDate OR startDate < %@ AND %@ < endDate", sD as CVarArg, eD as CVarArg, sD as CVarArg, sD as CVarArg, eD as CVarArg, eD as CVarArg)
         
         fetchRequest.predicate = predicate
@@ -234,8 +240,6 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var chartView: CombinedChartView!
     @IBOutlet weak var yLabel: UILabel!
-    
-    
     
     func createGraph(completion: () -> Void, heartRateDataSet: (([String], [Double], [String?], [(String, Date, Date, Bool)]))){
         //self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
@@ -306,7 +310,9 @@ class ViewController: UIViewController, ChartViewDelegate {
             BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString, flags: flagBool)
         }
         chartView.data = data
-        
+        DispatchQueue.main.async{
+            self.chartView.notifyDataSetChanged()
+        }
         completion()
     }
     
@@ -467,6 +473,9 @@ class ViewController: UIViewController, ChartViewDelegate {
     }
     
     @IBOutlet weak var cardigraphDateLabel: UILabel!
+
+
+    @IBOutlet weak var noDataAvailableText: UITextView!
     
     override func viewDidAppear(_ animated: Bool) {
         print("–––––––––––––––––––––––––––")
@@ -482,7 +491,9 @@ class ViewController: UIViewController, ChartViewDelegate {
         dateFormatter.timeStyle = .none
         cardigraphDateLabel.text = dateFormatter.string(from: calendarSelectedDate)
         
-        
+        DispatchQueue.main.async{
+            self.noDataAvailableText.isHidden = true
+        }
     }
     
     override func didReceiveMemoryWarning() {

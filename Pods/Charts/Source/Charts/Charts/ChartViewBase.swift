@@ -80,10 +80,11 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     @objc open weak var delegate: ChartViewDelegate?
     
     /// text that is displayed when the chart is empty
-    @objc open var noDataText = "No chart data available."
+    ///*Handled now in the main view --> Put Loading because this "noDataText" appears before data rendering
+    @objc open var noDataText = "Loading Graph..."
     
     /// Font to be used for the no data text.
-    @objc open var noDataFont: NSUIFont! = NSUIFont(name: "HelveticaNeue", size: 12.0)
+    @objc open var noDataFont: NSUIFont! = NSUIFont(name: "HelveticaNeue", size: 30)
     
     /// color of the no data text
     @objc open var noDataTextColor: NSUIColor = NSUIColor.black
