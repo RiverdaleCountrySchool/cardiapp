@@ -9,7 +9,12 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var tableViewTagList: UITableView!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var tags: [PersonalTag] = []
+    var coreDataStartDates: [Date?] = []
+    var coreDataEndDates: [Date?] = []
+    var coreDataActivities: [String] = []
+    var coreDataStar: [Bool] = []
     
     @IBAction func unwindToTagList(segue:UIStoryboardSegue) { }
     
@@ -19,6 +24,8 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         let index = detailViewController.index
         
         let activityString = detailViewController.editedActivity
+        
+        coreDataActivities[index!] = activityString!
         
         tableViewTagList.reloadData()
     }
@@ -47,17 +54,17 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let tag = tags[indexPath.row]
-            context.delete(tag)
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            
-            do {
-                tags = try context.fetch(PersonalTag.fetchRequest())
-            } catch {
-                print("Fetching Failed")
-            }
-        }
+//        if editingStyle == .delete {
+//            let tag = tags[indexPath.row]
+//            context.delete(tag)
+//            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+//
+//            do {
+//                tags = try context.fetch(PersonalTag.fetchRequest())
+//            } catch {
+//                print("Fetching Failed")
+//            }
+//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -98,7 +105,15 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
             var detailViewController = segue.destination as! DetailTableViewController
             
             detailViewController.index = path?.row
-            detailViewController.editedActivity = tag.activity
+            
+            for tag in tags{
+                coreDataStartDates.append(tag.startDate)
+                coreDataEndDates.append(tag.endDate)
+                coreDataActivities.append(tag.activity!)
+                coreDataStar.append(tag.star)
+            }
+            
+            detailViewController.activityArray = coreDataActivities
             
         }
         // Get the new view controller using [segue destinationViewController].

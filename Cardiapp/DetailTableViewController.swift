@@ -17,8 +17,8 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var editFlagSwitch: UISwitch!
     
     var index:Int?
-    
-    var editedActivity: String!
+    var activityArray: [String]!
+    var editedActivity: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
