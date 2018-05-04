@@ -100,12 +100,12 @@ class ViewController: UIViewController, ChartViewDelegate {
             //Start Loading animation
             self.startLoadingAnimation()
             
-            //***Check if data is available --> if array is empty --> Pull up view with "No data available"
             if arrayForGraph.0.isEmpty || arrayForGraph.1.isEmpty  || arrayForGraph.2.isEmpty{
                 //Pull up viw with "No Data Available" and hide calendar View
                 print("No data available")
                 DispatchQueue.main.async {
                     self.noDataAvailableText.isHidden = false
+                    self.mainControllerScrollView.isScrollEnabled = false
                 }
                 self.stopLoadingAnimation()
             }
@@ -113,6 +113,7 @@ class ViewController: UIViewController, ChartViewDelegate {
                 print("GRAPH DATA AVAILABLE")
                 DispatchQueue.main.async{
                     self.noDataAvailableText.isHidden = true
+                    self.mainControllerScrollView.isScrollEnabled = true
                 }
                 self.createGraph(completion: { () in //***This may not be exactly where the graph is rendered
                     self.stopLoadingAnimation()
@@ -516,6 +517,7 @@ class ViewController: UIViewController, ChartViewDelegate {
 
 
     @IBOutlet weak var noDataAvailableText: UITextView!
+    @IBOutlet weak var mainControllerScrollView: UIScrollView!
     
     override func viewDidAppear(_ animated: Bool) {
         print("–––––––––––––––––––––––––––")
@@ -533,6 +535,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         DispatchQueue.main.async{
             self.noDataAvailableText.isHidden = true
+            self.mainControllerScrollView.isScrollEnabled = true
         }
     }
     
