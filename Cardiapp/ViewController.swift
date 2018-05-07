@@ -100,12 +100,12 @@ class ViewController: UIViewController, ChartViewDelegate {
             //Start Loading animation
             self.startLoadingAnimation()
             
-            //***Check if data is available --> if array is empty --> Pull up view with "No data available"
             if arrayForGraph.0.isEmpty || arrayForGraph.1.isEmpty  || arrayForGraph.2.isEmpty{
                 //Pull up viw with "No Data Available" and hide calendar View
                 print("No data available")
                 DispatchQueue.main.async {
                     self.noDataAvailableText.isHidden = false
+                    self.mainControllerScrollView.isScrollEnabled = false
                 }
                 self.stopLoadingAnimation()
             }
@@ -113,6 +113,7 @@ class ViewController: UIViewController, ChartViewDelegate {
                 print("GRAPH DATA AVAILABLE")
                 DispatchQueue.main.async{
                     self.noDataAvailableText.isHidden = true
+                    self.mainControllerScrollView.isScrollEnabled = true
                 }
                 self.createGraph(completion: { () in //***This may not be exactly where the graph is rendered
                     self.stopLoadingAnimation()
@@ -240,6 +241,7 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var chartView: CombinedChartView!
     @IBOutlet weak var yLabel: UILabel!
+    @IBOutlet weak var graphInfoLabel: UILabel!
     
     func createGraph(completion: () -> Void, heartRateDataSet: (([String], [Double], [String?], [(String, Date, Date, Bool)]))){
         //self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
@@ -270,8 +272,9 @@ class ViewController: UIViewController, ChartViewDelegate {
         chartView.drawBarShadowEnabled = false
         chartView.highlightFullBarEnabled = false
         
-        JessicaSetChart(dataPoints: bpm, coords: startDate)
+        lineSetChart(dataPoints: bpm, coords: startDate)
         
+       
         
         //bar chart data
         let maxY = bpm.max()
@@ -310,13 +313,17 @@ class ViewController: UIViewController, ChartViewDelegate {
             BarSetChart(start: startDateActivityList, end: endDateActivityList, maxY:maxY!, emojis: emojiTagString, flags: flagBool)
         }
         chartView.data = data
+        
+        //set information about graph
+        graphInfo(bpm: bpm, times: startDate)
+        
         DispatchQueue.main.async{
             self.chartView.notifyDataSetChanged()
         }
         completion()
     }
     
-    func JessicaSetChart(dataPoints: [Double], coords: [String]) {
+    func lineSetChart(dataPoints: [Double], coords: [String]) {
         
         //convert the time stamp into a number value
         //source: https://stackoverflow.com/questions/24777496/how-can-i-convert-string-date-to-nsdate
@@ -449,6 +456,40 @@ class ViewController: UIViewController, ChartViewDelegate {
             data.barData = data1
         }
     }
+    
+    func graphInfo(bpm: [Double], times: [String]) {
+        //find max, min, avg heart rate
+        let maxBPM = bpm.max()!
+        let minBPM = bpm.min()!
+        let avgBPM = bpm.reduce(0.0,+) / Double(bpm.count)
+        let roundedAvgBPM = round(avgBPM * 10) / 10
+        
+        var medianBPM = 0.0
+        if bpm.sorted().count % 2 != 0 { //if have odd number of items
+            medianBPM = bpm.sorted()[bpm.sorted().count/2] //median is the middle value of the sorted array
+        } else{
+            medianBPM = ( bpm.sorted()[bpm.sorted().count/2]  +   bpm.sorted()[bpm.sorted().count/2 - 1] ) / 2 //median is the average of the two middle values
+        }
+        print(maxBPM)
+        print(minBPM)
+        print(avgBPM)
+        print(medianBPM)
+        
+        graphInfoLabel.numberOfLines = 6;
+        
+       // graphInfoText.isEditable = false
+        //graphInfoText.attributedText = NSMutableAttributedString(string: "h")
+        DispatchQueue.main.async(){
+            self.graphInfoLabel.text = "Here are your BPM stats for the day!  \nMaximum: \(String(describing: maxBPM))  \nMinimum: \(String(describing: minBPM))  \nAverage: \(String(describing: roundedAvgBPM))   \nMedian: \(String(describing: medianBPM)) "
+        }
+        
+        
+//        if medianBPM != 0.0 {
+//            graphInfoText.text = "Here are your stats for the day!  \nMaximum BPM: \(String(describing: maxBPM))  \nMinimum BPM: \(String(describing: minBPM))  \nAverage BPM: \(String(describing: avgBPM))   \nMedian BPM: \(String(describing: medianBPM)) "
+//        }
+    }
+        
+        
     //________________________________________________
     
     //Main Thread Functions
@@ -476,6 +517,7 @@ class ViewController: UIViewController, ChartViewDelegate {
 
 
     @IBOutlet weak var noDataAvailableText: UITextView!
+    @IBOutlet weak var mainControllerScrollView: UIScrollView!
     
     override func viewDidAppear(_ animated: Bool) {
         print("–––––––––––––––––––––––––––")
@@ -493,6 +535,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         DispatchQueue.main.async{
             self.noDataAvailableText.isHidden = true
+            self.mainControllerScrollView.isScrollEnabled = true
         }
     }
     
