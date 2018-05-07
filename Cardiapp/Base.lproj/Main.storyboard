@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rLI-nN-flp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rLI-nN-flp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Cardiapp-->
         <scene sceneID="DBs-UQ-c5E">
@@ -189,8 +195,8 @@ Just add it to the view on top of the scroll view</string>
                     <connections>
                         <segue destination="yIH-e5-5xd" kind="relationship" relationship="viewControllers" id="Q4g-Pg-uSt"/>
                         <segue destination="3bP-1v-Ios" kind="relationship" relationship="viewControllers" id="HQw-wq-2zb"/>
-                        <segue destination="yNO-fh-cHS" kind="relationship" relationship="viewControllers" id="D0W-Vn-A8d"/>
                         <segue destination="FDo-z4-PKY" kind="relationship" relationship="viewControllers" id="Iso-4C-jNr"/>
+                        <segue destination="KLg-Mk-Osm" kind="relationship" relationship="viewControllers" id="1kc-GN-jB5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTo-hS-Pgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -216,9 +222,6 @@ Just add it to the view on top of the scroll view</string>
                                             <rect key="frame" x="0.0" y="0.0" width="343.5" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="SHW-RG-oSL" kind="show" identifier="edit" id="faM-gp-Kbc"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -256,6 +259,7 @@ Just add it to the view on top of the scroll view</string>
                     <tabBarItem key="tabBarItem" title="Tag List" image="tagList" selectedImage="tagList" id="JWQ-TS-Y6V"/>
                     <connections>
                         <outlet property="tableViewTagList" destination="ezR-9J-A46" id="VEP-uH-ivC"/>
+                        <segue destination="SHW-RG-oSL" kind="show" identifier="edit" id="UZj-fs-5mZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NgO-QI-LfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -499,6 +503,28 @@ Just add it to the view on top of the scroll view</string>
                 <exit id="qy1-2Q-tXN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1213.5999999999999" y="79.610194902548727"/>
+        </scene>
+        <!--Advice-->
+        <scene sceneID="ahR-G5-Naf">
+            <objects>
+                <viewController id="KLg-Mk-Osm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YCW-lE-C3M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardiappLogo-1" translatesAutoresizingMaskIntoConstraints="NO" id="GPC-mp-U5Y">
+                                <rect key="frame" x="137" y="20" width="100" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="PTo-gW-a1f"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Advice" image="heartAdvice" selectedImage="heartAdvice" id="hfw-Bj-fWp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qlv-uW-ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1984" y="83"/>
         </scene>
         <!--Heart Profile-->
         <scene sceneID="Mkp-eg-Y2w">
@@ -5194,7 +5220,7 @@ Cg
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="CustomCell" id="foJ-oB-brn" customClass="CustomCell" customModule="Cardiapp" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCell" id="foJ-oB-brn" customClass="CustomCell" customModule="Cardiapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="110" height="106"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -5202,7 +5228,7 @@ Cg
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LON-PS-meE">
-                                                                    <rect key="frame" x="35" y="30" width="40" height="40"/>
+                                                                    <rect key="frame" x="35" y="33" width="40" height="40"/>
                                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="40" id="4US-4V-fQi" userLabel="width = 40"/>
@@ -5215,7 +5241,7 @@ Cg
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7Y-z9-OSB">
-                                                                    <rect key="frame" x="35.5" y="40.5" width="39.5" height="19"/>
+                                                                    <rect key="frame" x="35.5" y="43.5" width="39.5" height="19"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -5322,6 +5348,7 @@ Cg
         <image name="cardiappLogo" width="1280" height="640"/>
         <image name="cardiappLogo-1" width="1280" height="327"/>
         <image name="hamburger" width="50" height="50"/>
+        <image name="heartAdvice" width="30" height="30"/>
         <image name="heartGraph2" width="30" height="30"/>
         <image name="heartProfile" width="30" height="30"/>
         <image name="heartProfileIcon" width="50" height="30"/>
@@ -5331,7 +5358,6 @@ Cg
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Y2X-HE-V7m"/>
-        <segue reference="Ebx-Wp-yvL"/>
-        <segue reference="f7i-Gb-ctT"/>
+        <segue reference="Iso-4C-jNr"/>
     </inferredMetricsTieBreakers>
 </document>
