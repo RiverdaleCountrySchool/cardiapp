@@ -9,7 +9,12 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var tableViewTagList: UITableView!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var tags: [PersonalTag] = []
+    var coreDataStartDates: [Date?] = []
+    var coreDataEndDates: [Date?] = []
+    var coreDataActivities: [String] = []
+    var coreDataStar: [Bool] = []
     
     @IBAction func unwindToTagList(segue:UIStoryboardSegue) { }
     
@@ -19,6 +24,8 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         let index = detailViewController.index
         
         let activityString = detailViewController.editedActivity
+        
+        coreDataActivities[index!] = activityString!
         
         tableViewTagList.reloadData()
     }
@@ -46,20 +53,6 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let tag = tags[indexPath.row]
-            context.delete(tag)
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            
-            do {
-                tags = try context.fetch(PersonalTag.fetchRequest())
-            } catch {
-                print("Fetching Failed")
-            }
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedIndex = indexPath.row
         let tag = tags[indexPath.row]
@@ -70,6 +63,15 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         let endDateAppear = dateFormatter.string(from: tag.endDate!)
         print("ACTIVITY: \((tag.activity)!)\nSTART TIME: \(startDateAppear)\nEND TIME: \(endDateAppear)\n\(tag.star)")
         //performSegue(withIdentifier: "edit", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            let tag = tags[indexPath.row]
+            tags.remove(at: indexPath.row)
+            context.delete(tag)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
+        }
     }
     
     override func viewDidLoad() {
@@ -91,15 +93,27 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?, indexPath: IndexPath) {
+    func prepareForSegue(for segue: UIStoryboardSegue, sender: AnyObject?, indexPath: IndexPath) {
         let tag = tags[indexPath.row]
+        print("HELLO")
         if segue.identifier == "edit" {
+            print("GOODBYE")
             var path = tableViewTagList.indexPathForSelectedRow
+
             var detailViewController = segue.destination as! DetailTableViewController
-            
+
             detailViewController.index = path?.row
-            detailViewController.editedActivity = tag.activity
-            
+
+            for tag in tags{
+                coreDataStartDates.append(tag.startDate)
+                coreDataEndDates.append(tag.endDate)
+                coreDataActivities.append(tag.activity!)
+                coreDataStar.append(tag.star)
+            }
+            print("BEFORE: \(coreDataActivities)")
+            detailViewController.activityArray = coreDataActivities
+            print("AFTER: \(detailViewController.activityArray)")
+
         }
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.

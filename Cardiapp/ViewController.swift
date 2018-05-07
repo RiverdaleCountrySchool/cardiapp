@@ -8,8 +8,8 @@
 import UIKit
 import HealthKit
 import Foundation
-import Charts
 import CoreData
+import Charts
 
 //establishes userdefaults for the app (lets you save certain values for the user that will be used frequently throughout the app)
 let defaults = UserDefaults.standard

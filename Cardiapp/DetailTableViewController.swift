@@ -17,13 +17,14 @@ class DetailTableViewController: UITableViewController {
     @IBOutlet weak var editFlagSwitch: UISwitch!
     
     var index:Int?
-    
-    var editedActivity: String!
+    var activityArray: [String]!
+    var editedActivity: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        editActivityTextField.text = editedActivity
+        editActivityTextField.text = activityArray[index!]
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
