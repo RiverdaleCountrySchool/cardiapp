@@ -477,6 +477,8 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         graphInfoLabel.numberOfLines = 6;
         
+        print("HEY THERE, HERES MY AGE: ", defaults.string(forKey: "Age"))
+        
        // graphInfoText.isEditable = false
         //graphInfoText.attributedText = NSMutableAttributedString(string: "h")
         DispatchQueue.main.async(){
