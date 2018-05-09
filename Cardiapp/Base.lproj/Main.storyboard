@@ -206,11 +206,11 @@ heart rate data and make sure you authorize Cardiapp in your health settings.</s
                                 <rect key="frame" x="16" y="108" width="343.5" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" rowHeight="45" id="02O-Mq-it4">
-                                        <rect key="frame" x="0.0" y="28" width="343.5" height="45"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" rowHeight="63" id="02O-Mq-it4">
+                                        <rect key="frame" x="0.0" y="28" width="343.5" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="02O-Mq-it4" id="zeH-2j-axa">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.5" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343.5" height="62.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -255,7 +255,7 @@ heart rate data and make sure you authorize Cardiapp in your health settings.</s
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NgO-QI-LfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1212" y="-727.28635682158927"/>
+            <point key="canvasLocation" x="1213.5999999999999" y="-727.28635682158927"/>
         </scene>
         <!--Detail Table View Controller-->
         <scene sceneID="pqE-HS-8N1">
@@ -569,23 +569,6 @@ heart rate data and make sure you authorize Cardiapp in your health settings.</s
                                 </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0z-Rx-zAI">
-                                <rect key="frame" x="16" y="263" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <state key="normal" title="Heart Healthy Advice">
-                                    <color key="titleColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7e-90-TAJ">
-                                <rect key="frame" x="16" y="301" width="343" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text"> - You ran for 20 minutes with 7 minutes in your optimal zone. Great job!
-- You enjoyed a nice walk. Walk 10% faster next time to burn double the calories.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-Uf-LvN">
@@ -1019,7 +1002,7 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">We demystify what your heart is telling you with clear and accurate insights. Our mission is to give you the tools to gain the freedom and independence necessary to take control over your heart health.</string>
+                                        <string key="content">We demystify what your heart is telling you with clear and accurate insights. Our mission is to give you the tools to gain the freedom and independence necessary to take control of your heart health.</string>
                                         <attributes>
                                             <color key="NSColor" red="1" green="0.49412" blue="0.47450999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="14" name="Helvetica"/>
@@ -5348,7 +5331,7 @@ Cg
         <image name="tagList" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Y2X-HE-V7m"/>
+        <segue reference="JQE-wo-Za1"/>
         <segue reference="Iso-4C-jNr"/>
     </inferredMetricsTieBreakers>
 </document>
