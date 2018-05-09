@@ -23,6 +23,15 @@ class ViewController: UIViewController, ChartViewDelegate {
     //Unwind Segue to the view controller
     @IBAction func unwindToViewController(sender: UIStoryboardSegue){}
     
+    
+    @IBOutlet weak var infoButton: UIButton!
+    //https://stackoverflow.com/questions/952412/uiscrollview-scroll-to-bottom-programmatically
+    @IBAction func infoButton(_ sender: Any) {
+        let bottomOffset = CGPoint(x: 0, y: mainControllerScrollView.contentSize.height - mainControllerScrollView.bounds.size.height)
+        mainControllerScrollView.setContentOffset(bottomOffset, animated: true)
+    }
+    
+    
     //function to get authorization from healthkit for certain datatypes in the application
     let healthStore = HKHealthStore()
     
@@ -106,6 +115,8 @@ class ViewController: UIViewController, ChartViewDelegate {
                 DispatchQueue.main.async {
                     self.noDataAvailableText.isHidden = false
                     self.mainControllerScrollView.isScrollEnabled = false
+                    self.infoButton.isHidden = true
+                    self.infoButton.isEnabled = false
                 }
                 self.stopLoadingAnimation()
             }
@@ -113,6 +124,8 @@ class ViewController: UIViewController, ChartViewDelegate {
                 print("GRAPH DATA AVAILABLE")
                 DispatchQueue.main.async{
                     self.noDataAvailableText.isHidden = true
+                    self.infoButton.isHidden = false
+                    self.infoButton.isEnabled = true
                     self.mainControllerScrollView.isScrollEnabled = true
                 }
                 self.createGraph(completion: { () in //***This may not be exactly where the graph is rendered
@@ -477,6 +490,8 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         graphInfoLabel.numberOfLines = 6;
         
+        print("HEY THERE, HERES MY AGE: ", defaults.string(forKey: "Age"))
+        
        // graphInfoText.isEditable = false
         //graphInfoText.attributedText = NSMutableAttributedString(string: "h")
         DispatchQueue.main.async(){
@@ -536,6 +551,8 @@ class ViewController: UIViewController, ChartViewDelegate {
         DispatchQueue.main.async{
             self.noDataAvailableText.isHidden = true
             self.mainControllerScrollView.isScrollEnabled = true
+            self.infoButton.isHidden = false
+            self.infoButton.isEnabled = true
         }
     }
     
