@@ -30,27 +30,41 @@ class HeartProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        //get Biological data
-        getBioData(){ (error) in
-            if let error = error{
-                print("Error (40): \(error)")
-            }
-        }
+//        //get Biological data
+//        getBioData(){ (error) in
+//            if let error = error{
+//                print("Error (40): \(error)")
+//            }
+//        }
+        //clear labels
+        maxBPMLabel.text  = ""
+        MaxBPM50Label.text = ""
+        MaxBPM85Label.text = ""
+        moderateExerciseLabel.text = ""
+        intenseExerciseLabel.text = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         getUserDefaults()
         optimalHeartRate()
+        //get Biological data
+        getBioData(){ (error) in
+            if let error = error{
+                print("Error (40): \(error)")
+            }
+        }
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //HAMBURGER SLIDER
         //viewXPosition.constant = -500
         //viewFront.isHidden = true
+        
     }
     
     //var hamburgerMenuIsVisable = false
@@ -125,6 +139,8 @@ class HeartProfileViewController: UIViewController {
             }
         } catch{
             print("CAN'T GET AGE (80)")
+            defaults.set(nil, forKey: "Age")
+            print("USER's AGE \(defaults.string(forKey: "Age"))")
         }
     }
     
@@ -214,57 +230,78 @@ class HeartProfileViewController: UIViewController {
     }
     
     func optimalHeartRate() {
-        
+        //clear labels
+        maxBPMLabel.text  = ""
+        MaxBPM50Label.text = ""
+        MaxBPM85Label.text = ""
+        moderateExerciseLabel.text = ""
+        intenseExerciseLabel.text = ""
+    
         var heartRange50 = 0
         var heartRange85 = 0
         
-        let userAge = Int(defaults.string(forKey: "Age")!)!
-        switch userAge {
-            case 0..<30:
-                heartRange50 = 100
-                heartRange85 = 170
-            case  30..<35 :
-                heartRange50 = 95
-                heartRange85 = 162
-            case  35..<40 :
-                heartRange50 = 93
-                heartRange85 = 157
-            case  40..<45 :
-                heartRange50 = 90
-                heartRange85 = 153
-            case 45..<50:
-                heartRange50 = 88
-                heartRange85 = 149
-            case 50..<55:
-                heartRange50 = 85
-                heartRange85 = 145
-            case 55..<60:
-                heartRange50 = 83
-                heartRange85 = 140
-            case 60..<65:
-                heartRange50 = 80
-                heartRange85 = 136
-            case 65..<70:
-                heartRange50 = 78
-                heartRange85 = 132
-            case 70..<100000:
-                heartRange50 = 75
-                heartRange85 = 128
-            default:
-                print("Problem setting target heart rate")
+        print("user default age \(defaults.string(forKey: "Age"))")
+        if defaults.string(forKey: "Age") != nil {
+            print("AGE NOT NIL")
+            let userAge = Int(defaults.string(forKey: "Age")!)!
+            switch userAge {
+                case 0..<30:
+                    heartRange50 = 100
+                    heartRange85 = 170
+                case  30..<35 :
+                    heartRange50 = 95
+                    heartRange85 = 162
+                case  35..<40 :
+                    heartRange50 = 93
+                    heartRange85 = 157
+                case  40..<45 :
+                    heartRange50 = 90
+                    heartRange85 = 153
+                case 45..<50:
+                    heartRange50 = 88
+                    heartRange85 = 149
+                case 50..<55:
+                    heartRange50 = 85
+                    heartRange85 = 145
+                case 55..<60:
+                    heartRange50 = 83
+                    heartRange85 = 140
+                case 60..<65:
+                    heartRange50 = 80
+                    heartRange85 = 136
+                case 65..<70:
+                    heartRange50 = 78
+                    heartRange85 = 132
+                case 70..<100000:
+                    heartRange50 = 75
+                    heartRange85 = 128
+                default:
+                    print("Problem setting target heart rate")
+            }
+            let maxHeartRate = 220 - userAge
+            maxBPMLabel.text = "\(maxHeartRate)"
+            MaxBPM50Label.text = "\(heartRange50)"
+            MaxBPM85Label.text = "\(heartRange85)"
+            
+            print("Max Heart rate \(maxHeartRate)")
+            //moderate activity
+            let BPM50HeartRate = (maxHeartRate) / 2
+            let BPM70HeartRate = (maxHeartRate * 7) / 10
+            let BPM85HeartRate = (maxHeartRate * 85) / 100
+            
+            print("maxHeartRate \(maxHeartRate)")
+            
+            
+            moderateExerciseLabel.text = "\(BPM50HeartRate) to \(BPM70HeartRate)"
+            intenseExerciseLabel.text = "\(BPM70HeartRate) to \(BPM85HeartRate)"
+            
+            //defaults.set(heightInMeters, forKey: "Height")
         }
-        let maxHeartRate = 220 - userAge
-        maxBPMLabel.text = "\(maxHeartRate)"
-        MaxBPM50Label.text = "\(heartRange50)"
-        MaxBPM85Label.text = "\(heartRange85)"
-        
-        //moderate activity
-        let BPM50HeartRate = (maxHeartRate) / 2
-        let BPM70HeartRate = (maxHeartRate * 10) / 7
-        let BPM85HeartRate = (maxHeartRate * 100) / 85
-        
-        moderateExerciseLabel.text = "\(BPM50HeartRate) to \(BPM70HeartRate)"
-        intenseExerciseLabel.text = "\(BPM70HeartRate) to \(BPM85HeartRate)"
+        else {
+            DispatchQueue.main.async{
+                self.maxBPMLabel.text = "Enter age first"
+            }
+        }
     }
     
     
