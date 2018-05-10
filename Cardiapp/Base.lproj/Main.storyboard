@@ -61,9 +61,7 @@
 
 No Data Available 
 
-To track your heart rate wear
-an Apple Watch to record
-heart rate data and make sure you authorize Cardiapp in your health settings.</string>
+Wear an Apple Watch to record your heart rate data. Make sure to authorize Cardiapp to access your health data in Settings.</string>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
