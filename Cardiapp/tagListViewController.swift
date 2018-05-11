@@ -62,7 +62,23 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         let startDateAppear = dateFormatter.string(from: tag.startDate!)
         let endDateAppear = dateFormatter.string(from: tag.endDate!)
         print("ACTIVITY: \((tag.activity)!)\nSTART TIME: \(startDateAppear)\nEND TIME: \(endDateAppear)\n\(tag.star)")
-        //performSegue(withIdentifier: "edit", sender: self)
+        
+        let Storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let DVC = Storyboard.instantiateViewController(withIdentifier: "Detail View Controller") as! DetailTableViewController
+        
+        for tag in tags{
+            coreDataStartDates.append(tag.startDate)
+            coreDataEndDates.append(tag.endDate)
+            coreDataActivities.append(tag.activity!)
+            coreDataStar.append(tag.star)
+        }
+        print(coreDataActivities[indexPath.row])
+        print(DVC.editedActivity)
+        DVC.editedActivity = coreDataActivities[indexPath.row]
+        print(DVC.editedActivity)
+        performSegue(withIdentifier: "edit", sender: self)
+        print(DVC.editedActivity)
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -93,31 +109,32 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func prepareForSegue(for segue: UIStoryboardSegue, sender: AnyObject?, indexPath: IndexPath) {
-        let tag = tags[indexPath.row]
-        print("HELLO")
-        if segue.identifier == "edit" {
-            print("GOODBYE")
-            var path = tableViewTagList.indexPathForSelectedRow
-
-            var detailViewController = segue.destination as! DetailTableViewController
-
-            detailViewController.index = path?.row
-
-            for tag in tags{
-                coreDataStartDates.append(tag.startDate)
-                coreDataEndDates.append(tag.endDate)
-                coreDataActivities.append(tag.activity!)
-                coreDataStar.append(tag.star)
-            }
-            print("BEFORE: \(coreDataActivities)")
-            detailViewController.activityArray = coreDataActivities
-            print("AFTER: \(detailViewController.activityArray)")
-
-        }
+//    func prepareForSegue(for segue: UIStoryboardSegue, sender: AnyObject?, indexPath: IndexPath) {
+//        let tag = tags[indexPath.row]
+//        print("HELLO")
+//        if segue.identifier == "edit" {
+//            print("GOODBYE")
+//            var path = tableViewTagList.indexPathForSelectedRow
+//
+//            var detailViewController = segue.destination as! DetailTableViewController
+//
+//            detailViewController.index = path?.row
+//
+//            for tag in tags{
+//                coreDataStartDates.append(tag.startDate)
+//                coreDataEndDates.append(tag.endDate)
+//                coreDataActivities.append(tag.activity!)
+//                coreDataStar.append(tag.star)
+//            }
+//            print("BEFORE: \(coreDataActivities)")
+//            detailViewController.activityArray = coreDataActivities
+//            print("AFTER: \(detailViewController.activityArray)")
+//
+//        }
+    
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-    }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
