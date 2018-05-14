@@ -19,15 +19,15 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBAction func unwindToTagList(segue:UIStoryboardSegue) { }
     
     @IBAction func saveToTagListController (segue:UIStoryboardSegue) {
-        let detailViewController = segue.source as! DetailTableViewController
+        //let detailViewController = segue.source as! DetailTableViewController
         
-        let index = detailViewController.index
+        //let index = detailViewController.index
         
-        let activityString = detailViewController.editedActivity
+        //let activityString = detailViewController.editedActivity
         
-        coreDataActivities[index!] = activityString!
+        //coreDataActivities[index!] = activityString!
         
-        tableViewTagList.reloadData()
+        //tableViewTagList.reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,8 +63,8 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         let endDateAppear = dateFormatter.string(from: tag.endDate!)
         print("ACTIVITY: \((tag.activity)!)\nSTART TIME: \(startDateAppear)\nEND TIME: \(endDateAppear)\n\(tag.star)")
         
-        let Storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let DVC = Storyboard.instantiateViewController(withIdentifier: "Detail View Controller") as! DetailTableViewController
+        //let Storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let DVC = Storyboard.instantiateViewController(withIdentifier: "Detail View Controller") as! DetailTableViewController
         
         for tag in tags{
             coreDataStartDates.append(tag.startDate)
@@ -72,13 +72,41 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
             coreDataActivities.append(tag.activity!)
             coreDataStar.append(tag.star)
         }
-        print(coreDataActivities[indexPath.row])
-        print(DVC.editedActivity)
-        DVC.editedActivity = coreDataActivities[indexPath.row]
-        print(DVC.editedActivity)
-        performSegue(withIdentifier: "edit", sender: self)
-        print(DVC.editedActivity)
         
+        //print(coreDataActivities[indexPath.row])
+        //print(DVC.editedActivity)
+        //DVC.editedActivity = coreDataActivities[indexPath.row]
+        //print(DVC.editedActivity)
+        //performSegue(withIdentifier: "edit", sender: self)
+        //print(DVC.editedActivity)
+        
+        // Create a variable that you want to send based on the destination view controller
+        // You can get a reference to the data by using indexPath shown below
+        let selectedActivity = coreDataActivities[indexPath.row]
+        
+        // Create an instance of PlayerTableViewController and pass the variable
+        let DVC = DetailTableViewController()
+        DVC.editedActivity = selectedActivity
+        
+        // This will perform the segue and pre-load the variable for you to use
+        //DVC.performSegue(withIdentifier: "edit", sender: self)
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!, indexPath: IndexPath) {
+        //let tag = tags[indexPath.row]
+        
+        // Create a variable that you want to send
+        for tag in tags{
+            coreDataStartDates.append(tag.startDate)
+            coreDataEndDates.append(tag.endDate)
+            coreDataActivities.append(tag.activity!)
+            coreDataStar.append(tag.star)
+        }
+        
+        // Create a new variable to store the instance of PlayerTableViewController
+        let Storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let DVC = Storyboard.instantiateViewController(withIdentifier: "Detail View Controller") as! DetailTableViewController
+        DVC.editedActivity = coreDataActivities[indexPath.row]
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
