@@ -129,6 +129,11 @@ class HeartProfileViewController: UIViewController {
             let calendar = Calendar.current
             let todayDateComponents = calendar.dateComponents([.year],
                                                               from: today)
+            //***
+            let ageDifference = Date.compare(calendar.date(from: DateComponents(year: birthComponents.year, month: birthComponents.month, day: birthComponents.day, hour: birthComponents.hour, minute: birthComponents.minute, second: birthComponents.second))!)
+            
+            print("AGE DIFFERENCE: ", ageDifference)
+            
             let thisYear = todayDateComponents.year!
             age = thisYear - birthComponents.year!
             if let unwrappedAge = age{
