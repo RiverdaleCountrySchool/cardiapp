@@ -526,7 +526,18 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         //rotation of bpm label
         self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
+        
+//        let heartProfileView = HeartProfileViewController()
+//        heartProfileView.getBioData(
+//            completion: { (error) in
+//                if let error = error{
+//                    print("Error (40): \(error)")
+//                }
+//            }
+//        )
+        
     }
+    
     
     @IBOutlet weak var cardigraphDateLabel: UILabel!
 

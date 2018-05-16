@@ -22,8 +22,8 @@ class DetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        editActivityTextField.text = activityArray[index!]
+        print(editedActivity)
+        editActivityTextField.text = editedActivity //activityArray[index!]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
