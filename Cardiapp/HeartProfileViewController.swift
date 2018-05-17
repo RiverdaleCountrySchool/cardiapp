@@ -48,12 +48,10 @@ class HeartProfileViewController: UIViewController {
         super.viewDidAppear(true)
         //getUserDefaults()
         //get Biological data
-        getBioData(){ (error) in
-            if let error = error{
-                print("Error (40): \(error)")
-            }
+        getBioData(){ () in
+            self.optimalHeartRate()
         }
-        optimalHeartRate()
+        
     }
     
     
@@ -99,13 +97,13 @@ class HeartProfileViewController: UIViewController {
         print("User String Weight: \(userWeight_String)") //may need to figure out unwrapping this later
     } */
  
-    func getBioData(completion: @escaping (Error?) -> Void){
+    func getBioData(completion: () -> Void){
         self.getAge()
         self.getBiologicalSex()
         self.getHeight()
         self.getBodyMass()
         self.getWorkoutType()
-        completion(nil)
+        completion()
     }
     
     func getWorkoutType(){
@@ -253,7 +251,7 @@ class HeartProfileViewController: UIViewController {
         var heartRange50 = 0
         var heartRange85 = 0
         
-        print("user default age \(defaults.string(forKey: "Age"))")
+        print("USER DEFAULT AGE (INFO GET REQUEST): ", defaults.string(forKey: "Age"))
         if defaults.string(forKey: "Age") != nil {
             print("AGE NOT NIL")
             let userAge = Int(defaults.string(forKey: "Age")!)!
