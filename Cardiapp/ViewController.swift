@@ -536,7 +536,10 @@ class ViewController: UIViewController, ChartViewDelegate {
 //            }
 //        )
         
+        getAge()
+        
     }
+    
     
     
     @IBOutlet weak var cardigraphDateLabel: UILabel!
@@ -591,5 +594,27 @@ extension String {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+}
+
+
+func getAge() {
+    var age: Int?
+    var birthComponents: DateComponents
+    do {
+        birthComponents = try HKHealthStore().dateOfBirthComponents()
+        let calendar = Calendar.current
+        
+        let ageDifference = ((Date().timeIntervalSince1970 - calendar.date(from: DateComponents(year: birthComponents.year, month: birthComponents.month, day: birthComponents.day, hour: birthComponents.hour, minute: birthComponents.minute, second: birthComponents.second))!.timeIntervalSince1970) / (365 * 24 * 60 * 60))
+        
+        age = Int(floor(ageDifference))
+        
+        if let unwrappedAge = age{
+            defaults.set(unwrappedAge, forKey: "Age")
+            print("AGE IS \(unwrappedAge)")
+        }
+    } catch{
+        print("CAN'T GET AGE (80)")
+        defaults.set(nil, forKey: "Age")
     }
 }
