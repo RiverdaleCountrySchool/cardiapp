@@ -387,6 +387,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         data.lineData = LineChartData(dataSet: lineChartDataSet)
         
+        data.barData = nil
     }
     
     
