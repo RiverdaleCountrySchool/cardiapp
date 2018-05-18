@@ -44,6 +44,7 @@ class CalendarPageController: UIViewController {
         
         if cellState.isSelected{
             validCell.dateLabel.textColor = UIColor.white
+//            validCell.dateLabel.textColor = UIColor.black
         } else{
             if cellState.dateBelongsTo == .thisMonth && Calendar.current.compare(Date(), to: cellState.date, toGranularity: .day).rawValue != -1{
                 validCell.dateLabel.textColor = UIColor.black

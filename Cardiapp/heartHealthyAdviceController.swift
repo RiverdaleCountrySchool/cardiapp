@@ -13,18 +13,20 @@ class heartHealthyAdviceController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var coreDataTags = [PersonalTag]
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        
-//        let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
-//        
-//        do {
-//            let coreDataTags = try context.fetch(fetchRequest)
-//            return coreDataTags
-//        } catch {
-//            print("Fetching Failed")
-//            return nil
-//        }
+        
+        var coreDataTags = [PersonalTag]()
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
+        do {
+            coreDataTags = try context.fetch(fetchRequest)
+        } catch {
+            print("Fetching Failed")
+        }
+        
+        var parsedCoreData = [(String?, Date?, Date?, Bool)]()
+        for val in coreDataTags{
+            parsedCoreData.append((val.activity, val.startDate, val.endDate, val.star))
+        }
     }
 
     override func didReceiveMemoryWarning() {
