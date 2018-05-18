@@ -59,6 +59,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             else{
                 print("AUTHORIZATION SUCCESS(41)")
                 print("–––––––––––––––––––––––––––––––––––––––––")
+                self.getHeartRatesAndGraph(selectedDate: calendarSelectedDate)
             }
         }
         completion(nil)
@@ -511,6 +512,11 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         
         //run authorization
         authorizeHealthKit(){ (error) in
@@ -518,11 +524,6 @@ class ViewController: UIViewController, ChartViewDelegate {
                 print("Error (32): \(error)")
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         //rotation of bpm label
         self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
@@ -551,7 +552,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         print("–––––––––––––––––––––––––––")
         
         //loads the current day as a start
-        getHeartRatesAndGraph(selectedDate: calendarSelectedDate)
+        self.getHeartRatesAndGraph(selectedDate: calendarSelectedDate)
         
         //sets text for selectedDate label on ViewController
         let dateFormatter = DateFormatter()
