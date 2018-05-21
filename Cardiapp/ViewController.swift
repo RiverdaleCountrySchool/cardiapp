@@ -115,6 +115,7 @@ class ViewController: UIViewController, ChartViewDelegate {
                 print("No data available")
                 DispatchQueue.main.async {
                     self.noDataAvailableText.isHidden = false
+                    self.settingsLinkButton.isHidden = false
                     self.mainControllerScrollView.isScrollEnabled = false
                     self.infoButton.isHidden = true
                     self.infoButton.isEnabled = false
@@ -125,6 +126,7 @@ class ViewController: UIViewController, ChartViewDelegate {
                 print("GRAPH DATA AVAILABLE")
                 DispatchQueue.main.async{
                     self.noDataAvailableText.isHidden = true
+                    self.settingsLinkButton.isHidden = true
                     self.infoButton.isHidden = false
                     self.infoButton.isEnabled = true
                     self.mainControllerScrollView.isScrollEnabled = true
@@ -548,6 +550,26 @@ class ViewController: UIViewController, ChartViewDelegate {
 
 
     @IBOutlet weak var noDataAvailableText: UITextView!
+    
+    @IBOutlet weak var settingsLinkButton: UIButton!
+    //https://stackoverflow.com/questions/28152526/how-do-i-open-phone-settings-when-a-button-is-clicked
+    @IBAction func settingsLinkButton(_ sender: Any) {
+//        guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+//            return
+//        }
+        guard let settingsUrl = URL(string: "x-apple-health://") else {
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                print("Settings opened: \(success)")
+            })
+        }
+    }
+    
+    
+    
     @IBOutlet weak var mainControllerScrollView: UIScrollView!
     
     override func viewDidAppear(_ animated: Bool) {
@@ -566,6 +588,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         DispatchQueue.main.async{
             self.noDataAvailableText.isHidden = true
+            self.settingsLinkButton.isHidden = true
             self.mainControllerScrollView.isScrollEnabled = true
             self.infoButton.isHidden = false
             self.infoButton.isEnabled = true
