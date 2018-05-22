@@ -46,13 +46,10 @@ class HeartProfileViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        getUserDefaults()
-        optimalHeartRate()
+        //getUserDefaults()
         //get Biological data
-        getBioData(){ (error) in
-            if let error = error{
-                print("Error (40): \(error)")
-            }
+        getBioData(){ () in
+            self.optimalHeartRate()
         }
         
     }
@@ -84,29 +81,29 @@ class HeartProfileViewController: UIViewController {
         //}
     //}
     
-    func getUserDefaults(){
+/*    func getUserDefaults(){
         let userAge = defaults.integer(forKey: "Age"),
         userSex = defaults.string(forKey: "Sex"),
         userHeight_Numerical = defaults.integer(forKey: "Height"),
         userHeight_String = defaults.string(forKey: "HeightString"),
         userWeight_Numerical = defaults.double(forKey: "Weight"),
         userWeight_String = defaults.string(forKey: "WeightString")
-        
+ 
         print("User Age: \(userAge)")
-        print("User Sex: \(userSex ?? "Unknown")")
+        print("User Sex: \(userSex)")
         print("User Numerical Height: \(userHeight_Numerical)")
-        print("User String Height: \(userHeight_String ?? "Unknown")") //may need to figure out unwrapping this later
+        print("User String Height: \(userHeight_String)") //may need to figure out unwrapping this later
         print("User Numerical Weight: \(userWeight_Numerical)")
-        print("User String Weight: \(userWeight_String ?? "Unknown")") //may need to figure out unwrapping this later
-    }
-    
-    func getBioData(completion: @escaping (Error?) -> Void){
+        print("User String Weight: \(userWeight_String)") //may need to figure out unwrapping this later
+    } */
+ 
+    func getBioData(completion: () -> Void){
         self.getAge()
         self.getBiologicalSex()
         self.getHeight()
         self.getBodyMass()
         self.getWorkoutType()
-        completion(nil)
+        completion()
     }
     
     func getWorkoutType(){
@@ -125,12 +122,12 @@ class HeartProfileViewController: UIViewController {
         var birthComponents: DateComponents
         do {
             birthComponents = try healthStore.dateOfBirthComponents()
-            let today = Date()
             let calendar = Calendar.current
-            let todayDateComponents = calendar.dateComponents([.year],
-                                                              from: today)
-            let thisYear = todayDateComponents.year!
-            age = thisYear - birthComponents.year!
+            
+           let ageDifference = ((Date().timeIntervalSince1970 - calendar.date(from: DateComponents(year: birthComponents.year, month: birthComponents.month, day: birthComponents.day, hour: birthComponents.hour, minute: birthComponents.minute, second: birthComponents.second))!.timeIntervalSince1970) / (365 * 24 * 60 * 60))
+            
+            age = Int(floor(ageDifference))
+            
             if let unwrappedAge = age{
                 defaults.set(unwrappedAge, forKey: "Age")
                 DispatchQueue.main.async {
@@ -140,7 +137,10 @@ class HeartProfileViewController: UIViewController {
         } catch{
             print("CAN'T GET AGE (80)")
             defaults.set(nil, forKey: "Age")
-            print("USER's AGE \(defaults.string(forKey: "Age"))")
+            DispatchQueue.main.async {
+                self.ageLabel.text = "Unknown"
+            }
+            print("USER's AGE: ", String(describing: defaults.string(forKey: "Age")))
         }
     }
     
@@ -171,11 +171,17 @@ class HeartProfileViewController: UIViewController {
                     print(error)
                     print("ERROR THROW GRABBING SAMPLE (117)")
                 }
+                DispatchQueue.main.async {
+                    self.heightDataLabel.text = "Unknown"
+                }
+                defaults.set(nil, forKey: "Height")
+                defaults.set(nil, forKey: "HeightString")
                 return
             }
             let heightInMeters = sample.quantity.doubleValue(for: HKUnit.meter())
             let heightFormatter = LengthFormatter()
             heightFormatter.isForPersonHeightUse = true
+            print("Height in meters: ", heightInMeters)
             defaults.set(heightInMeters, forKey: "Height")
             defaults.set(heightFormatter.string(fromMeters: heightInMeters), forKey: "HeightString")
             
@@ -196,6 +202,11 @@ class HeartProfileViewController: UIViewController {
                 if let error = error {
                     print("COULD NOT GET WEIGHT SAMPLE (139)")
                     print(error)
+                }
+                defaults.set(nil, forKey: "Weight")
+                defaults.set(nil, forKey: "WeightString")
+                DispatchQueue.main.async{
+                    self.bodyMassDataLabel.text = "Unknown"
                 }
                 return
             }
@@ -240,7 +251,7 @@ class HeartProfileViewController: UIViewController {
         var heartRange50 = 0
         var heartRange85 = 0
         
-        print("user default age \(defaults.string(forKey: "Age"))")
+        print("USER DEFAULT AGE (INFO GET REQUEST): ", defaults.string(forKey: "Age"))
         if defaults.string(forKey: "Age") != nil {
             print("AGE NOT NIL")
             let userAge = Int(defaults.string(forKey: "Age")!)!
