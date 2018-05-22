@@ -25,14 +25,14 @@ class tagListViewController2: UITableViewController {
         let index = detailTableViewController2.index
         
         let activityString = detailTableViewController2.editedActivity
-        let startTimeDate = detailTableViewController2.editedStartTime
-        let endTimeDate = detailTableViewController2.editedEndTime
-        
-        print(detailTableViewController2.editedActivity)
+        //let startTimeDate = detailTableViewController2.editedStartTime
+        //let endTimeDate = detailTableViewController2.editedEndTime
+        let starBool = detailTableViewController2.editedStar
         
         coreDataActivities[index!] = activityString!
-        coreDataStartDates[index!] = startTimeDate!
-        coreDataEndDates[index!] = endTimeDate!
+        //coreDataStartDates[index!] = startTimeDate!
+        //coreDataEndDates[index!] = endTimeDate!
+        coreDataStar[index!] = starBool!
         
         tableView.reloadData()
     }
@@ -166,6 +166,7 @@ class tagListViewController2: UITableViewController {
             detailTableViewController2.activityArray = coreDataActivities
             detailTableViewController2.startTimeArray = coreDataStartDates as! [Date]
             detailTableViewController2.endTimeArray = coreDataEndDates as! [Date]
+            detailTableViewController2.starArray = coreDataStar
             
         }
     }

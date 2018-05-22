@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import Foundation
+import CoreData
 
-class detailTableViewController2: UITableViewController {
+class detailTableViewController2: UITableViewController /*, UIPickerViewDataSource, UIPickerViewDelegate */ {
 
     @IBOutlet weak var editActivityTextField: UITextField!
     @IBOutlet weak var editStartTimeTextField: UITextField!
     @IBOutlet weak var editEndTimeTextField: UITextField!
+    @IBOutlet weak var editStarSwitch: UISwitch!
     
     var index:Int?
     var activityArray:[String]!
     var editedActivity:String?
+    
+    var activityToolBar = UIToolbar()
+    var activityPickerData = ["Soccer ⚽️","Running 🏃","Sleeping 💤","Eating 🍔","Drinking 🍸","Smoking 🚬","Watching TV 📺","Basketball 🏀","Football 🏈","Baseball ⚾️","Walking 🚶","Lifting Weights 🏋️‍♀️","Dancing 💃","Tennis 🎾","Volleyball 🏐","Ping Pong 🏓","Ice Hockey 🏒","Field Hockey 🏑","Archery 🏹","Fishing 🎣","Boxing 🥊","Martial Arts 🥋","Skiing ⛷","Snowboarding 🏂","Ice Skating ⛸","Wrestling 🤼‍♀️","Gymnastics 🤸‍♀️","Golf 🏌️","Surfing 🏄","Water Polo 🤽‍♀️","Swimming 🏊‍♀️","Rowing 🚣‍♀️","Horseback Riding 🏇","Biking 🚴","Mountain Biking 🚵‍♀️","Juggling 🤹‍♂️","Rugby 🏉","Pool 🎱","Badminton 🏸","Cricket 🏏","Bowling 🎳","Video Games 🎮","Darts 🎯","Fencing 🤺","Trumpet 🎺","Piano 🎹","Drums 🥁","Saxophone 🎷","Guitar 🎸","Violin 🎻","Dodgeball 🤾‍♂️","Singing 🎤"]
+    
     var startTimeArray:[Date]!
     var editedStartTime:Date?
     var endTimeArray:[Date]!
@@ -24,12 +31,38 @@ class detailTableViewController2: UITableViewController {
     var starArray:[Bool]!
     var editedStar:Bool?
     
+    @IBAction func editStarSwitchClicked(_ sender: Any) {
+        if editStarSwitch.isOn {
+            editedStar = true
+        }
+        else {
+            editedStar = false
+        }
+
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        activityPickerData.sort()
+//        let activityPicker = UIPickerView()
+//        createActivityToolBar()
+//        view.addSubview(editActivityTextField)
+//        activityPicker.delegate = self
+//        editActivityTextField.inputView = activityPicker
+//        editActivityTextField.inputAccessoryView = activityToolBar
+        
         editActivityTextField.text = activityArray[index!]
+        
         editStartTimeTextField.text = "\(startTimeArray[index!])"
         editEndTimeTextField.text = "\(endTimeArray[index!])"
+        
+        if starArray[index!] == true {
+            editStarSwitch.isOn = true
+        } else if starArray[index!] == false {
+            editStarSwitch.isOn = false
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,6 +71,33 @@ class detailTableViewController2: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    //ACTIVITY PICKER
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return activityPickerData.count
+//    }
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return activityPickerData[row]
+//    }
+//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        editActivityTextField.text = activityPickerData[row]
+//        editedActivity = editActivityTextField.text!
+//    }
+//    func createActivityToolBar() {
+//        activityToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
+//        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(activityDoneButtonPressed(sender:)))
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width/3, height: 40))
+//        label.text = "Activity"
+//        let labelButton = UIBarButtonItem(customView:label)
+//        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+//        activityToolBar.setItems([flexibleSpace,labelButton,flexibleSpace,doneButton], animated: true)
+//    }
+//    @objc func activityDoneButtonPressed(sender: UIBarButtonItem) {
+//        editActivityTextField.resignFirstResponder()
+//    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,7 +110,10 @@ class detailTableViewController2: UITableViewController {
             editStartTimeTextField.becomeFirstResponder()
         } else if indexPath.section == 2 && indexPath.row == 0 {
             editEndTimeTextField.becomeFirstResponder()
+        } else if indexPath.section == 3 && indexPath.row == 0 {
+            editStarSwitch.becomeFirstResponder()
         }
+        
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
     }
     
@@ -122,12 +185,14 @@ class detailTableViewController2: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "save" {
-            //saveToCoreData(data: (selectedActivity, selectedStartDate, selectedEndDate, selectedStar))
+            //saveToCoreData(data: (editedActivity, selectedStartDate, selectedEndDate, selectedStar))
             //loadFromCoreData()
+            
             editedActivity = editActivityTextField.text
             
-            editedStartTime = DateFormatter().date(from: editStartTimeTextField.text!)
-            editedEndTime = DateFormatter().date(from: editStartTimeTextField.text!)
+            //editedStartTime = DateFormatter().date(from: editStartTimeTextField.text!)
+            //editedEndTime = DateFormatter().date(from: editStartTimeTextField.text!)
+            
         }
     }
     
