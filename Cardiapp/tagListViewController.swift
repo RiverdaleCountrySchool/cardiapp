@@ -28,6 +28,7 @@ class tagListViewController: UIViewController, UITableViewDataSource, UITableVie
         //coreDataActivities[index!] = activityString!
         
         //tableViewTagList.reloadData()
+
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
