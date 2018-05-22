@@ -216,7 +216,7 @@ Click Go To Health App
                     </tabBar>
                     <connections>
                         <segue destination="yIH-e5-5xd" kind="relationship" relationship="viewControllers" id="Q4g-Pg-uSt"/>
-                        <segue destination="3bP-1v-Ios" kind="relationship" relationship="viewControllers" id="HQw-wq-2zb"/>
+                        <segue destination="GvH-8M-mIk" kind="relationship" relationship="viewControllers" id="Fmd-OI-Qs8"/>
                         <segue destination="FDo-z4-PKY" kind="relationship" relationship="viewControllers" id="Iso-4C-jNr"/>
                         <segue destination="KLg-Mk-Osm" kind="relationship" relationship="viewControllers" id="1kc-GN-jB5"/>
                     </connections>
@@ -225,108 +225,62 @@ Click Go To Health App
             </objects>
             <point key="canvasLocation" x="372" y="-726"/>
         </scene>
-        <!--Tag List-->
-        <scene sceneID="gRH-Cb-DwT">
+        <!--Tags-->
+        <scene sceneID="YQV-c0-IXx">
             <objects>
-                <viewController id="3bP-1v-Ios" customClass="tagListViewController" customModule="Cardiapp" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ROb-Ey-ZX0">
+                <tableViewController id="YNe-c2-yFr" customClass="tagListViewController2" customModule="Cardiapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="uUV-z9-Q2H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ezR-9J-A46">
-                                <rect key="frame" x="16" y="108" width="343.5" height="510"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableCell" rowHeight="63" id="02O-Mq-it4" customClass="tagTableViewCell" customModule="Cardiapp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343.5" height="63"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="02O-Mq-it4" id="zeH-2j-axa">
-                                            <rect key="frame" x="0.0" y="0.0" width="343.5" height="62.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="3bP-1v-Ios" id="6CS-oS-C2e"/>
-                                    <outlet property="delegate" destination="3bP-1v-Ios" id="Wz8-Gu-uOg"/>
-                                </connections>
-                            </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardiappLogo-1" translatesAutoresizingMaskIntoConstraints="NO" id="fbg-f0-iob">
-                                <rect key="frame" x="137.5" y="20" width="100" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="JcR-Gc-adZ"/>
-                                    <constraint firstAttribute="width" secondItem="fbg-f0-iob" secondAttribute="height" multiplier="4:1" id="tD1-PX-0Qq"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tag List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LeM-vh-c0C">
-                                <rect key="frame" x="16" y="70" width="343.5" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="LeM-vh-c0C" secondAttribute="height" multiplier="343:30" id="IvF-ND-hfG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="fbg-f0-iob" firstAttribute="top" secondItem="bSw-dv-207" secondAttribute="top" id="C6y-o0-aEl"/>
-                            <constraint firstItem="ezR-9J-A46" firstAttribute="leading" secondItem="LeM-vh-c0C" secondAttribute="leading" id="Q0D-RU-zYD"/>
-                            <constraint firstItem="LeM-vh-c0C" firstAttribute="leading" secondItem="ROb-Ey-ZX0" secondAttribute="leadingMargin" id="QML-49-fuM"/>
-                            <constraint firstItem="ezR-9J-A46" firstAttribute="bottom" secondItem="bSw-dv-207" secondAttribute="bottom" id="XHX-2I-MTa"/>
-                            <constraint firstItem="ezR-9J-A46" firstAttribute="top" secondItem="LeM-vh-c0C" secondAttribute="bottom" constant="8" symbolic="YES" id="YJN-2Y-eZ6"/>
-                            <constraint firstItem="LeM-vh-c0C" firstAttribute="top" secondItem="fbg-f0-iob" secondAttribute="bottom" constant="25" id="jeR-AJ-ASv"/>
-                            <constraint firstItem="fbg-f0-iob" firstAttribute="centerX" secondItem="ROb-Ey-ZX0" secondAttribute="centerX" id="pCW-oH-buu"/>
-                            <constraint firstItem="ezR-9J-A46" firstAttribute="centerX" secondItem="fbg-f0-iob" secondAttribute="centerX" id="rvS-Pv-zoP"/>
-                            <constraint firstItem="ezR-9J-A46" firstAttribute="trailing" secondItem="LeM-vh-c0C" secondAttribute="trailing" id="yWR-Qj-rPm"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="bSw-dv-207"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Tag List" image="tagList" selectedImage="tagList" id="JWQ-TS-Y6V"/>
-                    <connections>
-                        <outlet property="tableViewTagList" destination="ezR-9J-A46" id="VEP-uH-ivC"/>
-                        <segue destination="SHW-RG-oSL" kind="show" identifier="edit" id="UZj-fs-5mZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NgO-QI-LfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="60" id="6cu-7I-6Hz">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6cu-7I-6Hz" id="nXd-hq-juU">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="r0a-gW-2Qt" kind="show" identifier="edit" id="6at-gx-csC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YNe-c2-yFr" id="OxE-QR-uzr"/>
+                            <outlet property="delegate" destination="YNe-c2-yFr" id="riG-2v-WGW"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Tag List" image="tagList" selectedImage="tagList" id="5Me-H8-O3x"/>
+                    <navigationItem key="navigationItem" title="Tags" id="30r-fR-kZE"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a2g-7D-CdS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1213.5999999999999" y="-727.28635682158927"/>
+            <point key="canvasLocation" x="1983" y="-726"/>
         </scene>
-        <!--Detail Table View Controller-->
-        <scene sceneID="pqE-HS-8N1">
+        <!--Edit Tag-->
+        <scene sceneID="0s4-RA-F0H">
             <objects>
-                <tableViewController storyboardIdentifier="Detail View Controller" id="SHW-RG-oSL" customClass="DetailTableViewController" customModule="Cardiapp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="pIE-7z-kSZ">
+                <tableViewController id="r0a-gW-2Qt" customClass="detailTableViewController2" customModule="Cardiapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="pPi-jt-hfK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="33M-kL-NId">
-                            <rect key="frame" x="0.0" y="417.5" width="375" height="46"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                            <state key="normal" title="Save">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
-                            <connections>
-                                <segue destination="5rp-j6-Zgf" kind="unwind" identifier="save" unwindAction="saveToTagListControllerWithSegue:" id="XnT-p4-7Nz"/>
-                            </connections>
-                        </button>
                         <sections>
-                            <tableViewSection headerTitle="Activity" id="YZH-XE-o25">
+                            <tableViewSection headerTitle="Activity" id="eJ7-yS-hdC">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="urd-xT-0VF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pef-dK-feu">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="urd-xT-0VF" id="eNV-Nz-ccB">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pef-dK-feu" id="vOa-rW-AdN">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fVy-ak-QqK">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qfr-UX-cNY">
                                                     <rect key="frame" x="16" y="7" width="343" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -334,20 +288,20 @@ Click Go To Health App
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Start Time" id="fst-T3-gEl">
+                            <tableViewSection headerTitle="Start Time" id="wgn-8R-3f5">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BDI-VG-oEv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="McQ-S7-OYp">
                                         <rect key="frame" x="0.0" y="155.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BDI-VG-oEv" id="NMu-Dj-K90">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="McQ-S7-OYp" id="036-hv-4Jc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c3l-Yq-yzF">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HWG-KV-yJg">
                                                     <rect key="frame" x="16" y="7" width="343" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -355,20 +309,20 @@ Click Go To Health App
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="End TIme" id="KIJ-MF-PyR">
+                            <tableViewSection headerTitle="End Time" id="JU7-MX-yd9">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="c49-p2-qU9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gBU-MY-UJ4">
                                         <rect key="frame" x="0.0" y="255.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c49-p2-qU9" id="1az-mN-6Ie">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gBU-MY-UJ4" id="Gkq-CT-KNw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zX7-8m-2A0">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lCe-jN-5ze">
                                                     <rect key="frame" x="16" y="7" width="343" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -376,18 +330,21 @@ Click Go To Health App
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Flag" id="dRA-ds-7lw">
+                            <tableViewSection headerTitle="Flag" id="W4E-C4-Whe">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="3bY-Pc-SNh">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JJw-np-Ql2">
                                         <rect key="frame" x="0.0" y="355.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3bY-Pc-SNh" id="Q4k-bk-Bqi">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JJw-np-Ql2" id="6EQ-es-xf1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wvo-NL-M7X">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GUF-tF-iLs">
                                                     <rect key="frame" x="16" y="6" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="editStarSwitchClicked:" destination="r0a-gW-2Qt" eventType="valueChanged" id="UuR-5b-tWK"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -396,21 +353,28 @@ Click Go To Health App
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="SHW-RG-oSL" id="wPj-qP-e7O"/>
-                            <outlet property="delegate" destination="SHW-RG-oSL" id="xAk-k4-aPG"/>
+                            <outlet property="dataSource" destination="r0a-gW-2Qt" id="oFY-lN-qOA"/>
+                            <outlet property="delegate" destination="r0a-gW-2Qt" id="lfE-M4-crO"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Edit Tag" id="ETh-Uv-fOK">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="xPW-Za-hBN">
+                            <connections>
+                                <segue destination="Tc8-x3-b41" kind="unwind" identifier="save" unwindAction="saveToTagListViewController2WithSegue:" id="1kn-lX-gkG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="editActivityTextField" destination="fVy-ak-QqK" id="xxj-Ex-ugE"/>
-                        <outlet property="editEndTimeTextField" destination="zX7-8m-2A0" id="HAk-Cl-FKX"/>
-                        <outlet property="editFlagSwitch" destination="Wvo-NL-M7X" id="Qep-Jm-4NO"/>
-                        <outlet property="editStartTimeTextField" destination="c3l-Yq-yzF" id="euA-cg-LpD"/>
+                        <outlet property="editActivityTextField" destination="Qfr-UX-cNY" id="aTC-lk-C5F"/>
+                        <outlet property="editEndTimeTextField" destination="lCe-jN-5ze" id="Clc-iI-2Vz"/>
+                        <outlet property="editStarSwitch" destination="GUF-tF-iLs" id="nQh-MO-WWz"/>
+                        <outlet property="editStartTimeTextField" destination="HWG-KV-yJg" id="A80-J1-faZ"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0gD-wF-wCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="5rp-j6-Zgf" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FDd-5U-jXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Tc8-x3-b41" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2085.5999999999999" y="-727.28635682158927"/>
+            <point key="canvasLocation" x="2798" y="-726"/>
         </scene>
         <!--Add Tag-->
         <scene sceneID="2hi-DX-XAx">
@@ -5513,6 +5477,25 @@ Cg
                 <exit id="Wwo-oF-Kjk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1301.5999999999999" y="838.83058470764627"/>
+        </scene>
+        <!--Tag List-->
+        <scene sceneID="wK6-XZ-L0v">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GvH-8M-mIk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tag List" image="tagList" selectedImage="tagList" id="957-XA-D51"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dwK-Dl-4zN">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YNe-c2-yFr" kind="relationship" relationship="rootViewController" id="v2V-eB-st9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VB6-Qv-f7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1214" y="-726"/>
         </scene>
     </scenes>
     <resources>
