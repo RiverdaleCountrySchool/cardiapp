@@ -59,6 +59,7 @@ class ViewController: UIViewController, ChartViewDelegate {
             else{
                 print("AUTHORIZATION SUCCESS(41)")
                 print("–––––––––––––––––––––––––––––––––––––––––")
+                self.getHeartRatesAndGraph(selectedDate: calendarSelectedDate)
             }
         }
         completion(nil)
@@ -114,6 +115,7 @@ class ViewController: UIViewController, ChartViewDelegate {
                 print("No data available")
                 DispatchQueue.main.async {
                     self.noDataAvailableText.isHidden = false
+                    self.settingsLinkButton.isHidden = false
                     self.mainControllerScrollView.isScrollEnabled = false
                     self.infoButton.isHidden = true
                     self.infoButton.isEnabled = false
@@ -124,6 +126,7 @@ class ViewController: UIViewController, ChartViewDelegate {
                 print("GRAPH DATA AVAILABLE")
                 DispatchQueue.main.async{
                     self.noDataAvailableText.isHidden = true
+                    self.settingsLinkButton.isHidden = true
                     self.infoButton.isHidden = false
                     self.infoButton.isEnabled = true
                     self.mainControllerScrollView.isScrollEnabled = true
@@ -387,6 +390,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         data.lineData = LineChartData(dataSet: lineChartDataSet)
         
+        data.barData = nil
     }
     
     
@@ -511,6 +515,11 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         
         //run authorization
         authorizeHealthKit(){ (error) in
@@ -518,11 +527,6 @@ class ViewController: UIViewController, ChartViewDelegate {
                 print("Error (32): \(error)")
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         //rotation of bpm label
         self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
@@ -536,13 +540,36 @@ class ViewController: UIViewController, ChartViewDelegate {
 //            }
 //        )
         
+        getAge()
+        
     }
+    
     
     
     @IBOutlet weak var cardigraphDateLabel: UILabel!
 
 
     @IBOutlet weak var noDataAvailableText: UITextView!
+    
+    @IBOutlet weak var settingsLinkButton: UIButton!
+    //https://stackoverflow.com/questions/28152526/how-do-i-open-phone-settings-when-a-button-is-clicked
+    @IBAction func settingsLinkButton(_ sender: Any) {
+//        guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+//            return
+//        }
+        guard let settingsUrl = URL(string: "x-apple-health://") else {
+            return
+        }
+        
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                print("Settings opened: \(success)")
+            })
+        }
+    }
+    
+    
+    
     @IBOutlet weak var mainControllerScrollView: UIScrollView!
     
     override func viewDidAppear(_ animated: Bool) {
@@ -551,7 +578,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         print("–––––––––––––––––––––––––––")
         
         //loads the current day as a start
-        getHeartRatesAndGraph(selectedDate: calendarSelectedDate)
+        self.getHeartRatesAndGraph(selectedDate: calendarSelectedDate)
         
         //sets text for selectedDate label on ViewController
         let dateFormatter = DateFormatter()
@@ -561,6 +588,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         DispatchQueue.main.async{
             self.noDataAvailableText.isHidden = true
+            self.settingsLinkButton.isHidden = true
             self.mainControllerScrollView.isScrollEnabled = true
             self.infoButton.isHidden = false
             self.infoButton.isEnabled = true
@@ -591,5 +619,27 @@ extension String {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+}
+
+
+func getAge() {
+    var age: Int?
+    var birthComponents: DateComponents
+    do {
+        birthComponents = try HKHealthStore().dateOfBirthComponents()
+        let calendar = Calendar.current
+        
+        let ageDifference = ((Date().timeIntervalSince1970 - calendar.date(from: DateComponents(year: birthComponents.year, month: birthComponents.month, day: birthComponents.day, hour: birthComponents.hour, minute: birthComponents.minute, second: birthComponents.second))!.timeIntervalSince1970) / (365 * 24 * 60 * 60))
+        
+        age = Int(floor(ageDifference))
+        
+        if let unwrappedAge = age{
+            defaults.set(unwrappedAge, forKey: "Age")
+            print("AGE IS \(unwrappedAge)")
+        }
+    } catch{
+        print("CAN'T GET AGE (80)")
+        defaults.set(nil, forKey: "Age")
     }
 }

@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		21271E4B2086F3B1008036A8 /* webPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21271E4A2086F3B1008036A8 /* webPageViewController.swift */; };
-		213F593A20A34A7500BB757D /* tagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F593920A34A7500BB757D /* tagTableViewCell.swift */; };
-		21D1A94B204C8D4300A1DC4B /* editTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D1A94A204C8D4300A1DC4B /* editTagViewController.swift */; };
-		21DD6CAF208D9CD4002D4828 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DD6CAE208D9CD4002D4828 /* DetailTableViewController.swift */; };
+		21A3B9E920ABB88000CB084A /* tagListViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A3B9E820ABB88000CB084A /* tagListViewController2.swift */; };
+		21A3B9EB20ABBF8A00CB084A /* detailTableViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A3B9EA20ABBF8A00CB084A /* detailTableViewController2.swift */; };
 		21EE59D62048E444006A61E6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE59D52048E444006A61E6 /* SettingsViewController.swift */; };
 		6418EE8A202D64210040E62C /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418EE89202D64210040E62C /* XYMarkerView.swift */; };
 		6418EE8C202D64650040E62C /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418EE8B202D64650040E62C /* BalloonMarker.swift */; };
@@ -31,12 +30,12 @@
 		6470F0932024942F006B1F2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6470F0922024942F006B1F2F /* Assets.xcassets */; };
 		6470F0A620249678006B1F2F /* tagSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0A320249677006B1F2F /* tagSummaryViewController.swift */; };
 		6470F0A720249678006B1F2F /* HeartProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0A420249677006B1F2F /* HeartProfileViewController.swift */; };
-		6470F0A820249678006B1F2F /* tagListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0A520249678006B1F2F /* tagListViewController.swift */; };
 		6470F0AB20249706006B1F2F /* Cardiapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6470F0A920249706006B1F2F /* Cardiapp.xcdatamodeld */; };
 		648817DC208907AB00CD3BF8 /* CalendarPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648817DB208907AB00CD3BF8 /* CalendarPageController.swift */; };
 		648817DE208907B800CD3BF8 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648817DD208907B700CD3BF8 /* CustomCell.swift */; };
 		64C3092D202AC3B000DD9AB7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C3092C202AC3B000DD9AB7 /* HealthKit.framework */; };
 		64C30931202ACA5800DD9AB7 /* HKBiologicalSex+StringRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C30930202ACA5800DD9AB7 /* HKBiologicalSex+StringRepresentation.swift */; };
+		64E5C4CA20ADE7D20095B9C8 /* heartHealthyAdviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5C4C920ADE7D20095B9C8 /* heartHealthyAdviceController.swift */; };
 		CD822A9454C9247212BCD1FD /* Pods_Cardiapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C85F790B36C62E28278AAFF /* Pods_Cardiapp.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,9 +84,8 @@
 /* Begin PBXFileReference section */
 		17B8182A2A1158AF201EDC54 /* Pods-Cardiapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardiapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cardiapp/Pods-Cardiapp.debug.xcconfig"; sourceTree = "<group>"; };
 		21271E4A2086F3B1008036A8 /* webPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webPageViewController.swift; sourceTree = "<group>"; };
-		213F593920A34A7500BB757D /* tagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tagTableViewCell.swift; sourceTree = "<group>"; };
-		21D1A94A204C8D4300A1DC4B /* editTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editTagViewController.swift; sourceTree = "<group>"; };
-		21DD6CAE208D9CD4002D4828 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		21A3B9E820ABB88000CB084A /* tagListViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tagListViewController2.swift; sourceTree = "<group>"; };
+		21A3B9EA20ABBF8A00CB084A /* detailTableViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailTableViewController2.swift; sourceTree = "<group>"; };
 		21EE59D52048E444006A61E6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		462663BD203DB821000D4001 /* Cardiapp WatchKit App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cardiapp WatchKit App-Bridging-Header.h"; sourceTree = "<group>"; };
 		6418EE89202D64210040E62C /* XYMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYMarkerView.swift; sourceTree = "<group>"; };
@@ -114,13 +112,13 @@
 		6470F0952024942F006B1F2F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		6470F0A320249677006B1F2F /* tagSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagSummaryViewController.swift; sourceTree = "<group>"; };
 		6470F0A420249677006B1F2F /* HeartProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartProfileViewController.swift; sourceTree = "<group>"; };
-		6470F0A520249678006B1F2F /* tagListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tagListViewController.swift; sourceTree = "<group>"; };
 		6470F0AA20249706006B1F2F /* Cardiapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cardiapp.xcdatamodel; sourceTree = "<group>"; };
 		648817DB208907AB00CD3BF8 /* CalendarPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPageController.swift; sourceTree = "<group>"; };
 		648817DD208907B700CD3BF8 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		64C3092A202AC3B000DD9AB7 /* Cardiapp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cardiapp.entitlements; sourceTree = "<group>"; };
 		64C3092C202AC3B000DD9AB7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		64C30930202ACA5800DD9AB7 /* HKBiologicalSex+StringRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HKBiologicalSex+StringRepresentation.swift"; sourceTree = "<group>"; };
+		64E5C4C920ADE7D20095B9C8 /* heartHealthyAdviceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = heartHealthyAdviceController.swift; sourceTree = "<group>"; };
 		6C85F790B36C62E28278AAFF /* Pods_Cardiapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cardiapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F9BEE3C36EE0D65D5C5C6F /* Pods-Cardiapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cardiapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cardiapp/Pods-Cardiapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,14 +180,12 @@
 				6470F0672024942F006B1F2F /* AppDelegate.swift */,
 				6470F0692024942F006B1F2F /* ViewController.swift */,
 				6470F0A420249677006B1F2F /* HeartProfileViewController.swift */,
-				6470F0A520249678006B1F2F /* tagListViewController.swift */,
 				648817DB208907AB00CD3BF8 /* CalendarPageController.swift */,
 				648817DD208907B700CD3BF8 /* CustomCell.swift */,
-				21D1A94A204C8D4300A1DC4B /* editTagViewController.swift */,
 				6470F0A320249677006B1F2F /* tagSummaryViewController.swift */,
 				6470F06B2024942F006B1F2F /* Main.storyboard */,
-				213F593920A34A7500BB757D /* tagTableViewCell.swift */,
-				21DD6CAE208D9CD4002D4828 /* DetailTableViewController.swift */,
+				21A3B9EA20ABBF8A00CB084A /* detailTableViewController2.swift */,
+				21A3B9E820ABB88000CB084A /* tagListViewController2.swift */,
 				21271E4A2086F3B1008036A8 /* webPageViewController.swift */,
 				21EE59D52048E444006A61E6 /* SettingsViewController.swift */,
 				6470F0A920249706006B1F2F /* Cardiapp.xcdatamodeld */,
@@ -200,6 +196,7 @@
 				6418EE8B202D64650040E62C /* BalloonMarker.swift */,
 				6418EE8D202D64BF0040E62C /* DateValueFormatter.swift */,
 				462663BD203DB821000D4001 /* Cardiapp WatchKit App-Bridging-Header.h */,
+				64E5C4C920ADE7D20095B9C8 /* heartHealthyAdviceController.swift */,
 			);
 			path = Cardiapp;
 			sourceTree = "<group>";
@@ -455,21 +452,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				213F593A20A34A7500BB757D /* tagTableViewCell.swift in Sources */,
-				21DD6CAF208D9CD4002D4828 /* DetailTableViewController.swift in Sources */,
 				6470F06A2024942F006B1F2F /* ViewController.swift in Sources */,
 				6470F0682024942F006B1F2F /* AppDelegate.swift in Sources */,
 				21EE59D62048E444006A61E6 /* SettingsViewController.swift in Sources */,
-				21D1A94B204C8D4300A1DC4B /* editTagViewController.swift in Sources */,
+				21A3B9E920ABB88000CB084A /* tagListViewController2.swift in Sources */,
 				648817DC208907AB00CD3BF8 /* CalendarPageController.swift in Sources */,
 				6470F0A720249678006B1F2F /* HeartProfileViewController.swift in Sources */,
 				6418EE8C202D64650040E62C /* BalloonMarker.swift in Sources */,
+				21A3B9EB20ABBF8A00CB084A /* detailTableViewController2.swift in Sources */,
 				6418EE8A202D64210040E62C /* XYMarkerView.swift in Sources */,
+				64E5C4CA20ADE7D20095B9C8 /* heartHealthyAdviceController.swift in Sources */,
 				64C30931202ACA5800DD9AB7 /* HKBiologicalSex+StringRepresentation.swift in Sources */,
 				6418EE8E202D64BF0040E62C /* DateValueFormatter.swift in Sources */,
 				21271E4B2086F3B1008036A8 /* webPageViewController.swift in Sources */,
 				6470F0AB20249706006B1F2F /* Cardiapp.xcdatamodeld in Sources */,
-				6470F0A820249678006B1F2F /* tagListViewController.swift in Sources */,
 				648817DE208907B800CD3BF8 /* CustomCell.swift in Sources */,
 				6470F0A620249678006B1F2F /* tagSummaryViewController.swift in Sources */,
 			);
