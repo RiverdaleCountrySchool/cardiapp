@@ -32,7 +32,7 @@ class heartHealthyAdviceController: UIViewController {
         }
         
         //        cartegorizeTags(tags: parsedCoreData)
-        getArticles(tags: parsedCoreData)
+        //getArticles(tags: parsedCoreData)
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,27 +68,6 @@ class heartHealthyAdviceController: UIViewController {
     }
     
     func importActivityUI(activity: String){
-        switch activity {
-            //"Running 🏃","Sleeping 💤","Eating 🍔","Drinking 🍸","Smoking 🚬","Watching TV 📺","Basketball 🏀","Football 🏈","Baseball ⚾️","Walking 🚶","Lifting Weights 🏋️‍♀️","Dancing 💃","Tennis 🎾","Volleyball 🏐","Ping Pong 🏓","Ice Hockey 🏒","Field Hockey 🏑","Archery 🏹","Fishing 🎣","Boxing 🥊","Martial Arts 🥋","Skiing ⛷","Snowboarding 🏂","Ice Skating ⛸","Wrestling 🤼‍♀️","Gymnastics 🤸‍♀️","Golf 🏌️","Surfing 🏄","Water Polo 🤽‍♀️","Swimming 🏊‍♀️","Rowing 🚣‍♀️","Horseback Riding 🏇","Biking 🚴","Mountain Biking 🚵‍♀️","Juggling 🤹‍♂️","Rugby 🏉","Pool 🎱","Badminton 🏸","Cricket 🏏","Bowling 🎳","Video Games 🎮","Darts 🎯","Fencing 🤺","Trumpet 🎺","Piano 🎹","Drums 🥁","Saxophone 🎷","Guitar 🎸","Violin 🎻","Dodgeball 🤾‍♂️","Singing 🎤"]
-        case "Soccer ⚽️":
-            print()
-        case "":
-            print()
-        case "":
-            print()
-        case "":
-            print()
-        case "":
-            print()
-        case "":
-            print()
-        case "":
-            print()
-        case "":
-            print()
-        default:
-            <#code#>
-        }
     }
     
     
