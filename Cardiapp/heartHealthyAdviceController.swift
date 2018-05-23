@@ -11,6 +11,8 @@ import CoreData
 
 class heartHealthyAdviceController: UIViewController {
 
+    @IBAction func unwindToHHA(segue:UIStoryboardSegue) { }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
