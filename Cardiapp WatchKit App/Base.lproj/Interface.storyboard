@@ -34,8 +34,12 @@
                         <label width="131" height="19" alignment="left" id="oFS-Lh-nyE"/>
                         <group width="1" alignment="left" id="AYa-70-H6A">
                             <items>
-                                <timer width="59" height="36" alignment="left" id="adZ-hN-x7z"/>
-                                <button width="72" alignment="left" title="Start" id="cQw-Fc-ZPd"/>
+                                <timer width="59" height="36" alignment="left" previewedSeconds="0" id="adZ-hN-x7z"/>
+                                <button width="72" alignment="left" title="Start" id="cQw-Fc-ZPd">
+                                    <connections>
+                                        <action selector="startBtnTapped" destination="AgC-eL-Hgc" id="pZT-CU-NCx"/>
+                                    </connections>
+                                </button>
                             </items>
                         </group>
                     </items>
