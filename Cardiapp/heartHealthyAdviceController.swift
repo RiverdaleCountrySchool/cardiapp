@@ -31,8 +31,6 @@ class heartHealthyAdviceController: UIViewController {
             parsedCoreData.append((val.activity, val.startDate, val.endDate, val.star))
         }
         
-        //        cartegorizeTags(tags: parsedCoreData)
-        getArticles(tags: parsedCoreData)
     }
 
     override func didReceiveMemoryWarning() {
