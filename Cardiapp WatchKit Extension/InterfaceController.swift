@@ -115,7 +115,9 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
             heartIndicator.setTextColor(UIColor.purple)
             startStopButton.setBackgroundColor(UIColor.darkGray)
             wkTimerReset(timer: ExerTimer,interval: 0.0)
+            ExerTimer.stop()
             self.workoutActive = false
+            self.startStopButton.setBackgroundColor(UIColor.green)
             self.startStopButton.setTitle("Start")
             if let workout = self.session {
                 healthStore.end(workout)
@@ -128,9 +130,10 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
             //            heartIndicator.setTextColor(UIColor.purple)
             startStopButton.setBackgroundColor(UIColor.lightGray)
             
-            ExerTimer.start()
+            
             self.workoutActive = true
             self.startStopButton.setTitle("Stop")
+            self.startStopButton.setBackgroundColor(UIColor.red)
             startWorkout()
         }
         
@@ -155,8 +158,10 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         catch {
             fatalError("Unable to create the workout session!")
         }
-        
+        wkTimerReset(timer: ExerTimer,interval: 0.0)
+        ExerTimer.stop()
         healthStore.start(self.session!)
+        ExerTimer.start()
     }
     
     func createHeartRateStreamingQuery(_ workoutStartDate: Date) -> HKQuery? {
@@ -241,7 +246,6 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         timer.stop()
         let time  = NSDate(timeIntervalSinceNow: interval)
         timer.setDate(time as Date)
-        timer.start()
     }
     
 }
