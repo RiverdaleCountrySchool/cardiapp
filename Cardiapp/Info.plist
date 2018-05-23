@@ -2,11 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoadsInWebContent</key>
-		<true/>
-	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -27,6 +22,11 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+	</dict>
 	<key>NSHealthShareUsageDescription</key>
 	<string>Cardiapp is a heart monitor application that works with consumer-grade wearables, such as the Apple Watch. Our goal is to help you take control of your heart health by providing you with advice and alerting you about irregularities. All the data that the application uses is stored locally on your device, and no one can see your personal health information, unless you decide to share it. That being said, the more information you give to the application, the more the client-side algorithm can help you.</string>
 	<key>NSHealthUpdateUsageDescription</key>
