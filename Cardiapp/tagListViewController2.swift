@@ -27,12 +27,12 @@ class tagListViewController2: UITableViewController {
         let activityString = detailTableViewController2.editedActivity
         //let startTimeDate = detailTableViewController2.editedStartTime
         //let endTimeDate = detailTableViewController2.editedEndTime
-        let starBool = detailTableViewController2.editedStar
+        //let starBool = detailTableViewController2.editedStar
         
         coreDataActivities[index!] = activityString!
         //coreDataStartDates[index!] = startTimeDate!
         //coreDataEndDates[index!] = endTimeDate!
-        coreDataStar[index!] = starBool!
+        //coreDataStar[index!] = starBool!
         
         tableView.reloadData()
     }
