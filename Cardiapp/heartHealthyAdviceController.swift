@@ -32,7 +32,7 @@ class heartHealthyAdviceController: UIViewController {
         }
         
         //        cartegorizeTags(tags: parsedCoreData)
-        //getArticles(tags: parsedCoreData)
+        getArticles(tags: parsedCoreData)
     }
 
     override func didReceiveMemoryWarning() {
