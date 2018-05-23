@@ -41,7 +41,6 @@ class detailTableViewController2: UITableViewController /*, UIPickerViewDataSour
 
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -192,7 +191,7 @@ class detailTableViewController2: UITableViewController /*, UIPickerViewDataSour
             
             //editedStartTime = DateFormatter().date(from: editStartTimeTextField.text!)
             //editedEndTime = DateFormatter().date(from: editStartTimeTextField.text!)
-            
+            //editedStar = 
         }
     }
     

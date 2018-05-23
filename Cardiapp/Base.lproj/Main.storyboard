@@ -544,30 +544,94 @@ Click Go To Health App
                                     <constraint firstAttribute="height" constant="25" id="Tg0-vd-Czb"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zhr-WI-uTV">
-                                <rect key="frame" x="16" y="93" width="158" height="128"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Based on your tagging history, Cardiapp has some heart healthy advice for you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4Y-Pl-THJ">
+                                <rect key="frame" x="16" y="76" width="343" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GJQ-0a-9gI">
-                                <rect key="frame" x="201" y="93" width="158" height="128"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Heart Healthy Advice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uva-Fd-aGU">
+                                <rect key="frame" x="100" y="77" width="174" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1mn-DF-PTb">
-                                <rect key="frame" x="16" y="269" width="158" height="128"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You tagged EATING 3 times. Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8J-6T-Iep">
+                                <rect key="frame" x="16" y="152" width="246" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-el-f1R">
-                                <rect key="frame" x="201" y="269" width="158" height="128"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Did you know an egg a day can keep heart disease away?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-1P-Z7H">
+                                <rect key="frame" x="84" y="167" width="268" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b5C-EC-Mme">
-                                <rect key="frame" x="16" y="445" width="158" height="128"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk5-py-1hr">
+                                <rect key="frame" x="44" y="179" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-z0-W9u">
-                                <rect key="frame" x="201" y="445" width="158" height="128"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What you eat can impact your heart rate. " lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ker-uO-dFU">
+                                <rect key="frame" x="84" y="221" width="268" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You tagged JOGGING 4 times. Keep up the great work! Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCW-xC-ZVC">
+                                <rect key="frame" x="16" y="292" width="336" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You tagged SLEEPING 4 times.  Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5s-lb-XXx">
+                                <rect key="frame" x="16" y="398" width="336" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You can fine tune your run if you train your heart too." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7g-X7-BGn">
+                                <rect key="frame" x="84" y="332" width="268" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Getting better sleep can hlep your heart too." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcc-Zg-9gy">
+                                <rect key="frame" x="84" y="426" width="268" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBX-Wq-3si">
+                                <rect key="frame" x="44" y="233" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQ6-VN-WC3">
+                                <rect key="frame" x="44" y="344" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8p-pJ-Wlq">
+                                <rect key="frame" x="54" y="540" width="283" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="See more heart healthy advice"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkf-p9-wcP">
+                                <rect key="frame" x="44" y="438" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -591,44 +655,54 @@ Click Go To Health App
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Heart Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHn-gm-wzJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Heart Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHn-gm-wzJ">
                                 <rect key="frame" x="104" y="70" width="175" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="C4x-j4-f5X"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Biological Sex:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs2-dj-xRR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biological Sex:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs2-dj-xRR">
                                 <rect key="frame" x="16" y="104" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8Np-lL-3xG"/>
+                                    <constraint firstAttribute="width" constant="110" id="VmJ-lx-IAL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Age:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhx-5k-vig">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhx-5k-vig">
                                 <rect key="frame" x="16" y="142" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="h4J-T7-BIO"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Height:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxg-we-WTV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxg-we-WTV">
                                 <rect key="frame" x="16" y="180" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="C0w-39-Rbz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgs-Ra-jrZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgs-Ra-jrZ">
                                 <rect key="frame" x="16" y="218" width="110" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3Lx-wi-iLV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djV-bf-Kfh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djV-bf-Kfh">
                                 <rect key="frame" x="134" y="218" width="225" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES"/>
                                     <bool key="isElement" value="NO"/>
@@ -637,9 +711,8 @@ Click Go To Health App
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-Uf-LvN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf8-Uf-LvN">
                                 <rect key="frame" x="134" y="142" width="225" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES"/>
                                     <bool key="isElement" value="NO"/>
@@ -648,9 +721,8 @@ Click Go To Health App
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBM-pV-UWl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBM-pV-UWl">
                                 <rect key="frame" x="134" y="104" width="225" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES"/>
                                     <bool key="isElement" value="NO"/>
@@ -659,9 +731,8 @@ Click Go To Health App
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onc-5f-AyE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onc-5f-AyE">
                                 <rect key="frame" x="134" y="180" width="225" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES"/>
                                     <bool key="isElement" value="NO"/>
@@ -670,104 +741,190 @@ Click Go To Health App
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ava-j8-D7D">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ava-j8-D7D">
                                 <rect key="frame" x="329" y="20" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="settingsIcon"/>
                                 <connections>
                                     <segue destination="a7J-be-M9p" kind="show" id="gzi-Pw-QKa"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardiappLogo-1" translatesAutoresizingMaskIntoConstraints="NO" id="9r7-mG-5aV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardiappLogo-1" translatesAutoresizingMaskIntoConstraints="NO" id="9r7-mG-5aV">
                                 <rect key="frame" x="137" y="20" width="100" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="CN7-br-XO6"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZQ-Ze-DkM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZQ-Ze-DkM">
                                 <rect key="frame" x="247" y="380" width="90" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="G3Z-RU-omr"/>
+                                    <constraint firstAttribute="width" constant="90" id="kIK-Or-ne7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Source of heart rate info: American Heart Association" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mo-gS-riM">
-                                <rect key="frame" x="0.0" y="567" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Heart Rate Stats (based on your age):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vM-JK-yLX">
+                                <rect key="frame" x="16" y="293" width="328" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="iN6-IC-0DY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~50% of max heart rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjd-oB-GjV">
+                                <rect key="frame" x="37" y="377" width="202" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~85% of max heart rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVb-Wt-Fje">
+                                <rect key="frame" x="38" y="419" width="201" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="lzV-5f-AdY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOI-3m-2sl">
+                                <rect key="frame" x="247" y="419" width="90" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHl-hA-Lff">
+                                <rect key="frame" x="247" y="460" width="90" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwR-BL-Zur">
+                                <rect key="frame" x="247" y="499" width="90" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Approx. Max Heart Rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq8-S5-3CM">
+                                <rect key="frame" x="38" y="338" width="201" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="Ybd-pN-4l5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiB-cO-iwz">
+                                <rect key="frame" x="247" y="338" width="128" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moderate Exercise Target:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeV-A5-HAL">
+                                <rect key="frame" x="37" y="460" width="210" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="GIa-z5-JTa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intense Exercise Target:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEr-ba-6i2">
+                                <rect key="frame" x="37" y="500" width="210" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Fbg-M4-PVU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Source of heart rate info: American Heart Association" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mo-gS-riM">
+                                <rect key="frame" x="0.0" y="567" width="375" height="51"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Heart Rate Stats (based on your age):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vM-JK-yLX">
-                                <rect key="frame" x="16" y="293" width="328" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="~50% of max heart rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjd-oB-GjV">
-                                <rect key="frame" x="37" y="377" width="202" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="~85% of max heart rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVb-Wt-Fje">
-                                <rect key="frame" x="38" y="419" width="201" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOI-3m-2sl">
-                                <rect key="frame" x="247" y="419" width="90" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHl-hA-Lff">
-                                <rect key="frame" x="247" y="460" width="90" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwR-BL-Zur">
-                                <rect key="frame" x="247" y="499" width="90" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Approx. Max Heart Rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq8-S5-3CM">
-                                <rect key="frame" x="38" y="338" width="201" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiB-cO-iwz">
-                                <rect key="frame" x="247" y="338" width="128" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Moderate Exercise Target:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeV-A5-HAL">
-                                <rect key="frame" x="37" y="460" width="210" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Intense Exercise Target:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEr-ba-6i2">
-                                <rect key="frame" x="37" y="500" width="210" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fq8-S5-3CM" firstAttribute="leading" secondItem="hVb-Wt-Fje" secondAttribute="leading" id="0PA-IC-avm"/>
+                            <constraint firstItem="ZBM-pV-UWl" firstAttribute="trailing" secondItem="dKV-rb-iw1" secondAttribute="trailingMargin" id="2Gj-OH-21H"/>
+                            <constraint firstItem="Fjd-oB-GjV" firstAttribute="top" secondItem="Fq8-S5-3CM" secondAttribute="bottom" constant="8" symbolic="YES" id="2wj-dT-YF6"/>
+                            <constraint firstItem="Mhx-5k-vig" firstAttribute="top" secondItem="yf8-Uf-LvN" secondAttribute="top" id="435-sx-xf3"/>
+                            <constraint firstItem="dgs-Ra-jrZ" firstAttribute="bottom" secondItem="djV-bf-Kfh" secondAttribute="bottom" id="4gA-xT-Z9J"/>
+                            <constraint firstItem="FiB-cO-iwz" firstAttribute="leading" secondItem="vZQ-Ze-DkM" secondAttribute="leading" id="4yK-yD-gqD"/>
+                            <constraint firstItem="9vM-JK-yLX" firstAttribute="top" secondItem="dgs-Ra-jrZ" secondAttribute="bottom" constant="45" id="5yf-Qo-snn"/>
+                            <constraint firstItem="JOI-3m-2sl" firstAttribute="leading" secondItem="hVb-Wt-Fje" secondAttribute="trailing" constant="8" symbolic="YES" id="6dz-V1-rvE"/>
+                            <constraint firstItem="AeV-A5-HAL" firstAttribute="leading" secondItem="gEr-ba-6i2" secondAttribute="leading" id="7Qi-MY-Mpc"/>
+                            <constraint firstItem="Onc-5f-AyE" firstAttribute="leading" secondItem="djV-bf-Kfh" secondAttribute="leading" id="7fX-C6-JUY"/>
+                            <constraint firstItem="hVb-Wt-Fje" firstAttribute="baseline" secondItem="JOI-3m-2sl" secondAttribute="baseline" id="82u-ok-Ugd"/>
+                            <constraint firstItem="ZBM-pV-UWl" firstAttribute="leading" secondItem="cs2-dj-xRR" secondAttribute="trailing" constant="8" symbolic="YES" id="8ob-15-jKK"/>
+                            <constraint firstItem="fxg-we-WTV" firstAttribute="leading" secondItem="dgs-Ra-jrZ" secondAttribute="leading" id="9ne-4a-l6L"/>
+                            <constraint firstItem="vZQ-Ze-DkM" firstAttribute="leading" secondItem="JOI-3m-2sl" secondAttribute="leading" id="A5A-xj-c4t"/>
+                            <constraint firstItem="vZQ-Ze-DkM" firstAttribute="trailing" secondItem="JOI-3m-2sl" secondAttribute="trailing" id="D8R-87-ZaV"/>
+                            <constraint firstItem="dgs-Ra-jrZ" firstAttribute="top" secondItem="djV-bf-Kfh" secondAttribute="top" id="DVV-sC-oyf"/>
+                            <constraint firstItem="dgs-Ra-jrZ" firstAttribute="top" secondItem="fxg-we-WTV" secondAttribute="bottom" constant="8" symbolic="YES" id="Dam-wi-P3P"/>
+                            <constraint firstItem="Fjd-oB-GjV" firstAttribute="leading" secondItem="8iV-XH-lwj" secondAttribute="leading" constant="37" id="EVU-7X-gXf"/>
+                            <constraint firstItem="cs2-dj-xRR" firstAttribute="top" secondItem="ZBM-pV-UWl" secondAttribute="top" id="EWM-nv-7zT"/>
+                            <constraint firstItem="ZBM-pV-UWl" firstAttribute="leading" secondItem="yf8-Uf-LvN" secondAttribute="leading" id="Gf2-7o-d46"/>
+                            <constraint firstItem="LHn-gm-wzJ" firstAttribute="leading" secondItem="8iV-XH-lwj" secondAttribute="leading" constant="104" id="I3f-6F-PfF"/>
+                            <constraint firstItem="yf8-Uf-LvN" firstAttribute="leading" secondItem="Onc-5f-AyE" secondAttribute="leading" id="IlN-2N-New"/>
+                            <constraint firstItem="Onc-5f-AyE" firstAttribute="trailing" secondItem="djV-bf-Kfh" secondAttribute="trailing" id="ImL-dI-5VU"/>
+                            <constraint firstItem="RHl-hA-Lff" firstAttribute="leading" secondItem="AeV-A5-HAL" secondAttribute="trailing" id="Knh-2g-XOv"/>
+                            <constraint firstItem="Mhx-5k-vig" firstAttribute="leading" secondItem="fxg-we-WTV" secondAttribute="leading" id="LKQ-b5-z3w"/>
+                            <constraint firstItem="AeV-A5-HAL" firstAttribute="centerY" secondItem="RHl-hA-Lff" secondAttribute="centerY" id="MSf-0p-lkA"/>
+                            <constraint firstItem="cs2-dj-xRR" firstAttribute="top" secondItem="LHn-gm-wzJ" secondAttribute="bottom" constant="9" id="Mlg-U2-5v1"/>
+                            <constraint firstAttribute="trailing" secondItem="FiB-cO-iwz" secondAttribute="trailing" id="OsE-qr-ZWz"/>
+                            <constraint firstItem="ZBM-pV-UWl" firstAttribute="trailing" secondItem="Ava-j8-D7D" secondAttribute="trailing" id="R7p-CI-505"/>
+                            <constraint firstItem="djV-bf-Kfh" firstAttribute="leading" secondItem="dgs-Ra-jrZ" secondAttribute="trailing" constant="8" symbolic="YES" id="Rrr-Eg-OZd"/>
+                            <constraint firstItem="JOI-3m-2sl" firstAttribute="trailing" secondItem="RHl-hA-Lff" secondAttribute="trailing" id="SgE-h7-SM5"/>
+                            <constraint firstItem="9mo-gS-riM" firstAttribute="leading" secondItem="dKV-rb-iw1" secondAttribute="leading" id="UnF-b4-WOt"/>
+                            <constraint firstItem="dgs-Ra-jrZ" firstAttribute="leading" secondItem="9vM-JK-yLX" secondAttribute="leading" id="VFd-CU-gsE"/>
+                            <constraint firstItem="gEr-ba-6i2" firstAttribute="top" secondItem="AeV-A5-HAL" secondAttribute="bottom" constant="8" symbolic="YES" id="W5I-WQ-Cwp"/>
+                            <constraint firstItem="cs2-dj-xRR" firstAttribute="leading" secondItem="dKV-rb-iw1" secondAttribute="leadingMargin" id="WA4-pV-uqc"/>
+                            <constraint firstItem="vZQ-Ze-DkM" firstAttribute="top" secondItem="FiB-cO-iwz" secondAttribute="bottom" constant="11" id="Wgm-Eb-Z82"/>
+                            <constraint firstItem="AeV-A5-HAL" firstAttribute="top" secondItem="RHl-hA-Lff" secondAttribute="top" id="ZrM-LF-0BL"/>
+                            <constraint firstItem="hVb-Wt-Fje" firstAttribute="top" secondItem="JOI-3m-2sl" secondAttribute="top" id="Zsw-a2-Eee"/>
+                            <constraint firstItem="Onc-5f-AyE" firstAttribute="top" secondItem="yf8-Uf-LvN" secondAttribute="bottom" constant="8" symbolic="YES" id="a05-9r-qyj"/>
+                            <constraint firstItem="8iV-XH-lwj" firstAttribute="trailing" secondItem="vZQ-Ze-DkM" secondAttribute="trailing" constant="38" id="aJR-eG-SW1"/>
+                            <constraint firstItem="FiB-cO-iwz" firstAttribute="trailing" secondItem="9mo-gS-riM" secondAttribute="trailing" id="aoW-Uc-jKk"/>
+                            <constraint firstItem="9mo-gS-riM" firstAttribute="top" secondItem="gEr-ba-6i2" secondAttribute="bottom" constant="35" id="bcb-yj-hkK"/>
+                            <constraint firstItem="FiB-cO-iwz" firstAttribute="leading" secondItem="Fq8-S5-3CM" secondAttribute="trailing" constant="8" symbolic="YES" id="bp3-3l-mb7"/>
+                            <constraint firstItem="9r7-mG-5aV" firstAttribute="top" secondItem="Ava-j8-D7D" secondAttribute="top" id="cMu-aK-fvn"/>
+                            <constraint firstItem="cs2-dj-xRR" firstAttribute="leading" secondItem="Mhx-5k-vig" secondAttribute="leading" id="cnK-FI-am1"/>
+                            <constraint firstItem="9mo-gS-riM" firstAttribute="bottom" secondItem="8iV-XH-lwj" secondAttribute="bottom" id="dOT-eu-dfF"/>
+                            <constraint firstItem="fxg-we-WTV" firstAttribute="top" secondItem="Onc-5f-AyE" secondAttribute="top" id="dfx-mo-GON"/>
+                            <constraint firstItem="ZBM-pV-UWl" firstAttribute="trailing" secondItem="yf8-Uf-LvN" secondAttribute="trailing" id="ea0-nm-YYf"/>
+                            <constraint firstItem="8iV-XH-lwj" firstAttribute="trailing" secondItem="LHn-gm-wzJ" secondAttribute="trailing" constant="96" id="f6R-dh-26V"/>
+                            <constraint firstItem="9r7-mG-5aV" firstAttribute="leading" secondItem="8iV-XH-lwj" secondAttribute="leading" constant="137" id="fcb-KC-6VA"/>
+                            <constraint firstItem="Mhx-5k-vig" firstAttribute="top" secondItem="cs2-dj-xRR" secondAttribute="bottom" constant="8" symbolic="YES" id="fpe-Tu-v9L"/>
+                            <constraint firstItem="vZQ-Ze-DkM" firstAttribute="leading" secondItem="Fjd-oB-GjV" secondAttribute="trailing" constant="8" symbolic="YES" id="gXO-s2-py3"/>
+                            <constraint firstItem="RHl-hA-Lff" firstAttribute="trailing" secondItem="vwR-BL-Zur" secondAttribute="trailing" id="i1r-Qa-NPh"/>
+                            <constraint firstItem="LHn-gm-wzJ" firstAttribute="top" secondItem="9r7-mG-5aV" secondAttribute="bottom" constant="25" id="iWP-lk-4nM"/>
+                            <constraint firstItem="Fq8-S5-3CM" firstAttribute="centerX" secondItem="Fjd-oB-GjV" secondAttribute="centerX" id="inV-qM-6dt"/>
+                            <constraint firstItem="Fjd-oB-GjV" firstAttribute="baseline" secondItem="vZQ-Ze-DkM" secondAttribute="baseline" id="j5f-8C-WbK"/>
+                            <constraint firstItem="9r7-mG-5aV" firstAttribute="centerX" secondItem="9mo-gS-riM" secondAttribute="centerX" id="jgB-bp-TzX"/>
+                            <constraint firstItem="yf8-Uf-LvN" firstAttribute="leading" secondItem="Mhx-5k-vig" secondAttribute="trailing" constant="8" symbolic="YES" id="oIo-dA-U69"/>
+                            <constraint firstItem="Fjd-oB-GjV" firstAttribute="leading" secondItem="AeV-A5-HAL" secondAttribute="leading" id="obs-EU-ZS0"/>
+                            <constraint firstItem="Fq8-S5-3CM" firstAttribute="top" secondItem="9vM-JK-yLX" secondAttribute="bottom" constant="14" id="odC-6u-6QA"/>
+                            <constraint firstItem="Ava-j8-D7D" firstAttribute="leading" secondItem="9r7-mG-5aV" secondAttribute="trailing" constant="92" id="ogR-id-8cp"/>
+                            <constraint firstItem="gEr-ba-6i2" firstAttribute="centerY" secondItem="vwR-BL-Zur" secondAttribute="centerY" id="ouM-zS-dpP"/>
+                            <constraint firstItem="gEr-ba-6i2" firstAttribute="baseline" secondItem="vwR-BL-Zur" secondAttribute="baseline" id="pkr-AR-gAa"/>
+                            <constraint firstItem="JOI-3m-2sl" firstAttribute="leading" secondItem="RHl-hA-Lff" secondAttribute="leading" id="qOu-8B-Zps"/>
+                            <constraint firstItem="Fq8-S5-3CM" firstAttribute="top" secondItem="FiB-cO-iwz" secondAttribute="top" id="rOH-0C-Ly0"/>
+                            <constraint firstItem="AeV-A5-HAL" firstAttribute="top" secondItem="hVb-Wt-Fje" secondAttribute="bottom" constant="8" symbolic="YES" id="rkw-qD-HCB"/>
+                            <constraint firstItem="yf8-Uf-LvN" firstAttribute="top" secondItem="ZBM-pV-UWl" secondAttribute="bottom" constant="8" symbolic="YES" id="sCH-W8-hwT"/>
+                            <constraint firstItem="djV-bf-Kfh" firstAttribute="top" secondItem="Onc-5f-AyE" secondAttribute="bottom" constant="8" symbolic="YES" id="tDb-Wg-SyK"/>
+                            <constraint firstItem="9r7-mG-5aV" firstAttribute="top" secondItem="8iV-XH-lwj" secondAttribute="top" id="tc9-mQ-DPh"/>
+                            <constraint firstItem="AeV-A5-HAL" firstAttribute="trailing" secondItem="gEr-ba-6i2" secondAttribute="trailing" id="vbg-DG-LHm"/>
+                            <constraint firstItem="fxg-we-WTV" firstAttribute="top" secondItem="Mhx-5k-vig" secondAttribute="bottom" constant="8" symbolic="YES" id="vna-Q4-5eW"/>
+                            <constraint firstItem="yf8-Uf-LvN" firstAttribute="trailing" secondItem="Onc-5f-AyE" secondAttribute="trailing" id="xBP-mG-xea"/>
+                            <constraint firstItem="hVb-Wt-Fje" firstAttribute="top" secondItem="Fjd-oB-GjV" secondAttribute="bottom" constant="8" symbolic="YES" id="xhb-h7-nuU"/>
+                            <constraint firstItem="Onc-5f-AyE" firstAttribute="leading" secondItem="fxg-we-WTV" secondAttribute="trailing" constant="8" symbolic="YES" id="zIU-iN-uzX"/>
+                            <constraint firstItem="Fq8-S5-3CM" firstAttribute="baseline" secondItem="FiB-cO-iwz" secondAttribute="baseline" id="zMc-q3-HRw"/>
+                            <constraint firstItem="RHl-hA-Lff" firstAttribute="leading" secondItem="vwR-BL-Zur" secondAttribute="leading" id="zXk-N3-eyp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8iV-XH-lwj"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Heart Profile" image="heartProfile" selectedImage="heartProfile" id="t80-I5-XHq"/>
