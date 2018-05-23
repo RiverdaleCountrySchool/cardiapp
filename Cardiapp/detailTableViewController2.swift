@@ -41,7 +41,6 @@ class detailTableViewController2: UITableViewController /*, UIPickerViewDataSour
 
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,8 +54,14 @@ class detailTableViewController2: UITableViewController /*, UIPickerViewDataSour
         
         editActivityTextField.text = activityArray[index!]
         
-        editStartTimeTextField.text = "\(startTimeArray[index!])"
-        editEndTimeTextField.text = "\(endTimeArray[index!])"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        let startDateAppear = dateFormatter.string(from: startTimeArray[index!])
+        let endDateAppear = dateFormatter.string(from: endTimeArray[index!])
+        
+        editStartTimeTextField.text = startDateAppear
+        editEndTimeTextField.text = endDateAppear
         
         if starArray[index!] == true {
             editStarSwitch.isOn = true
@@ -192,7 +197,7 @@ class detailTableViewController2: UITableViewController /*, UIPickerViewDataSour
             
             //editedStartTime = DateFormatter().date(from: editStartTimeTextField.text!)
             //editedEndTime = DateFormatter().date(from: editStartTimeTextField.text!)
-            
+            //editedStar = 
         }
     }
     
