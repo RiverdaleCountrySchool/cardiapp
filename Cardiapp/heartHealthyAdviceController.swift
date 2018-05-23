@@ -14,6 +14,9 @@ class heartHealthyAdviceController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
         var coreDataTags = [PersonalTag]()
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
@@ -28,13 +31,66 @@ class heartHealthyAdviceController: UIViewController {
             parsedCoreData.append((val.activity, val.startDate, val.endDate, val.star))
         }
         
-        cartegorizeTags(tags: parsedCoreData)
+        //        cartegorizeTags(tags: parsedCoreData)
+        getArticles(tags: parsedCoreData)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func getArticles(tags: [(String?, Date?, Date?, Bool)]){
+        var activityArray = [String?]()
+        for tag in tags{
+            activityArray.append(tag.0)
+        }
+        
+        let countedActivities = activityArray.reduce(into: [:], {counts, words in counts[words!, default: 0] += 1})
+        let organizedCountActivites = countedActivities.sorted(by: {
+            return $0.value > $1.value
+        })
+        var finalOrganizedActivityArray = [String?]()
+        for val in organizedCountActivites{
+            finalOrganizedActivityArray.append(val.key)
+        }
+        activityArray = finalOrganizedActivityArray
+        
+        if activityArray.count < 3{
+            for index in 0...activityArray.count{
+                importActivityUI(activity: activityArray[index]!)
+            }
+        }else{
+            for index in 0...3{
+                importActivityUI(activity: activityArray[index]!)
+            }
+        }
+    }
+    
+    func importActivityUI(activity: String){
+        switch activity {
+            //"Running 🏃","Sleeping 💤","Eating 🍔","Drinking 🍸","Smoking 🚬","Watching TV 📺","Basketball 🏀","Football 🏈","Baseball ⚾️","Walking 🚶","Lifting Weights 🏋️‍♀️","Dancing 💃","Tennis 🎾","Volleyball 🏐","Ping Pong 🏓","Ice Hockey 🏒","Field Hockey 🏑","Archery 🏹","Fishing 🎣","Boxing 🥊","Martial Arts 🥋","Skiing ⛷","Snowboarding 🏂","Ice Skating ⛸","Wrestling 🤼‍♀️","Gymnastics 🤸‍♀️","Golf 🏌️","Surfing 🏄","Water Polo 🤽‍♀️","Swimming 🏊‍♀️","Rowing 🚣‍♀️","Horseback Riding 🏇","Biking 🚴","Mountain Biking 🚵‍♀️","Juggling 🤹‍♂️","Rugby 🏉","Pool 🎱","Badminton 🏸","Cricket 🏏","Bowling 🎳","Video Games 🎮","Darts 🎯","Fencing 🤺","Trumpet 🎺","Piano 🎹","Drums 🥁","Saxophone 🎷","Guitar 🎸","Violin 🎻","Dodgeball 🤾‍♂️","Singing 🎤"]
+        case "Soccer ⚽️":
+            print()
+        case "":
+            print()
+        case "":
+            print()
+        case "":
+            print()
+        case "":
+            print()
+        case "":
+            print()
+        case "":
+            print()
+        case "":
+            print()
+        default:
+            <#code#>
+        }
+    }
+    
     
     
     func cartegorizeTags(tags:[(String?, Date?, Date?, Bool)] ){
