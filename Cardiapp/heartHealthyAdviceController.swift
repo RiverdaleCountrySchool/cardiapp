@@ -74,9 +74,9 @@ class heartHealthyAdviceController: UIViewController {
     
     func cartegorizeTags(tags:[(String?, Date?, Date?, Bool)] ){
         
-        let sepTags = tags[0].0!.components(separatedBy: " ")
-        var activityText = sepTags[0]
-        
+//        let sepTags = tags[0].0!.components(separatedBy: " ")
+//        var activityText = sepTags[0]
+//
         let tagList = tags[0].0!
         
         
