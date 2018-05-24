@@ -98,6 +98,7 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     func createStartTimeDatePicker() {
         StartTimePicker.datePickerMode = .dateAndTime
+        StartTimePicker.minuteInterval = 15
         StartTimePicker.addTarget(self, action: #selector(self.startDatePickerValueChanged(datePicker:)), for: .valueChanged)
     }
     func createStartTimeToolBar() {
