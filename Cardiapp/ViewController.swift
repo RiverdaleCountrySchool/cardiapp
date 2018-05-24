@@ -608,11 +608,11 @@ class ViewController: UIViewController, ChartViewDelegate {
 //convert emoji string to UIimage for the tag //source:https://stackoverflow.com/questions/38809425/convert-apple-emoji-string-to-uiimage
 extension String {
     func image() -> UIImage? {
-        let size = CGSize(width: 35, height: 35)
+        let size = CGSize(width: 45, height: 45)
         //let size = CGSize(width: 50, height: 50)
         //let size = CGSize(width: 100, height: 100)
         UIGraphicsBeginImageContextWithOptions(size, false, 0);
-        UIColor.white.set()
+        UIColor.clear.set()
         let rect = CGRect(origin: CGPoint(), size: size)
         UIRectFill(CGRect(origin: CGPoint(), size: size))
         (self as NSString).draw(in: rect, withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30)])
