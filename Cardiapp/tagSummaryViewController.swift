@@ -98,6 +98,7 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     func createStartTimeDatePicker() {
         StartTimePicker.datePickerMode = .dateAndTime
+        StartTimePicker.minuteInterval = 5
         StartTimePicker.addTarget(self, action: #selector(self.startDatePickerValueChanged(datePicker:)), for: .valueChanged)
     }
     func createStartTimeToolBar() {
@@ -130,6 +131,7 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     func createEndTimeDatePicker() {
         EndTimePicker.datePickerMode = .dateAndTime
+        EndTimePicker.minuteInterval = 5
         EndTimePicker.addTarget(self, action: #selector(self.endDatePickerValueChanged(datePicker:)), for: .valueChanged)
     }
     func createEndTimeToolBar() {
