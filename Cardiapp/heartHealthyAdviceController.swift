@@ -33,6 +33,8 @@ class heartHealthyAdviceController: UIViewController {
             parsedCoreData.append((val.activity, val.startDate, val.endDate, val.star))
         }
         
+        importActivityUI(activity: "")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,7 +69,33 @@ class heartHealthyAdviceController: UIViewController {
         }
     }
     
+    
+    //source: http://mrgott.com/swift-programing/33-rest-api-in-swift-4-using-urlsession-and-jsondecode
+    //source: https://codewithchris.com/iphone-app-connect-to-mysql-database/
     func importActivityUI(activity: String){
+        let urlString = "http://www.cardiapp.io/SQL/service.php"
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                print("FETCH ERROR 94")
+            }
+            
+            guard let data = data else {
+                print("FETCH ERROR 98")
+                return
+            }
+            
+            print("Data: ", data)
+            do{
+                let parsedJSONData = try JSONDecoder().decode([Activity].self, from: data)
+                print(parsedJSONData)
+            } catch let jsonError {
+                print(jsonError)
+            }
+            
+            }.resume()
     }
     
     
