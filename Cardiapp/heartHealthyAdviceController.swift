@@ -18,6 +18,9 @@ class heartHealthyAdviceController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
         var coreDataTags = [PersonalTag]()
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
@@ -32,8 +35,8 @@ class heartHealthyAdviceController: UIViewController {
             parsedCoreData.append((val.activity, val.startDate, val.endDate, val.star))
         }
         
+        importActivityUI(activity: "")
         
-        cartegorizeTags(tags: parsedCoreData)
     }
     
 
@@ -41,6 +44,63 @@ class heartHealthyAdviceController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func getArticles(tags: [(String?, Date?, Date?, Bool)]){
+        var activityArray = [String?]()
+        for tag in tags{
+            activityArray.append(tag.0)
+        }
+        
+        let countedActivities = activityArray.reduce(into: [:], {counts, words in counts[words!, default: 0] += 1})
+        let organizedCountActivites = countedActivities.sorted(by: {
+            return $0.value > $1.value
+        })
+        var finalOrganizedActivityArray = [String?]()
+        for val in organizedCountActivites{
+            finalOrganizedActivityArray.append(val.key)
+        }
+        activityArray = finalOrganizedActivityArray
+        
+        if activityArray.count < 3{
+            for index in 0...activityArray.count{
+                importActivityUI(activity: activityArray[index]!)
+            }
+        }else{
+            for index in 0...3{
+                importActivityUI(activity: activityArray[index]!)
+            }
+        }
+    }
+    
+    
+    //source: http://mrgott.com/swift-programing/33-rest-api-in-swift-4-using-urlsession-and-jsondecode
+    //source: https://codewithchris.com/iphone-app-connect-to-mysql-database/
+    func importActivityUI(activity: String){
+        let urlString = "http://www.cardiapp.io/SQL/service.php"
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                print("FETCH ERROR 94")
+            }
+            
+            guard let data = data else {
+                print("FETCH ERROR 98")
+                return
+            }
+            
+            print("Data: ", data)
+            do{
+                let parsedJSONData = try JSONDecoder().decode([Activity].self, from: data)
+                print(parsedJSONData)
+            } catch let jsonError {
+                print(jsonError)
+            }
+            
+            }.resume()
+    }
+    
     
     
     func cartegorizeTags(tags:[(String?, Date?, Date?, Bool)] ){
