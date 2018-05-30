@@ -115,17 +115,26 @@ class tagListViewController2: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+            let tag = tags[indexPath.row]
+            tags.remove(at: indexPath.row)
+            context.delete(tag)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            do {
+                tags = try context.fetch(PersonalTag.fetchRequest())
+            } catch {
+                print("Fetching Failed")
+            }
+        }
+        //else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        //}
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
