@@ -18,9 +18,6 @@ class heartHealthyAdviceController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        
-    }
-    override func viewDidAppear(_ animated: Bool) {
         var coreDataTags = [PersonalTag]()
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
