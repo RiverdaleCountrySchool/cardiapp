@@ -29,11 +29,9 @@ class heartHealthyAdviceController: UIViewController {
         
         var parsedCoreData = [(String?, Date?, Date?, Bool)]()
         for val in coreDataTags{
-            parsedCoreData.append((val.activity, val.startDate, val.endDate, val.star))
+            parsedCoreData.append((val.activity?.stringByRemovingEmoji(), val.startDate, val.endDate, val.star))
         }
-        
-        importActivityUI(activity: "")
-        
+        getArticles(tags: parsedCoreData)
     }
     
 
@@ -58,13 +56,13 @@ class heartHealthyAdviceController: UIViewController {
         }
         activityArray = finalOrganizedActivityArray
         
-        if activityArray.count < 3{
-            for index in 0...activityArray.count{
-                importActivityUI(activity: activityArray[index]!)
-            }
-        }else{
-            for index in 0...3{
-                importActivityUI(activity: activityArray[index]!)
+        if activityArray.count == 0{
+            print("No Activities")
+        } else if activityArray.count == 1{
+            importActivityUI(activity: activityArray[0]!, position: 0)
+        } else{
+            for index in 0...activityArray.count - 1{
+                importActivityUI(activity: activityArray[index]!, position: index)
             }
         }
     }
@@ -72,8 +70,8 @@ class heartHealthyAdviceController: UIViewController {
     
     //source: http://mrgott.com/swift-programing/33-rest-api-in-swift-4-using-urlsession-and-jsondecode
     //source: https://codewithchris.com/iphone-app-connect-to-mysql-database/
-    func importActivityUI(activity: String){
-        let urlString = "http://www.cardiapp.io/SQL/service.php"
+    func importActivityUI(activity: String, position: Int){
+        let urlString = "http://www.cardiapp.io/SQL/service.php?activity=\(activity)".trimmingCharacters(in: .whitespaces)
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -86,14 +84,14 @@ class heartHealthyAdviceController: UIViewController {
                 print("FETCH ERROR 98")
                 return
             }
-            
-            print("Data: ", data)
+            var parsedJSONData = [Activity]()
             do{
-                let parsedJSONData = try JSONDecoder().decode([Activity].self, from: data)
-                print(parsedJSONData)
+                parsedJSONData = try JSONDecoder().decode([Activity].self, from: data)
             } catch let jsonError {
                 print(jsonError)
             }
+            
+            print(parsedJSONData)
             
             }.resume()
     }
@@ -175,4 +173,17 @@ class heartHealthyAdviceController: UIViewController {
     }
     */
 
+}
+
+//source: https://stackoverflow.com/questions/36919125/swift-replacing-emojis-in-a-string-with-whitespace?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+extension String {
+    func stringByRemovingEmoji() -> String {
+        return String(self.filter { !$0.isEmoji() })
+    }
+}
+extension Character {
+    fileprivate func isEmoji() -> Bool {
+        return Character(UnicodeScalar(UInt32(0x1d000))!) <= self && self <= Character(UnicodeScalar(UInt32(0x1f77f))!)
+            || Character(UnicodeScalar(UInt32(0x2100))!) <= self && self <= Character(UnicodeScalar(UInt32(0x26ff))!)
+    }
 }

@@ -11,4 +11,5 @@ import Foundation
 struct Activity: Codable {
     let Activity: String
     let ArticleURL: String
+    let ArticleTitle: String
 }
