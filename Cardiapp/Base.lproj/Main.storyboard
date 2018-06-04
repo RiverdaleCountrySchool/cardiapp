@@ -621,13 +621,13 @@ Click Go To Health App
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardiappLogo-1" translatesAutoresizingMaskIntoConstraints="NO" id="GPC-mp-U5Y">
                                 <rect key="frame" x="137" y="20" width="100" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="2Wt-X8-dkn"/>
+                                    <constraint firstAttribute="height" constant="25" id="xNl-2m-5kp"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on your tagging history, Cardiapp has some heart healthy advice for you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4Y-Pl-THJ">
                                 <rect key="frame" x="16" y="106" width="343" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="4V6-sT-94C"/>
+                                    <constraint firstAttribute="height" constant="40" id="Xr5-zK-h3e"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -636,7 +636,7 @@ Click Go To Health App
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heart Healthy Advice" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uva-Fd-aGU">
                                 <rect key="frame" x="16" y="68" width="343" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="wrU-8b-ynF"/>
+                                    <constraint firstAttribute="height" constant="30" id="bM7-we-wiC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -645,12 +645,19 @@ Click Go To Health App
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You tagged EATING 3 times. Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8J-6T-Iep">
                                 <rect key="frame" x="16" y="154" width="343" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="unx-fj-oLR"/>
+                                    <constraint firstAttribute="height" constant="20" id="fOm-qT-JVb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8p-pJ-Wlq">
+                                <rect key="frame" x="83" y="586" width="209" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="yTr-nB-fon"/>
+                                </constraints>
+                                <state key="normal" title="See more heart healthy advice"/>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know an egg a day can keep heart disease away?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-1P-Z7H">
                                 <rect key="frame" x="43" y="182" width="316" height="35"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -661,7 +668,7 @@ Click Go To Health App
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bk5-py-1hr">
                                 <rect key="frame" x="16" y="188" width="22" height="22"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="Nrb-75-S4T"/>
+                                    <constraint firstAttribute="width" constant="22" id="Byr-fd-DTD"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="fQp-UF-xFJ" kind="show" id="SUZ-6L-68Q"/>
@@ -675,32 +682,25 @@ Click Go To Health App
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You tagged JOGGING 4 times. Keep up the great work! Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCW-xC-ZVC">
-                                <rect key="frame" x="16" y="268" width="343" height="41"/>
+                                <rect key="frame" x="16" y="339" width="343" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40.5" id="uJh-Bi-4v0"/>
+                                    <constraint firstAttribute="height" constant="41" id="XOo-y1-A31"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You tagged SLEEPING 4 times.  Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5s-lb-XXx">
-                                <rect key="frame" x="16" y="360" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You tagged SLEEPING 4 times. Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5s-lb-XXx">
+                                <rect key="frame" x="16" y="268" width="343" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20.5" id="Bex-F3-7Nw"/>
+                                    <constraint firstAttribute="height" constant="21" id="H6A-aG-dE1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can fine tune your run if you train your heart too." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7g-X7-BGn">
-                                <rect key="frame" x="43" y="317" width="316" height="35"/>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Getting better sleep can hlep your heart too." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcc-Zg-9gy">
-                                <rect key="frame" x="43" y="389" width="316" height="34"/>
+                                <rect key="frame" x="43" y="297" width="316" height="34"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -709,68 +709,69 @@ Click Go To Health App
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBX-Wq-3si">
                                 <rect key="frame" x="16" y="231" width="22" height="22"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQ6-VN-WC3">
-                                <rect key="frame" x="16" y="323" width="22" height="22"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkf-p9-wcP">
-                                <rect key="frame" x="16" y="395" width="22" height="21"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8p-pJ-Wlq">
-                                <rect key="frame" x="83" y="586" width="209" height="25"/>
+                                <rect key="frame" x="16" y="303" width="22" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="RlM-n7-rMY"/>
+                                    <constraint firstAttribute="height" constant="21" id="mTn-gC-fzG"/>
                                 </constraints>
-                                <state key="normal" title="See more heart healthy advice"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can fine tune your run if you train your heart too." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7g-X7-BGn">
+                                <rect key="frame" x="43" y="388" width="316" height="35"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQ6-VN-WC3">
+                                <rect key="frame" x="16" y="394" width="22" height="22"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="G8J-6T-Iep" firstAttribute="trailing" secondItem="vtk-1P-Z7H" secondAttribute="trailing" id="2PW-E8-O2a"/>
-                            <constraint firstItem="RCW-xC-ZVC" firstAttribute="leading" secondItem="XQ6-VN-WC3" secondAttribute="leading" id="2ps-JP-Rlg"/>
-                            <constraint firstItem="GPC-mp-U5Y" firstAttribute="centerX" secondItem="Uva-Fd-aGU" secondAttribute="centerX" id="44E-Dd-cVa"/>
-                            <constraint firstItem="vtk-1P-Z7H" firstAttribute="trailing" secondItem="ker-uO-dFU" secondAttribute="trailing" id="4Ij-En-SKP"/>
-                            <constraint firstItem="vcc-Zg-9gy" firstAttribute="top" secondItem="S5s-lb-XXx" secondAttribute="bottom" constant="8" symbolic="YES" id="4eg-hH-CIW"/>
-                            <constraint firstItem="S5s-lb-XXx" firstAttribute="trailing" secondItem="vcc-Zg-9gy" secondAttribute="trailing" id="9bV-11-nEq"/>
-                            <constraint firstItem="PTo-gW-a1f" firstAttribute="bottom" secondItem="p8p-pJ-Wlq" secondAttribute="bottom" constant="7" id="9c4-3l-kQd"/>
-                            <constraint firstItem="PTo-gW-a1f" firstAttribute="bottom" secondItem="Hkf-p9-wcP" secondAttribute="bottom" constant="202" id="AHV-7j-t7s"/>
-                            <constraint firstItem="N4Y-Pl-THJ" firstAttribute="top" secondItem="Uva-Fd-aGU" secondAttribute="bottom" constant="8" symbolic="YES" id="CJM-Pu-5ei"/>
-                            <constraint firstItem="vtk-1P-Z7H" firstAttribute="leading" secondItem="ker-uO-dFU" secondAttribute="leading" id="CmY-dV-FZ1"/>
-                            <constraint firstItem="Uva-Fd-aGU" firstAttribute="leading" secondItem="YCW-lE-C3M" secondAttribute="leadingMargin" id="GHK-OP-prI"/>
-                            <constraint firstItem="GPC-mp-U5Y" firstAttribute="top" secondItem="PTo-gW-a1f" secondAttribute="top" id="I2X-4q-OH9"/>
-                            <constraint firstItem="RCW-xC-ZVC" firstAttribute="trailing" secondItem="u7g-X7-BGn" secondAttribute="trailing" id="KkN-RK-xOn"/>
-                            <constraint firstItem="RCW-xC-ZVC" firstAttribute="top" secondItem="WBX-Wq-3si" secondAttribute="bottom" constant="15" id="Nls-Ku-rG0"/>
-                            <constraint firstItem="u7g-X7-BGn" firstAttribute="top" secondItem="RCW-xC-ZVC" secondAttribute="bottom" constant="8" symbolic="YES" id="PkB-uq-bbt"/>
-                            <constraint firstItem="bk5-py-1hr" firstAttribute="top" secondItem="G8J-6T-Iep" secondAttribute="bottom" constant="14" id="QS9-Pz-e47"/>
-                            <constraint firstItem="XQ6-VN-WC3" firstAttribute="top" secondItem="RCW-xC-ZVC" secondAttribute="bottom" constant="14" id="R0Y-pD-2dj"/>
-                            <constraint firstItem="G8J-6T-Iep" firstAttribute="top" secondItem="N4Y-Pl-THJ" secondAttribute="bottom" constant="8" symbolic="YES" id="T4N-k2-E5r"/>
-                            <constraint firstItem="WBX-Wq-3si" firstAttribute="leading" secondItem="RCW-xC-ZVC" secondAttribute="leading" id="UbU-DH-L0k"/>
-                            <constraint firstItem="Uva-Fd-aGU" firstAttribute="leading" secondItem="N4Y-Pl-THJ" secondAttribute="leading" id="UeO-Md-aFR"/>
-                            <constraint firstItem="XQ6-VN-WC3" firstAttribute="centerY" secondItem="YCW-lE-C3M" secondAttribute="centerY" id="VM6-sA-Ik4"/>
-                            <constraint firstItem="ker-uO-dFU" firstAttribute="trailing" secondItem="RCW-xC-ZVC" secondAttribute="trailing" id="VYO-AZ-WeZ"/>
-                            <constraint firstItem="p8p-pJ-Wlq" firstAttribute="centerX" secondItem="S5s-lb-XXx" secondAttribute="centerX" id="Xd1-9C-s2B"/>
-                            <constraint firstItem="u7g-X7-BGn" firstAttribute="leading" secondItem="vcc-Zg-9gy" secondAttribute="leading" id="Xoo-ZZ-hkk"/>
-                            <constraint firstItem="Hkf-p9-wcP" firstAttribute="top" secondItem="S5s-lb-XXx" secondAttribute="bottom" constant="14" id="ZUD-J6-6pA"/>
-                            <constraint firstItem="Uva-Fd-aGU" firstAttribute="trailing" secondItem="N4Y-Pl-THJ" secondAttribute="trailing" id="ayY-om-pLd"/>
-                            <constraint firstItem="GPC-mp-U5Y" firstAttribute="leading" secondItem="PTo-gW-a1f" secondAttribute="leading" constant="137" id="bUY-gX-Dz5"/>
-                            <constraint firstItem="N4Y-Pl-THJ" firstAttribute="leading" secondItem="G8J-6T-Iep" secondAttribute="leading" id="baS-1N-cGe"/>
-                            <constraint firstItem="N4Y-Pl-THJ" firstAttribute="trailing" secondItem="G8J-6T-Iep" secondAttribute="trailing" id="eSs-o0-LAa"/>
-                            <constraint firstItem="XQ6-VN-WC3" firstAttribute="centerY" secondItem="u7g-X7-BGn" secondAttribute="centerY" id="enc-ck-sAp"/>
-                            <constraint firstItem="WBX-Wq-3si" firstAttribute="centerY" secondItem="ker-uO-dFU" secondAttribute="centerY" id="fVR-KV-Ozy"/>
-                            <constraint firstItem="vtk-1P-Z7H" firstAttribute="top" secondItem="G8J-6T-Iep" secondAttribute="bottom" constant="8" symbolic="YES" id="gAo-7Q-JBz"/>
-                            <constraint firstItem="Hkf-p9-wcP" firstAttribute="centerY" secondItem="vcc-Zg-9gy" secondAttribute="centerY" id="gQj-yG-eFk"/>
-                            <constraint firstItem="ker-uO-dFU" firstAttribute="top" secondItem="vtk-1P-Z7H" secondAttribute="bottom" constant="8" symbolic="YES" id="gmR-hD-UBM"/>
-                            <constraint firstItem="bk5-py-1hr" firstAttribute="leading" secondItem="WBX-Wq-3si" secondAttribute="leading" id="jxh-cN-gEa"/>
-                            <constraint firstItem="S5s-lb-XXx" firstAttribute="top" secondItem="u7g-X7-BGn" secondAttribute="bottom" constant="8" symbolic="YES" id="k1j-5K-ude"/>
-                            <constraint firstItem="u7g-X7-BGn" firstAttribute="trailing" secondItem="S5s-lb-XXx" secondAttribute="trailing" id="kiK-kK-0gl"/>
-                            <constraint firstItem="vtk-1P-Z7H" firstAttribute="leading" secondItem="bk5-py-1hr" secondAttribute="trailing" constant="5" id="oWd-yR-PmH"/>
-                            <constraint firstItem="Uva-Fd-aGU" firstAttribute="top" secondItem="GPC-mp-U5Y" secondAttribute="bottom" constant="23" id="obS-6k-9NL"/>
-                            <constraint firstItem="S5s-lb-XXx" firstAttribute="leading" secondItem="Hkf-p9-wcP" secondAttribute="leading" id="qKX-cv-v0F"/>
-                            <constraint firstItem="Uva-Fd-aGU" firstAttribute="trailing" secondItem="YCW-lE-C3M" secondAttribute="trailingMargin" id="t7b-be-Fsm"/>
-                            <constraint firstItem="ker-uO-dFU" firstAttribute="leading" secondItem="u7g-X7-BGn" secondAttribute="leading" id="tDx-mZ-GBE"/>
-                            <constraint firstItem="bk5-py-1hr" firstAttribute="centerY" secondItem="vtk-1P-Z7H" secondAttribute="centerY" id="tXq-hN-uzm"/>
-                            <constraint firstItem="G8J-6T-Iep" firstAttribute="leading" secondItem="bk5-py-1hr" secondAttribute="leading" id="ud7-d4-pwm"/>
-                            <constraint firstItem="RCW-xC-ZVC" firstAttribute="top" secondItem="ker-uO-dFU" secondAttribute="bottom" constant="8" symbolic="YES" id="upD-DQ-asu"/>
-                            <constraint firstItem="XQ6-VN-WC3" firstAttribute="leading" secondItem="S5s-lb-XXx" secondAttribute="leading" id="vxC-2z-aSe"/>
+                            <constraint firstItem="GPC-mp-U5Y" firstAttribute="leading" secondItem="PTo-gW-a1f" secondAttribute="leading" constant="137" id="0Qc-wF-Gn5"/>
+                            <constraint firstItem="bk5-py-1hr" firstAttribute="leading" secondItem="WBX-Wq-3si" secondAttribute="leading" id="1ay-O5-PZL"/>
+                            <constraint firstItem="vtk-1P-Z7H" firstAttribute="leading" secondItem="ker-uO-dFU" secondAttribute="leading" id="2kz-Yo-mpU"/>
+                            <constraint firstItem="Uva-Fd-aGU" firstAttribute="top" secondItem="GPC-mp-U5Y" secondAttribute="bottom" constant="23" id="3m8-0u-sQx"/>
+                            <constraint firstItem="u7g-X7-BGn" firstAttribute="top" secondItem="RCW-xC-ZVC" secondAttribute="bottom" constant="8" symbolic="YES" id="6Dj-vT-l29"/>
+                            <constraint firstItem="vcc-Zg-9gy" firstAttribute="trailing" secondItem="RCW-xC-ZVC" secondAttribute="trailing" id="75w-Cr-HAW"/>
+                            <constraint firstItem="PTo-gW-a1f" firstAttribute="bottom" secondItem="p8p-pJ-Wlq" secondAttribute="bottom" constant="7" id="8JP-rh-uDC"/>
+                            <constraint firstItem="GPC-mp-U5Y" firstAttribute="top" secondItem="PTo-gW-a1f" secondAttribute="top" id="AlD-mv-tUS"/>
+                            <constraint firstItem="RCW-xC-ZVC" firstAttribute="top" secondItem="vcc-Zg-9gy" secondAttribute="bottom" constant="8" symbolic="YES" id="Avq-5X-685"/>
+                            <constraint firstItem="ker-uO-dFU" firstAttribute="leading" secondItem="vcc-Zg-9gy" secondAttribute="leading" id="DFi-pd-ltg"/>
+                            <constraint firstItem="N4Y-Pl-THJ" firstAttribute="trailing" secondItem="G8J-6T-Iep" secondAttribute="trailing" id="FkR-4K-CN1"/>
+                            <constraint firstItem="N4Y-Pl-THJ" firstAttribute="top" secondItem="Uva-Fd-aGU" secondAttribute="bottom" constant="8" symbolic="YES" id="Gur-Cf-6kh"/>
+                            <constraint firstItem="S5s-lb-XXx" firstAttribute="top" secondItem="WBX-Wq-3si" secondAttribute="bottom" constant="15" id="H6n-YF-5Fg"/>
+                            <constraint firstItem="RCW-xC-ZVC" firstAttribute="leading" secondItem="XQ6-VN-WC3" secondAttribute="leading" id="ITR-3q-aGJ"/>
+                            <constraint firstItem="G8J-6T-Iep" firstAttribute="trailing" secondItem="vtk-1P-Z7H" secondAttribute="trailing" id="J7x-Bt-FiG"/>
+                            <constraint firstItem="S5s-lb-XXx" firstAttribute="leading" secondItem="Hkf-p9-wcP" secondAttribute="leading" id="KVu-oQ-QQA"/>
+                            <constraint firstItem="bk5-py-1hr" firstAttribute="top" secondItem="G8J-6T-Iep" secondAttribute="bottom" constant="14" id="MDE-sm-7C5"/>
+                            <constraint firstItem="ker-uO-dFU" firstAttribute="top" secondItem="vtk-1P-Z7H" secondAttribute="bottom" constant="8" symbolic="YES" id="MGW-YJ-jf1"/>
+                            <constraint firstItem="Uva-Fd-aGU" firstAttribute="trailing" secondItem="YCW-lE-C3M" secondAttribute="trailingMargin" id="MWD-kA-zeQ"/>
+                            <constraint firstItem="WBX-Wq-3si" firstAttribute="centerY" secondItem="ker-uO-dFU" secondAttribute="centerY" id="NnG-xP-BUY"/>
+                            <constraint firstItem="G8J-6T-Iep" firstAttribute="leading" secondItem="bk5-py-1hr" secondAttribute="leading" id="Oas-x9-nz3"/>
+                            <constraint firstItem="bk5-py-1hr" firstAttribute="centerY" secondItem="vtk-1P-Z7H" secondAttribute="centerY" id="OcW-dN-QTJ"/>
+                            <constraint firstItem="XQ6-VN-WC3" firstAttribute="centerY" secondItem="u7g-X7-BGn" secondAttribute="centerY" id="P9X-LV-diq"/>
+                            <constraint firstItem="Uva-Fd-aGU" firstAttribute="leading" secondItem="N4Y-Pl-THJ" secondAttribute="leading" id="Paa-BG-SVX"/>
+                            <constraint firstItem="S5s-lb-XXx" firstAttribute="trailing" secondItem="vcc-Zg-9gy" secondAttribute="trailing" id="QWn-4y-rPc"/>
+                            <constraint firstItem="GPC-mp-U5Y" firstAttribute="centerX" secondItem="Uva-Fd-aGU" secondAttribute="centerX" id="QZk-lE-Xdm"/>
+                            <constraint firstItem="WBX-Wq-3si" firstAttribute="leading" secondItem="S5s-lb-XXx" secondAttribute="leading" id="S88-Z1-2Uc"/>
+                            <constraint firstItem="RCW-xC-ZVC" firstAttribute="trailing" secondItem="u7g-X7-BGn" secondAttribute="trailing" id="SGc-Ha-K5p"/>
+                            <constraint firstItem="vcc-Zg-9gy" firstAttribute="top" secondItem="S5s-lb-XXx" secondAttribute="bottom" constant="8" symbolic="YES" id="SIf-6r-3PV"/>
+                            <constraint firstItem="vcc-Zg-9gy" firstAttribute="leading" secondItem="u7g-X7-BGn" secondAttribute="leading" id="TMv-rn-9YH"/>
+                            <constraint firstItem="vtk-1P-Z7H" firstAttribute="top" secondItem="G8J-6T-Iep" secondAttribute="bottom" constant="8" symbolic="YES" id="WbJ-Pn-q2S"/>
+                            <constraint firstItem="vtk-1P-Z7H" firstAttribute="trailing" secondItem="ker-uO-dFU" secondAttribute="trailing" id="Xg9-E3-DYl"/>
+                            <constraint firstItem="Hkf-p9-wcP" firstAttribute="top" secondItem="S5s-lb-XXx" secondAttribute="bottom" constant="14" id="YeC-eP-I3a"/>
+                            <constraint firstItem="XQ6-VN-WC3" firstAttribute="top" secondItem="RCW-xC-ZVC" secondAttribute="bottom" constant="14" id="aNL-SN-avf"/>
+                            <constraint firstItem="Uva-Fd-aGU" firstAttribute="leading" secondItem="YCW-lE-C3M" secondAttribute="leadingMargin" id="eER-Vt-KHi"/>
+                            <constraint firstItem="vtk-1P-Z7H" firstAttribute="leading" secondItem="bk5-py-1hr" secondAttribute="trailing" constant="5" id="fxQ-yz-LSl"/>
+                            <constraint firstItem="RCW-xC-ZVC" firstAttribute="centerX" secondItem="p8p-pJ-Wlq" secondAttribute="centerX" id="pai-TU-DTW"/>
+                            <constraint firstItem="Hkf-p9-wcP" firstAttribute="leading" secondItem="RCW-xC-ZVC" secondAttribute="leading" id="qPV-D4-9Lk"/>
+                            <constraint firstItem="S5s-lb-XXx" firstAttribute="top" secondItem="ker-uO-dFU" secondAttribute="bottom" constant="8" symbolic="YES" id="qah-ak-gHt"/>
+                            <constraint firstItem="N4Y-Pl-THJ" firstAttribute="leading" secondItem="G8J-6T-Iep" secondAttribute="leading" id="r85-7Z-GB5"/>
+                            <constraint firstItem="Uva-Fd-aGU" firstAttribute="trailing" secondItem="N4Y-Pl-THJ" secondAttribute="trailing" id="yze-Yl-Yfh"/>
+                            <constraint firstItem="Hkf-p9-wcP" firstAttribute="centerY" secondItem="vcc-Zg-9gy" secondAttribute="centerY" id="z0g-aq-Xqa"/>
+                            <constraint firstItem="G8J-6T-Iep" firstAttribute="top" secondItem="N4Y-Pl-THJ" secondAttribute="bottom" constant="8" symbolic="YES" id="zL5-2x-I8B"/>
+                            <constraint firstItem="ker-uO-dFU" firstAttribute="trailing" secondItem="S5s-lb-XXx" secondAttribute="trailing" id="zuX-SE-cKo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PTo-gW-a1f"/>
                     </view>
