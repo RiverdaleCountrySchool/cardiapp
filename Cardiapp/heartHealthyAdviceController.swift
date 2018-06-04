@@ -14,11 +14,10 @@ class heartHealthyAdviceController: UIViewController {
     @IBAction func unwindToHHA(segue:UIStoryboardSegue) { }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
+        //
     }
     override func viewDidAppear(_ animated: Bool) {
+        
         var coreDataTags = [PersonalTag]()
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<PersonalTag> = PersonalTag.fetchRequest()
@@ -34,6 +33,7 @@ class heartHealthyAdviceController: UIViewController {
         }
         getArticles(tags: parsedCoreData)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -103,22 +103,28 @@ class heartHealthyAdviceController: UIViewController {
 //        let sepTags = tags[0].0!.components(separatedBy: " ")
 //        var activityText = sepTags[0]
 //
-        let tagList = tags[0].0!
+        var tagList: [String] = []
+        for i in 0..<tags.count{
+            tagList.append(tags[i].0!)
+        }
         
         
+        print("Tags: \(tags)")
+        //different types of activity categories
+        var active = 0
+        var sedentary = 0
+        var music = 0
+        var vices = 0
+        var eating = 0
+        
+        print("tagList \(tagList)")
     
         for i in tagList{
             
             let j = String(i)
             
-            //different types of activity categories
-            var active = 0
-            var sedentary = 0
-            var music = 0
-            var vices = 0
-            var eating = 0
-            
-            var categories: [String:Int] = ["active":active,"sedentary":sedentary,"music":music,"vices":vices,"eating":eating]
+            print("j \(j)")
+//            var categories: [String:Int] = ["active":active,"sedentary":sedentary,"music":music,"vices":vices,"eating":eating]
             
             if (j == "Soccer ⚽️") || (j == "Running 🏃") || (j=="Basketball 🏀") || (j=="Football 🏈") || (j=="Baseball ⚾️") || (j=="Walking 🚶") || (j=="Lifting Weights 🏋️‍♀️") || (j=="Dancing 💃") || (j=="Tennis 🎾") || (j=="Volleyball 🏐") || (j=="Ping Pong 🏓") || (j=="Ice Hockey 🏒") || (j=="Field Hockey 🏑") || (j=="Archery 🏹") || (j=="Fishing 🎣") || (j=="Boxing 🥊") || (j=="Martial Arts 🥋") || (j=="Skiing ⛷") || (j=="Snowboarding 🏂") || (j=="Ice Skating ⛸") || (j=="Wrestling 🤼‍♀️") || (j=="Gymnastics 🤸‍♀️") || (j=="Golf 🏌️") || (j=="Surfing 🏄") || (j=="Water Polo 🤽‍♀️") || (j=="Swimming 🏊‍♀️") || (j=="Rowing 🚣‍♀️") || (j=="Horseback Riding 🏇") || (j=="Biking 🚴") || (j=="Mountain Biking 🚵‍♀️") || (j=="Juggling 🤹‍♂️") || (j=="Rugby 🏉") || (j=="Pool 🎱") || (j=="Badminton 🏸") || (j=="Cricket 🏏") || (j=="Bowling 🎳") || (j=="Darts 🎯") || (j=="Fencing 🤺") || (j=="Dodgeball 🤾‍♂️") {
                 active = active + 1
@@ -136,11 +142,20 @@ class heartHealthyAdviceController: UIViewController {
                 music = music + 1
             }
             
-
-            
-            categories = ["active":active,"sedentary":sedentary,"music":music,"vices":vices,"eating":eating]
-            //categories = categories.sorted()
         }
+        
+        let categories = [
+            "active" : active,
+            "sedentary" : sedentary,
+            "music" : music,
+            "vices" : vices,
+            "eating" :  eating
+        ]
+        
+        print("active \(active); sedentary \(sedentary); music \(music); vices \(vices); eating \(eating)")
+    
+        let sortedCategories = Array(categories).sorted{$0.1 > $1.1} //sort dictionary by value from greatest to least
+        print("sortedCategories: \(sortedCategories)")
         
     }
     

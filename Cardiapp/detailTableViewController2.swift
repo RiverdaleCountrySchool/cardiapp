@@ -190,14 +190,72 @@ class detailTableViewController2: UITableViewController /*, UIPickerViewDataSour
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "save" {
-            //saveToCoreData(data: (editedActivity, selectedStartDate, selectedEndDate, selectedStar))
-            //loadFromCoreData()
             
             editedActivity = editActivityTextField.text
+            let startDateArr = editStartTimeTextField.text?.components(separatedBy: " at ")
+            let startDateFixed = "\(startDateArr![0]), \(startDateArr![1])"
+            let endDateArr = editEndTimeTextField.text?.components(separatedBy: " at ")
+            let endDateFixed = "\(endDateArr![0]), \(endDateArr![1])"
             
-            //editedStartTime = DateFormatter().date(from: editStartTimeTextField.text!)
-            //editedEndTime = DateFormatter().date(from: editStartTimeTextField.text!)
-            //editedStar = 
+            //Date Formatting
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM d, yyyy, h:mm a" //Your date format
+            editedStartTime = dateFormatter.date(from: startDateFixed) //according to date format your date string
+            editedEndTime = dateFormatter.date(from: endDateFixed)
+            editedStar = editStarSwitch.isOn
+            
+            saveToCoreData(data: (editedActivity, editedStartTime, editedEndTime, editedStar) as! (String, Date, Date, Bool))
+            
+        }
+    }
+    
+    //CORE DATA
+    //Local variable: core data array
+    var tagDataPoints: [PersonalTag] = []
+    
+    //Save data point/tag to core data
+    func saveToCoreData(data: (String, Date, Date, Bool)?) {
+        DispatchQueue.main.async {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                print("FAILED TO INITIALIZE APPP DELEGATE (182)")
+                return
+            }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let newTag = PersonalTag(context: managedContext)
+            
+            newTag.activity = data?.0
+            newTag.startDate = data?.1
+            newTag.endDate = data?.2
+            newTag.star = (data?.3)!
+            
+            do {
+                try managedContext.save()
+                self.tagDataPoints.append(newTag)
+            } catch let error as NSError{
+                print("COULD NOT SAVE. \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
+    //Load data points/tags from core data into local variable ("tagDataPoints")
+    func loadFromCoreData(){
+        DispatchQueue.main.async {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                print("COULD NOT INITIALIZE APP DELEGATE (213)")
+                return
+            }
+            let managedContext = appDelegate.persistentContainer.viewContext
+            do {
+                self.tagDataPoints = try managedContext.fetch(PersonalTag.fetchRequest())
+                //                print("––––––––––––––––––––––––––––––––")
+                //                print("CORE DATA: ")
+                //                for dataPoint in self.tagDataPoints {
+                //                    print("\((dataPoint.activity)!) || \((dataPoint.startDate)!) || \((dataPoint.endDate)!) || \(dataPoint.star)")
+                //                }
+                //                print("––––––––––––––––––––––––––––––––")
+            } catch {
+                print("FETCH FAILED (220)")
+            }
         }
     }
     
