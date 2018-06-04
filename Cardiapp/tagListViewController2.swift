@@ -23,16 +23,15 @@ class tagListViewController2: UITableViewController {
         let detailTableViewController2 = segue.source as! detailTableViewController2
         
         let index = detailTableViewController2.index
-        
         let activityString = detailTableViewController2.editedActivity
-        //let startTimeDate = detailTableViewController2.editedStartTime
-        //let endTimeDate = detailTableViewController2.editedEndTime
-        //let starBool = detailTableViewController2.editedStar
+        let startTimeDate = detailTableViewController2.editedStartTime
+        let endTimeDate = detailTableViewController2.editedEndTime
+        let starBool = detailTableViewController2.editedStar
         
         coreDataActivities[index!] = activityString!
-        //coreDataStartDates[index!] = startTimeDate!
-        //coreDataEndDates[index!] = endTimeDate!
-        //coreDataStar[index!] = starBool!
+        coreDataStartDates[index!] = startTimeDate!
+        coreDataEndDates[index!] = endTimeDate!
+        coreDataStar[index!] = starBool!
         
         tableView.reloadData()
     }
@@ -135,6 +134,19 @@ class tagListViewController2: UITableViewController {
         //}
     }
     
+    func deleteTag(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let tag = tags[indexPath.row]
+        tags.remove(at: indexPath.row)
+        context.delete(tag)
+        tableView.deleteRows(at: [indexPath as IndexPath], with: UITableViewRowAnimation.automatic)
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        do {
+            tags = try context.fetch(PersonalTag.fetchRequest())
+        } catch {
+            print("Fetching Failed")
+        }
+    }
+    
 
     /*
     // Override to support rearranging the table view.
@@ -177,6 +189,7 @@ class tagListViewController2: UITableViewController {
             detailTableViewController2.endTimeArray = coreDataEndDates as! [Date]
             detailTableViewController2.starArray = coreDataStar
             
+            deleteTag(tableView, commit: .delete, forRowAt: path!)
         }
     }
     
