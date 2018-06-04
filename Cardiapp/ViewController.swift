@@ -257,7 +257,10 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var chartView: CombinedChartView!
     @IBOutlet weak var yLabel: UILabel!
-    @IBOutlet weak var graphInfoLabel: UILabel!
+    @IBOutlet weak var graphInfoMax: UILabel!
+    @IBOutlet weak var graphInfoMin: UILabel!
+    @IBOutlet weak var graphInfoAvg: UILabel!
+    @IBOutlet weak var graphInfoMedian: UILabel!
     
     func createGraph(completion: () -> Void, heartRateDataSet: (([String], [Double], [String?], [(String, Date, Date, Bool)]))){
         //self.yLabel.transform = CGAffineTransform(rotationAngle: -1*CGFloat.pi / 2)
@@ -492,15 +495,23 @@ class ViewController: UIViewController, ChartViewDelegate {
         print(avgBPM)
         print(medianBPM)
         
-        graphInfoLabel.numberOfLines = 6;
+        //graphInfoLabel.numberOfLines = 6;
         
         print("HEY THERE, HERES MY AGE: ", defaults.string(forKey: "Age"))
         
+        DispatchQueue.main.async {
+            self.graphInfoMax.text = "\(String(describing: maxBPM)) BPM"
+            self.graphInfoMin.text = "\(String(describing: minBPM)) BPM"
+            self.graphInfoAvg.text = "\(String(describing: roundedAvgBPM)) BPM"
+            self.graphInfoMedian.text = "\(String(describing: medianBPM)) BPM"
+        }
+        
+        
        // graphInfoText.isEditable = false
         //graphInfoText.attributedText = NSMutableAttributedString(string: "h")
-        DispatchQueue.main.async(){
-            self.graphInfoLabel.text = "Here are your BPM stats for the day!  \nMaximum: \(String(describing: maxBPM))  \nMinimum: \(String(describing: minBPM))  \nAverage: \(String(describing: roundedAvgBPM))   \nMedian: \(String(describing: medianBPM)) "
-        }
+//        DispatchQueue.main.async(){
+////            self.graphInfoLabel.text = "Here are your BPM stats for the day!  \nMaximum: \(String(describing: maxBPM))  \nMinimum: \(String(describing: minBPM))  \nAverage: \(String(describing: roundedAvgBPM))   \nMedian: \(String(describing: medianBPM)) "
+//        }
         
         
 //        if medianBPM != 0.0 {
