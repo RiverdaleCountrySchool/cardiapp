@@ -440,7 +440,7 @@ class ViewController: UIViewController, ChartViewDelegate {
                     
                     // if j < (mid_bar*60)+times1[i] + 30 && j > (mid_bar*60)+times1[i] - 30
                     
-                    if j == (mid_bar*60)+times1[i]  { //if it's the middle bar
+                    if (j <= (mid_bar*60)+times1[i] + 30) && (j > (mid_bar*60)+times1[i] - 30) { //if it's the middle bar
                         let dataEntry = BarChartDataEntry(x: j, y: maxY, icon: emojiIcon2.image())
                         dataEntries.append(dataEntry)
                         print("called")
@@ -619,11 +619,11 @@ class ViewController: UIViewController, ChartViewDelegate {
 //convert emoji string to UIimage for the tag //source:https://stackoverflow.com/questions/38809425/convert-apple-emoji-string-to-uiimage
 extension String {
     func image() -> UIImage? {
-        let size = CGSize(width: 45, height: 45)
+        let size = CGSize(width: 35, height: 35)
         //let size = CGSize(width: 50, height: 50)
         //let size = CGSize(width: 100, height: 100)
         UIGraphicsBeginImageContextWithOptions(size, false, 0);
-        UIColor.clear.set()
+        UIColor.white.set()
         let rect = CGRect(origin: CGPoint(), size: size)
         UIRectFill(CGRect(origin: CGPoint(), size: size))
         (self as NSString).draw(in: rect, withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30)])
