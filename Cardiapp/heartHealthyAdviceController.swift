@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+
 class heartHealthyAdviceController: UIViewController {
 
     @IBAction func unwindToHHA(segue:UIStoryboardSegue) { }
@@ -92,6 +93,7 @@ class heartHealthyAdviceController: UIViewController {
             }
             
             print(parsedJSONData)
+            //articleTitleLabel[position].text = parsedJSONData[random].ArticleTitle
             
             }.resume()
     }
