@@ -9,12 +9,16 @@
 import UIKit
 import CoreData
 
+var webPageViewControllerURL = String()
+
 class heartHealthyAdviceController: UIViewController {
 
+    var URLArray = [String]()
+    
     @IBAction func unwindToHHA(segue:UIStoryboardSegue) { }
     
     override func viewDidLoad() {
-        //
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         
@@ -54,9 +58,17 @@ class heartHealthyAdviceController: UIViewController {
         for val in organizedCountActivites{
             finalOrganizedActivityArray.append(val.key)
         }
-        activityArray = finalOrganizedActivityArray
+        if organizedCountActivites.count > 3{
+            var tempArray = [String?]()
+            for i in 0..<3{
+                tempArray.append(finalOrganizedActivityArray[i])
+            }
+            activityArray = tempArray
+        } else{
+            activityArray = finalOrganizedActivityArray
+        }
         
-        if activityArray.count == 0{
+       /* if activityArray.count == 0{
             print("No Activities")
         } else if activityArray.count == 1{
             importActivityUI(activity: activityArray[0]!, position: 0)
@@ -64,14 +76,59 @@ class heartHealthyAdviceController: UIViewController {
             for index in 0...activityArray.count - 1{
                 importActivityUI(activity: activityArray[index]!, position: index)
             }
-        }
+        }*/
+        importActivityUI(activities: activityArray)
+        
     }
     
     
     //source: http://mrgott.com/swift-programing/33-rest-api-in-swift-4-using-urlsession-and-jsondecode
     //source: https://codewithchris.com/iphone-app-connect-to-mysql-database/
-    func importActivityUI(activity: String, position: Int){
+    /*func importActivityUI(activity: String, position: Int){
         let urlString = "http://www.cardiapp.io/SQL/service.php?activity=\(activity)".trimmingCharacters(in: .whitespaces)
+        guard let url = URL(string: urlString) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                print("FETCH ERROR 94")
+            }
+
+            guard let data = data else {
+                print("FETCH ERROR 98")
+                return
+            }
+            var parsedJSONData = [Activity]()
+            do{
+                parsedJSONData = try JSONDecoder().decode([Activity].self, from: data)
+            } catch let jsonError {
+                print(jsonError)
+            }
+
+            print(parsedJSONData)
+
+            }.resume()
+    }*/
+    //*** Fix later --> change workflow to optimize for larger database
+    
+    
+    @IBOutlet weak var activity1IndicatorLabel: UILabel!
+    @IBOutlet weak var activity2IndicatorLabel: UILabel!
+    @IBOutlet weak var activity3IndicatorLabel: UILabel!
+    
+    @IBOutlet weak var activity1Label1: UILabel!
+    @IBOutlet weak var activity1Label2: UILabel!
+    @IBOutlet weak var activity2Label: UILabel!
+    @IBOutlet weak var activity3Label: UILabel!
+    
+    var activity_1 = [Activity]()
+    var activity_2 = [Activity]()
+    var activity_3 = [Activity]()
+    
+    var activityURLs = [String]()
+    
+    func importActivityUI(activities: [String?]){
+        let urlString = "http://www.cardiapp.io/SQL/service.php"
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -91,10 +148,59 @@ class heartHealthyAdviceController: UIViewController {
                 print(jsonError)
             }
             
-            print(parsedJSONData)
+            
+            if activities.count == 0{
+                print("No Activities")
+            } else if activities.count == 1{
+                for val in parsedJSONData{
+                    if val.Activity == activities[0]{ //&& self.activity_1.count < 2{
+                        self.activity_1.append(val)
+                    }
+                }
+            } else{
+                for val in parsedJSONData{
+                    
+                    if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == activities[0]!.trimmingCharacters(in: .whitespacesAndNewlines){
+                        self.activity_1.append(val)
+                        self.activityURLs.append(val.ArticleURL.trimmingCharacters(in: .whitespacesAndNewlines))
+                    }
+                    else if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == activities[1]!.trimmingCharacters(in: .whitespacesAndNewlines) && self.activity_2.count < 1{
+                        self.activity_2.append(val)
+                        self.activityURLs.append(val.ArticleURL.trimmingCharacters(in: .whitespacesAndNewlines))
+                    }
+                    else if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == activities[2]!.trimmingCharacters(in: .whitespacesAndNewlines) && self.activity_3.count < 1{
+                        self.activity_3.append(val)
+                        self.activityURLs.append(val.ArticleURL.trimmingCharacters(in: .whitespacesAndNewlines))
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self.activity1Label1.text = self.activity_1[0].ArticleTitle
+                self.activity1Label2.text = self.activity_1[1].ArticleTitle
+                self.activity2Label.text = self.activity_2[0].ArticleTitle
+                self.activity3Label.text = self.activity_3[0].ArticleTitle
+                
+                self.activity1IndicatorLabel.text = "Sugguested articles for \(self.activity_1[0].Activity): "
+                self.activity2IndicatorLabel.text = "Sugguested articles for \(self.activity_2[0].Activity): "
+                self.activity3IndicatorLabel.text = "Sugguested articles for \(self.activity_3[0].Activity): "
+            }
             
             }.resume()
     }
+    
+    @IBAction func activity1Button1(_ sender: Any) {
+        webPageViewControllerURL = self.activity_1[0].ArticleURL
+    }
+    @IBAction func activity1Button2(_ sender: Any) {
+        webPageViewControllerURL = self.activity_1[1].ArticleURL
+    }
+    @IBAction func activity2Button(_ sender: Any) {
+        webPageViewControllerURL = self.activity_2[0].ArticleURL
+    }
+    @IBAction func activity3Button(_ sender: Any) {
+        webPageViewControllerURL = self.activity_3[0].ArticleURL
+    }
+    
     
     
     

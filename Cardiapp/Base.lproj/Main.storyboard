@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rLI-nN-flp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rLI-nN-flp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -12,12 +12,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Cardiapp-->
         <scene sceneID="DBs-UQ-c5E">
@@ -651,14 +645,7 @@ Click Go To Health App
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8p-pJ-Wlq">
-                                <rect key="frame" x="83" y="586" width="209" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="yTr-nB-fon"/>
-                                </constraints>
-                                <state key="normal" title="See more heart healthy advice"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know an egg a day can keep heart disease away?" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-1P-Z7H">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know an egg a day can keep heart disease away?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtk-1P-Z7H">
                                 <rect key="frame" x="43" y="182" width="316" height="35"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
@@ -671,10 +658,11 @@ Click Go To Health App
                                     <constraint firstAttribute="width" constant="22" id="Byr-fd-DTD"/>
                                 </constraints>
                                 <connections>
+                                    <action selector="activity1Button1:" destination="KLg-Mk-Osm" eventType="touchUpInside" id="gJ3-8Q-CSV"/>
                                     <segue destination="fQp-UF-xFJ" kind="show" id="SUZ-6L-68Q"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What you eat can impact your heart rate. " lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ker-uO-dFU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What you eat can impact your heart rate. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ker-uO-dFU">
                                 <rect key="frame" x="43" y="225" width="316" height="35"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
@@ -699,7 +687,7 @@ Click Go To Health App
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Getting better sleep can hlep your heart too." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcc-Zg-9gy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Getting better sleep can hlep your heart too." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcc-Zg-9gy">
                                 <rect key="frame" x="43" y="297" width="316" height="34"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
@@ -708,14 +696,22 @@ Click Go To Health App
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBX-Wq-3si">
                                 <rect key="frame" x="16" y="231" width="22" height="22"/>
+                                <connections>
+                                    <action selector="activity1Button2:" destination="KLg-Mk-Osm" eventType="touchUpInside" id="QRx-tW-3eb"/>
+                                    <segue destination="fQp-UF-xFJ" kind="show" id="c2S-Z1-qM2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkf-p9-wcP">
                                 <rect key="frame" x="16" y="303" width="22" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="mTn-gC-fzG"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="activity2Button:" destination="KLg-Mk-Osm" eventType="touchUpInside" id="9D0-nc-0Du"/>
+                                    <segue destination="fQp-UF-xFJ" kind="show" id="RnF-x2-XGy"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can fine tune your run if you train your heart too." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7g-X7-BGn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can fine tune your run if you train your heart too." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7g-X7-BGn">
                                 <rect key="frame" x="43" y="388" width="316" height="35"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
@@ -724,6 +720,10 @@ Click Go To Health App
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQ6-VN-WC3">
                                 <rect key="frame" x="16" y="394" width="22" height="22"/>
+                                <connections>
+                                    <action selector="activity3Button:" destination="KLg-Mk-Osm" eventType="touchUpInside" id="JeG-E7-f1x"/>
+                                    <segue destination="fQp-UF-xFJ" kind="show" id="tlv-Hb-PLd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -734,7 +734,6 @@ Click Go To Health App
                             <constraint firstItem="Uva-Fd-aGU" firstAttribute="top" secondItem="GPC-mp-U5Y" secondAttribute="bottom" constant="23" id="3m8-0u-sQx"/>
                             <constraint firstItem="u7g-X7-BGn" firstAttribute="top" secondItem="RCW-xC-ZVC" secondAttribute="bottom" constant="8" symbolic="YES" id="6Dj-vT-l29"/>
                             <constraint firstItem="vcc-Zg-9gy" firstAttribute="trailing" secondItem="RCW-xC-ZVC" secondAttribute="trailing" id="75w-Cr-HAW"/>
-                            <constraint firstItem="PTo-gW-a1f" firstAttribute="bottom" secondItem="p8p-pJ-Wlq" secondAttribute="bottom" constant="7" id="8JP-rh-uDC"/>
                             <constraint firstItem="GPC-mp-U5Y" firstAttribute="top" secondItem="PTo-gW-a1f" secondAttribute="top" id="AlD-mv-tUS"/>
                             <constraint firstItem="RCW-xC-ZVC" firstAttribute="top" secondItem="vcc-Zg-9gy" secondAttribute="bottom" constant="8" symbolic="YES" id="Avq-5X-685"/>
                             <constraint firstItem="ker-uO-dFU" firstAttribute="leading" secondItem="vcc-Zg-9gy" secondAttribute="leading" id="DFi-pd-ltg"/>
@@ -764,7 +763,6 @@ Click Go To Health App
                             <constraint firstItem="XQ6-VN-WC3" firstAttribute="top" secondItem="RCW-xC-ZVC" secondAttribute="bottom" constant="14" id="aNL-SN-avf"/>
                             <constraint firstItem="Uva-Fd-aGU" firstAttribute="leading" secondItem="YCW-lE-C3M" secondAttribute="leadingMargin" id="eER-Vt-KHi"/>
                             <constraint firstItem="vtk-1P-Z7H" firstAttribute="leading" secondItem="bk5-py-1hr" secondAttribute="trailing" constant="5" id="fxQ-yz-LSl"/>
-                            <constraint firstItem="RCW-xC-ZVC" firstAttribute="centerX" secondItem="p8p-pJ-Wlq" secondAttribute="centerX" id="pai-TU-DTW"/>
                             <constraint firstItem="Hkf-p9-wcP" firstAttribute="leading" secondItem="RCW-xC-ZVC" secondAttribute="leading" id="qPV-D4-9Lk"/>
                             <constraint firstItem="S5s-lb-XXx" firstAttribute="top" secondItem="ker-uO-dFU" secondAttribute="bottom" constant="8" symbolic="YES" id="qah-ak-gHt"/>
                             <constraint firstItem="N4Y-Pl-THJ" firstAttribute="leading" secondItem="G8J-6T-Iep" secondAttribute="leading" id="r85-7Z-GB5"/>
@@ -776,6 +774,15 @@ Click Go To Health App
                         <viewLayoutGuide key="safeArea" id="PTo-gW-a1f"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Advice" image="heartAdvice" selectedImage="heartAdvice" id="hfw-Bj-fWp"/>
+                    <connections>
+                        <outlet property="activity1IndicatorLabel" destination="G8J-6T-Iep" id="Px9-jT-x7M"/>
+                        <outlet property="activity1Label1" destination="vtk-1P-Z7H" id="eVk-gz-fbf"/>
+                        <outlet property="activity1Label2" destination="ker-uO-dFU" id="7wn-zy-knF"/>
+                        <outlet property="activity2IndicatorLabel" destination="S5s-lb-XXx" id="I40-Sg-x6l"/>
+                        <outlet property="activity2Label" destination="vcc-Zg-9gy" id="8XK-YF-Fmn"/>
+                        <outlet property="activity3IndicatorLabel" destination="RCW-xC-ZVC" id="aFf-TG-YCQ"/>
+                        <outlet property="activity3Label" destination="u7g-X7-BGn" id="dAo-6s-RMn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qlv-uW-ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -5691,7 +5698,7 @@ Cg
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCell" id="foJ-oB-brn" customClass="CustomCell" customModule="Cardiapp" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="CustomCell" id="foJ-oB-brn" customClass="CustomCell" customModule="Cardiapp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="110" height="106"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -5699,7 +5706,7 @@ Cg
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LON-PS-meE">
-                                                                    <rect key="frame" x="35" y="33" width="40" height="40"/>
+                                                                    <rect key="frame" x="35" y="30" width="40" height="40"/>
                                                                     <color key="backgroundColor" red="0.78041231629999996" green="0.78041690590000001" blue="0.78042900559999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="40" id="4US-4V-fQi" userLabel="width = 40"/>
@@ -5863,5 +5870,6 @@ Cg
     <inferredMetricsTieBreakers>
         <segue reference="gjI-eC-0pZ"/>
         <segue reference="Ebx-Wp-yvL"/>
+        <segue reference="tlv-Hb-PLd"/>
     </inferredMetricsTieBreakers>
 </document>

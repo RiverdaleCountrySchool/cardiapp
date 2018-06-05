@@ -21,7 +21,8 @@ class HHAWebPageViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         
         HHAdviceWebView.delegate = self
-        HHAdviceWebView.loadRequest(URLRequest(url: URL(string: "https://www.heartfoundation.org.au/healthy-eating/food-and-nutrition/protein-foods/eggs")!))
+//        HHAdviceWebView.loadRequest(URLRequest(url: URL(string: "https://www.heartfoundation.org.au/healthy-eating/food-and-nutrition/protein-foods/eggs")!))
+        HHAdviceWebView.loadRequest(URLRequest(url: URL(string: webPageViewControllerURL)!))
         
         // Do any additional setup after loading the view.
     }
