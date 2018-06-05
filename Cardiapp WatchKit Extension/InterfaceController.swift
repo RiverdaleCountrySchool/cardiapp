@@ -114,8 +114,8 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
             //           workoutPerformanceBox.setBackgroundColor(UIColor.darkGray)
             heartIndicator.setTextColor(UIColor.purple)
             startStopButton.setBackgroundColor(UIColor.darkGray)
-            wkTimerReset(timer: ExerTimer,interval: 0.0)
             ExerTimer.stop()
+            wkTimerReset(timer: ExerTimer,interval: 0.0)
             self.workoutActive = false
             self.startStopButton.setBackgroundColor(UIColor.green)
             self.startStopButton.setTitle("Start")
@@ -158,8 +158,9 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         catch {
             fatalError("Unable to create the workout session!")
         }
-        wkTimerReset(timer: ExerTimer,interval: 0.0)
+        
         ExerTimer.stop()
+        wkTimerReset(timer: ExerTimer,interval: 0.0)
         healthStore.start(self.session!)
         ExerTimer.start()
     }
@@ -241,6 +242,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         }
         
     }
+    
     //basic wkTimer
     func wkTimerReset(timer:WKInterfaceTimer,interval:TimeInterval){
         timer.stop()
