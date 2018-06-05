@@ -199,9 +199,13 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         }
     }
     func updateWorkoutIndicator(heartRate: UInt16){
+        
+        getAge()
+        
         //https://www.webmd.com/fitness-exercise/features/the-truth-about-heart-rate-and-exercise#1
-        let age = 45 //pull age from HealthStore
-        let max: Double = 208 - (Double(age) * 0.7) //formula for maximum heartrate performance
+        //let age = 45 //pull age from HealthStore
+        
+        let max: Double = 208 - (Double(age!) * 0.7) //formula for maximum heartrate performance
         let ratio: Float = Float(heartRate) / Float(max)
         
         
@@ -226,16 +230,16 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         
         if (heartRate >= Int(0.6 * max) && heartRate < Int(0.75 * max)) {
             exerState.setTextColor(UIColor.yellow)
-            exerState.setText("\(max) FAT BURNING MODE")
+            exerState.setText("FAT BURNING MODE")
         }
         else if (heartRate >= Int(0.75 * max) && heartRate <= Int(0.85 * max)){
             exerState.setTextColor(UIColor.green)
-            exerState.setText("\(max) CARDIO MODE")
+            exerState.setText("CARDIO MODE")
         }
         else if (heartRate > Int(0.85 * max) && heartRate < Int(max)){
             WKInterfaceDevice.current().play(.notification)
             exerState.setTextColor(UIColor.red)
-            exerState.setText("\(max) LOWER HEART RATE")
+            exerState.setText("LOWER HEART RATE")
         }
         else {
             exerState.setText(String(max))
@@ -250,7 +254,33 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
         timer.setDate(time as Date)
     }
     
+    
+    var age: Int?
+    func getAge() {
+        var birthComponents: DateComponents
+        do {
+            birthComponents = try HKHealthStore().dateOfBirthComponents()
+            let calendar = Calendar.current
+            
+            let ageDifference = ((Date().timeIntervalSince1970 - calendar.date(from: DateComponents(year: birthComponents.year, month: birthComponents.month, day: birthComponents.day, hour: birthComponents.hour, minute: birthComponents.minute, second: birthComponents.second))!.timeIntervalSince1970) / (365 * 24 * 60 * 60))
+            
+            age = Int(floor(ageDifference))
+            
+            if let unwrappedAge = age{
+                //defaults.set(unwrappedAge, forKey: "Age")
+                age = unwrappedAge
+                print("AGE IS \(unwrappedAge)")
+            }
+        } catch{
+            print("CAN'T GET AGE (80)")
+            age = 20
+            //defaults.set(nil, forKey: "Age")
+        }
+    }
+    
 }
+
+
 
 
 

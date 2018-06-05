@@ -148,7 +148,6 @@ class heartHealthyAdviceController: UIViewController {
                 print(jsonError)
             }
             
-            
             if activities.count == 0{
                 print("No Activities")
             } else if activities.count == 1{
