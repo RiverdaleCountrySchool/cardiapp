@@ -12,6 +12,7 @@
 		21A3B9E920ABB88000CB084A /* tagListViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A3B9E820ABB88000CB084A /* tagListViewController2.swift */; };
 		21A3B9EB20ABBF8A00CB084A /* detailTableViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A3B9EA20ABBF8A00CB084A /* detailTableViewController2.swift */; };
 		21EE59D62048E444006A61E6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EE59D52048E444006A61E6 /* SettingsViewController.swift */; };
+		469A107020C70804007B7808 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469A106F20C70804007B7808 /* HealthKit.framework */; };
 		6418EE8A202D64210040E62C /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418EE89202D64210040E62C /* XYMarkerView.swift */; };
 		6418EE8C202D64650040E62C /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418EE8B202D64650040E62C /* BalloonMarker.swift */; };
 		6418EE8E202D64BF0040E62C /* DateValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418EE8D202D64BF0040E62C /* DateValueFormatter.swift */; };
@@ -91,6 +92,8 @@
 		21A3B9EA20ABBF8A00CB084A /* detailTableViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailTableViewController2.swift; sourceTree = "<group>"; };
 		21EE59D52048E444006A61E6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		462663BD203DB821000D4001 /* Cardiapp WatchKit App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cardiapp WatchKit App-Bridging-Header.h"; sourceTree = "<group>"; };
+		469A106E20C70803007B7808 /* Cardiapp WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cardiapp WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		469A106F20C70804007B7808 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		6418EE89202D64210040E62C /* XYMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XYMarkerView.swift; sourceTree = "<group>"; };
 		6418EE8B202D64650040E62C /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		6418EE8D202D64BF0040E62C /* DateValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValueFormatter.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				469A107020C70804007B7808 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +224,7 @@
 		6470F0892024942F006B1F2F /* Cardiapp WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				469A106E20C70803007B7808 /* Cardiapp WatchKit Extension.entitlements */,
 				6470F08A2024942F006B1F2F /* InterfaceController.swift */,
 				6470F08C2024942F006B1F2F /* ExtensionDelegate.swift */,
 				6470F08E2024942F006B1F2F /* NotificationController.swift */,
@@ -234,6 +239,7 @@
 		64C3092B202AC3B000DD9AB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				469A106F20C70804007B7808 /* HealthKit.framework */,
 				64C3092C202AC3B000DD9AB7 /* HealthKit.framework */,
 				6C85F790B36C62E28278AAFF /* Pods_Cardiapp.framework */,
 			);
@@ -344,6 +350,14 @@
 					6470F0842024942F006B1F2F = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes.watchos.extension = {
+								enabled = 1;
+							};
+							com.apple.HealthKit.watchos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -644,6 +658,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Cardiapp WatchKit Extension/Cardiapp WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GSUY264A2V;
 				INFOPLIST_FILE = "Cardiapp WatchKit Extension/Info.plist";
@@ -662,6 +677,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Cardiapp WatchKit Extension/Cardiapp WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GSUY264A2V;
 				INFOPLIST_FILE = "Cardiapp WatchKit Extension/Info.plist";
@@ -729,7 +745,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cardiapp/Cardiapp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = GSUY264A2V;
 				INFOPLIST_FILE = Cardiapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -749,7 +765,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cardiapp/Cardiapp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = GSUY264A2V;
 				INFOPLIST_FILE = Cardiapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

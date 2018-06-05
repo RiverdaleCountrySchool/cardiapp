@@ -62,11 +62,9 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBAction func saveBttnPressed(_ sender: Any) {
         //Core Data Save
         if selectedActivity == "" {
-            //print("NOT WORKING")
             showMessageDialog4()
         } else {
             if selectedStartDate < selectedEndDate {
-                //print("WORKING")
                 saveToCoreData(data: (selectedActivity, selectedStartDate, selectedEndDate, selectedStar))
                 loadFromCoreData()
                 
@@ -76,13 +74,10 @@ class tagSummaryViewController: UIViewController, UIPickerViewDataSource, UIPick
                 
                 performSegue(withIdentifier: "unwindSegueToViewController", sender: self)
             } else if selectedEndDate == Date(timeIntervalSinceReferenceDate: 118800) || selectedStartDate == Date(timeIntervalSinceReferenceDate: 118800) {
-                print("NOT WORKING")
                 showMessageDialog3()
             } else if selectedStartDate == selectedEndDate {
-                print("NOT WORKING")
                 showMessageDialog3()
             } else if selectedStartDate > selectedEndDate {
-                print("NOT WORKING")
                 showMessageDialog2()
             }
         }
