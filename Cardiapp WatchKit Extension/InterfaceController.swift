@@ -242,7 +242,7 @@ class InterfaceController: WKInterfaceController, HKWorkoutSessionDelegate {
             exerState.setText("LOWER HEART RATE")
         }
         else {
-            exerState.setText(String(max))
+            exerState.setText("")
         }
         
     }
