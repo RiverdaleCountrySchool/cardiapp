@@ -147,13 +147,44 @@ class heartHealthyAdviceController: UIViewController {
             } catch let jsonError {
                 print(jsonError)
             }
-            
+            self.activity_1 = [Activity]()
+            self.activity_2 = [Activity]()
+            self.activity_3 = [Activity]()
             if activities.count == 0{
                 print("No Activities")
+                for val in parsedJSONData{
+                    if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == "Running" && self.activity_1.count < 2{
+                        self.activity_1.append(val)
+                    }
+                   else if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == "Sleeping" && self.activity_2.count < 1{
+                        self.activity_2.append(val)
+                    }
+                    else if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == "Biking" && self.activity_3.count < 1{
+                        self.activity_3.append(val)
+                    }
+                }
             } else if activities.count == 1{
                 for val in parsedJSONData{
-                    if val.Activity == activities[0]{ //&& self.activity_1.count < 2{
+                    if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == activities[0]?.trimmingCharacters(in: .whitespacesAndNewlines) && self.activity_1.count < 2{
                         self.activity_1.append(val)
+                    }
+                    else if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == "Sleeping" && self.activity_2.count < 1{
+                        self.activity_2.append(val)
+                    }
+                    else if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == "Biking" && self.activity_3.count < 1{
+                        self.activity_3.append(val)
+                    }
+                }
+            }else if activities.count == 2{
+                for val in parsedJSONData{
+                    if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == activities[0]?.trimmingCharacters(in: .whitespacesAndNewlines) && self.activity_1.count < 2{
+                        self.activity_1.append(val)
+                    }
+                    else if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == activities[1]?.trimmingCharacters(in: .whitespacesAndNewlines) && self.activity_2.count < 2{
+                        self.activity_2.append(val)
+                    }
+                    else if val.Activity.trimmingCharacters(in: .whitespacesAndNewlines) == "Biking" && self.activity_3.count < 1{
+                        self.activity_3.append(val)
                     }
                 }
             } else{
@@ -173,6 +204,9 @@ class heartHealthyAdviceController: UIViewController {
                     }
                 }
             }
+            print("Activities: ", activities)
+            print("***Activity 1, 2, 3: ", self.activity_1, self.activity_2, self.activity_3)
+            
             DispatchQueue.main.async {
                 self.activity1Label1.text = self.activity_1[0].ArticleTitle
                 self.activity1Label2.text = self.activity_1[1].ArticleTitle
