@@ -235,7 +235,7 @@ class heartHealthyAdviceController: UIViewController {
     }
     
     
-    
+/*
     
     func cartegorizeTags(tags:[(String?, Date?, Date?, Bool)] ){
         
@@ -300,7 +300,7 @@ class heartHealthyAdviceController: UIViewController {
     
     func pickArticles(list: [Int]){
         print("pickedArticles")
-    }
+    } */
 
     /*
     // MARK: - Navigation
@@ -311,7 +311,7 @@ class heartHealthyAdviceController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
 
 //source: https://stackoverflow.com/questions/36919125/swift-replacing-emojis-in-a-string-with-whitespace?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
